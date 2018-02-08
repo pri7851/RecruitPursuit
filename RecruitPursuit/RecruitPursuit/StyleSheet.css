@@ -250,11 +250,17 @@ input, button, select, optgroup, textarea {
 }
 
 button, input {
-    overflow: visible
+    overflow: visible;
+    text-align: center;
 }
 
 button, select {
-    text-transform: none
+    text-transform: none;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    left: 2px;
+    top: 7px;
 }
 
 button, html [type="button"], [type="reset"], [type="submit"] {
