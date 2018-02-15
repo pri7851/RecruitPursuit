@@ -20,7 +20,6 @@ public partial class Administrator_DeleteConfirmation : System.Web.UI.Page
 
     protected void btnYes_Click(object sender, EventArgs e)
     {
-
         HyperLink2.Visible = true;
     }
 }
