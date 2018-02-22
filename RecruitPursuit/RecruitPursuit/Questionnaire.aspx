@@ -6,7 +6,11 @@
     <p>
     Athletic Information:</p>
 <p>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    &nbsp;</p>
+    <p>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     </p>
     <asp:PlaceHolder ID="Placeholder1" runat="server"></asp:PlaceHolder>
     <p>

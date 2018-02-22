@@ -21,9 +21,7 @@ public partial class Questionnaire : System.Web.UI.Page
         {
             tb = new TextBox();
             tb.ID = j.ToString();
-
             Placeholder1.Controls.Add(tb);
-           
         }
     }
 }
