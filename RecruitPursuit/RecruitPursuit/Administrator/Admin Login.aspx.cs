@@ -17,6 +17,7 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
     {
         SortedList<string, string> AdminList = new SortedList<string, string>();
         AdminList.Add("recruit", "pursuit");
+        AdminList.Add(SqlDataSource1);
         return AdminList;
     }
 
