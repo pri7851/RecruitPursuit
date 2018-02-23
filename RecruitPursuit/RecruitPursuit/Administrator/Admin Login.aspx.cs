@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
+using System.Data;
 
 public partial class Administrator_Admin_Login : System.Web.UI.Page
 {
@@ -15,10 +16,19 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
 
     public SortedList<string, string> LoadAdmins()
     {
+       
         SortedList<string, string> AdminList = new SortedList<string, string>();
-        AdminList.Add("recruit", "pursuit");
-        AdminList.Add(SqlDataSource1);
+        DataView dv = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+        for (int i = 0; i < dv.Count; i++)
+        {
+            string username = (String)dv[i]["Usename"];
+            string password = (String)dv[i]["Password"];
+            AdminList.Add(username, password);
+            lbl1.Text = username + " " + password;
+        }
+
         return AdminList;
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -43,7 +53,7 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
             }
             else
             {
-                lbl1.Text = "Login Failed. Wrong username.";
+                lbl1.Text = "Login Failed. Username/password does not exist.";
             }
         }
     }
