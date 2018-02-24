@@ -31,4 +31,9 @@ public partial class Administrator_Add_Admin : System.Web.UI.Page
         SqlDataSource1.Insert();
         
     }
+
+    protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 }
