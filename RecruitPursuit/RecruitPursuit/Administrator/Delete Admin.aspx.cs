@@ -21,12 +21,19 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
         }
         else
         {
-            SqlDataSource1.DeleteCommandType = SqlDataSourceCommandType.Text;
-            SqlDataSource1.DeleteCommand = "DELETE FROM coach WHERE Usename=@Usename";
-            SqlDataSource1.DeleteParameters.Add("Usename", txtName.Text);
-            SqlDataSource1.Delete();
-           
+            lblDelete.Visible = true;
+            btnConfirm.Visible = true;
+            btnCancel.Visible = true;
+            
         }
-        
+    }
+
+    protected void btnConfirm_Click(object sender, EventArgs e)
+    {
+        Label1.Visible = true;
+        SqlDataSource1.DeleteCommandType = SqlDataSourceCommandType.Text;
+        SqlDataSource1.DeleteCommand = "DELETE FROM coach WHERE Usename=@Usename";
+        SqlDataSource1.DeleteParameters.Add("Usename", txtName.Text);
+        SqlDataSource1.Delete();
     }
 }
