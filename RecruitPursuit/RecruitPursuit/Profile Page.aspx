@@ -79,9 +79,9 @@
 
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OldValuesParameterFormatString="original_{0}" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
         <SelectParameters>
-            <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro" Type="Int32" />
+            <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_id" Type="int32" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>

@@ -6,24 +6,44 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SqlClient;
+
 
 public partial class Profile_Page : System.Web.UI.Page
 {
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        String Pro_id = Request.QueryString["Pro"];
-        
+        int ProID;
+        if (Request.QueryString["Pro_id"] != null)
+        {
+            ProID = int.Parse(Request.QueryString["Pro_id"].ToString());
+        }
+        else
+        {
+            Response.Write("Invalid access to page!");
+            Response.End();
+        }
+
+
+
+    }
+
+ 
+
+    
+
+   
+
+    protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
     }
 
     protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
     {
-       
-    }
 
-    protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-    {
-       
     }
 }
