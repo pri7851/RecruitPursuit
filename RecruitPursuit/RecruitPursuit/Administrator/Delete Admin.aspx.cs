@@ -38,29 +38,15 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
 
         if (flag == true)
         {
-            if (txtName.Text != txtConfirm.Text)
-            {
-                lblDelete.Visible = true;
-                lblDelete.Text = "Usernames do not match. Please try again.";
-            }
-            else
-            {
-                if (txtName.Text == "")
-                {
-                    if (txtConfirm.Text == "")
-                    {
-                        lblDelete.Visible = true;
-                        lblDelete.Text = "Please enter a username";
-                    }
-                }
-                else
-                {
+            
+                
+                
                     lblDelete.Text = "Are you sure you want to delete this user?";
                     lblDelete.Visible = true;
                     btnConfirm.Visible = true;
                     btnCancel.Visible = true;
-                }
-            }
+                
+            
         }
         else
         {

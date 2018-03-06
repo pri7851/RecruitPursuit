@@ -7,12 +7,7 @@
     <h2 class="display-3">Log In</h2>
   <hr class="my-4">
   <p>
-           Select Sport:&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem>Softball</asp:ListItem>
-                <asp:ListItem>Baseball</asp:ListItem>
-            </asp:DropDownList>
+           &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT [Rec_Username], [Rec_password] FROM [profile]"></asp:SqlDataSource>
             </p>
         <p>
             <br />
