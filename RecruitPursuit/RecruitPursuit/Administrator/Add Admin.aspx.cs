@@ -21,6 +21,9 @@ public partial class Administrator_Add_Admin : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
+
+
+
         string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Justin\Desktop\recruitpursuit.mdf; Integrated Security = True; Connect Timeout = 30";
         SqlConnection con = new SqlConnection(connection);
         con.Open();

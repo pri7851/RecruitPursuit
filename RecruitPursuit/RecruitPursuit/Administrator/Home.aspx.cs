@@ -15,7 +15,7 @@ public partial class Home : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
  
@@ -31,5 +31,10 @@ public partial class Home : System.Web.UI.Page
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
        
+    }
+
+    protected void SqlDataSource1_Selecting1(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
     }
 }

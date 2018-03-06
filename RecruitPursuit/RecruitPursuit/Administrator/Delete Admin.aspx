@@ -7,9 +7,12 @@
         <h2 class="display-3">Delete User</h2>
     <hr class="my-4">Username:&nbsp;
             <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="firstUserName" runat="server" ControlToValidate="txtName" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
             <br />
             <br />
             Re-type Username:&nbsp; <asp:TextBox ID="txtConfirm" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="confirmUserName" runat="server" ControlToValidate="txtConfirm" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+        <asp:CompareValidator ID="compareUserName" runat="server" ControlToCompare="txtName" ControlToValidate="txtConfirm" ErrorMessage="Usernames are not the same!"></asp:CompareValidator>
             <br />
 
             <br />

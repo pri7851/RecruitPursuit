@@ -13,14 +13,7 @@ public partial class User_User_Login : System.Web.UI.Page
     }
 
 
-    public SortedList<string, string> LoadUsers()
-    {
-        SortedList<string, string> UserList = new SortedList<string, string>();
-        UserList.Add("justin", "wyman");
-        UserList.Add("emily", "price");
-        UserList.Add("thomas", "myers");
-        return UserList;
-    }
+   
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {

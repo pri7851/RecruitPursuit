@@ -6,20 +6,30 @@
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" AllowSorting="True">
             <Columns>
-                <asp:HyperLinkField DataNavigateUrlFields="Pro_Id" DataNavigateUrlFormatString="profile page.aspx?Pro_id={0}" Text="view" NavigateUrl="~/Profile Page.aspx" Target="_top" />
-                <asp:BoundField DataField="Pro_Id" HeaderText="Pro_id" ReadOnly="True" />
+                <asp:BoundField DataField="Pro_Id" HeaderText="Pro_Id" ReadOnly="True" SortExpression="Pro_Id" />
                 <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
                 <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
                 <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
                 <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
                 <asp:BoundField DataField="Rec_Username" HeaderText="Rec_Username" SortExpression="Rec_Username" />
-
                 <asp:BoundField DataField="Rec_password" HeaderText="Rec_password" SortExpression="Rec_password" />
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:BoundField DataField="Sport_Name" HeaderText="Sport_Name" SortExpression="Sport_Name" />
 
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT * FROM [profile] ">
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    </p>
+    <p>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT profile.Pro_Id, profile.Sport_Id, profile.Rec_FName, profile.Rec_LName, profile.Rec_Email, profile.Rec_Username, profile.Rec_password, Sport.Sport_Name FROM Sport INNER JOIN profile ON Sport.Sport_Id = profile.Sport_Id WHERE (Sport.Sport_Name = @SessionSport)" OnSelecting="SqlDataSource1_Selecting1">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="" Name="SessionSport" SessionField="Sport" />
+            </SelectParameters>
              
          </asp:SqlDataSource>
     </p>

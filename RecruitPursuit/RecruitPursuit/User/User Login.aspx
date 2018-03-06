@@ -8,11 +8,12 @@
   <hr class="my-4">
   <p>
            Select Sport:&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Sport_Name" DataValueField="Sport_Name">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem>Softball</asp:ListItem>
                 <asp:ListItem>Baseball</asp:ListItem>
             </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT [Sport_Name] FROM [Sport]"></asp:SqlDataSource>
             </p>
         <p>
             <br />
