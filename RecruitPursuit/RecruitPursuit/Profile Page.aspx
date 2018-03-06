@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    <asp:TextBox ID="TxtNotes" runat="server"></asp:TextBox>
+    <asp:Button ID="AddNotes" runat="server" OnClick="Addnotes_Click" Text="Add Note" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
         <EditItemTemplate>
             Pro_Id:
@@ -79,11 +82,26 @@
 
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_id" Type="int32" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
-</asp:Content>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" style="z-index: 2" Width="183px">
+        <Columns>
+            <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
+            <asp:BoundField DataField="NPost_date" HeaderText="NPost_date" SortExpression="NPost_date" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDSnote" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Note, NPost_date FROM Notes WHERE (Pro_id = @Pro_id)" InsertCommand="INSERT INTO [Notes] ([post_date], [Notes]) VALUES (@post_date, @Notes)">
+        <InsertParameters>
+            <asp:Parameter DbType="Date" Name="post_date" />
+            <asp:Parameter Name="Notes" Type="String" />
+        </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter Name="Pro_id" QueryStringField="Pro_id" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    </asp:Content>
 
 

@@ -73,7 +73,8 @@ body {
     line-height: 1.5;
     color: #222;
     text-align: left;
-    background-color: #fff
+    background-color: #fff;
+    height: 319px;
 }
 
 [tabindex="-1"]:focus {
@@ -214,8 +215,12 @@ svg:not(:root) {
 }
 
 table {
-    border-collapse: collapse
-}
+    border-collapse: collapse;
+    position: relative;
+    top: 16px;
+    left: 6px;
+    z-index: 1;
+    }
 
 caption {
     padding-top: 0.75rem;
@@ -253,6 +258,10 @@ input, button, select, optgroup, textarea {
 button, input {
     overflow: visible;
     text-align: center;
+    position: relative;
+    top: 98px;
+    left: 763px;
+    height: 40px;
 }
 
 button, select {

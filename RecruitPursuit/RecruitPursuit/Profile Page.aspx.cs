@@ -46,4 +46,29 @@ public partial class Profile_Page : System.Web.UI.Page
     {
 
     }
+
+    protected void Addnotes_Click(object sender, EventArgs e)
+    {
+
+
+      
+
+
+            SqlDSnote.InsertCommandType = SqlDataSourceCommandType.Text;
+            SqlDSnote.InsertCommand = "Insert into Notes (Pro_Id,NPost_date,Note) VALUES (@Pro_id,@NPost_date,@Note)";
+
+            SqlDSnote.InsertParameters.Add("Pro_id", Request.QueryString["Pro_id"]);
+            SqlDSnote.InsertParameters.Add("NPost_date", DateTime.Now.ToString());
+            SqlDSnote.InsertParameters.Add("Note", TxtNotes.Text);
+
+            SqlDSnote.Insert();
+
+            TxtNotes.Text = "";
+        
+    }
+
+    protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 }
