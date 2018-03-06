@@ -7,7 +7,7 @@
     <h2 class="display-3">Administration Log In</h2>
   <hr class="my-4">
    
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\Justin\Documents\Justin's Backup\School\Senior Project\Database\recruitpursuit.mdf&quot;;Integrated Security=True;Connect Timeout=30" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [Usename], [Password] FROM [coach]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT [Usename], [Password] FROM [coach]"></asp:SqlDataSource>
    
             <br />
 Username:
