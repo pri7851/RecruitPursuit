@@ -29,6 +29,9 @@
             Rec_password:
             <asp:TextBox ID="Rec_passwordTextBox" runat="server" Text='<%# Bind("Rec_password") %>' />
             <br />
+            Expr1:
+            <asp:TextBox ID="Expr1TextBox" runat="server" Text='<%# Bind("Expr1") %>' />
+            <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
@@ -53,6 +56,9 @@
             <br />
             Rec_password:
             <asp:TextBox ID="Rec_passwordTextBox" runat="server" Text='<%# Bind("Rec_password") %>' />
+            <br />
+            Expr1:
+            <asp:TextBox ID="Expr1TextBox" runat="server" Text='<%# Bind("Expr1") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
@@ -80,11 +86,15 @@
             <asp:Label ID="Rec_passwordLabel" runat="server" Text='<%# Bind("Rec_password") %>' />
             <br />
 
+            Expr1:
+            <asp:Label ID="Expr1Label" runat="server" Text='<%# Bind("Expr1") %>' />
+            <br />
+
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT profile.*, coach.Sport_Id AS Expr1 FROM coach CROSS JOIN profile WHERE (coach.Sport_Id = @Session)">
         <SelectParameters>
-            <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_id" Type="int32" DefaultValue="" />
+            <asp:SessionParameter Name="Session" SessionField="SportId" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" style="z-index: 2" Width="183px">

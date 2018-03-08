@@ -16,17 +16,7 @@ public partial class Profile_Page : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        int ProID;
-        if (Request.QueryString["Pro_id"] != null)
-        {
-            ProID = int.Parse(Request.QueryString["Pro_id"].ToString());
-        }
-        else
-        {
-            Response.Write("Invalid access to page!");
-            Response.End();
-        }
-
+        
 
 
     }
