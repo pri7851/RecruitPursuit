@@ -57,4 +57,9 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
             }
         }
     }
+
+    protected void txtPassword_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }

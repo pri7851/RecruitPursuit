@@ -14,9 +14,10 @@ Username:
             <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
             <br />
             <br />
-Password:            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+Password:            <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
         
         <br />
+         <br />
         <br />
          <asp:Button ID="Button1"  class="btn btn-primary btn-lg" runat="server" Text="Log In" OnClick="Button1_Click" />
         <br />

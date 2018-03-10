@@ -10,20 +10,21 @@ public partial class User_User_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
+        
     }
 
-    public SortedList<string, string> LoadRecruits()
+    public SortedList<string, string> LoadCoaches()
     {
-        SortedList<string, string> RecruitList = new SortedList<string, string>();
+        SortedList<string, string> CoachList = new SortedList<string, string>();
         DataView dv = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
         for(int i = 0; i < dv.Count; i++)
         {
-            string username = (String)dv[i]["Rec_Username"];
-            string password = (String)dv[i]["Rec_password"];
-            RecruitList.Add(username, password);
+            string username = (String)dv[i]["Usename"];
+            string password = (String)dv[i]["Password"];
+            CoachList.Add(username, password);
         }
-        return RecruitList;
+        return CoachList;
     }
 
    
@@ -31,7 +32,7 @@ public partial class User_User_Login : System.Web.UI.Page
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         
-        SortedList<string, string> RecruitList = LoadRecruits();
+        SortedList<string, string> RecruitList = LoadCoaches();
         Session["Username"] = txtLogin.Text;
         foreach (KeyValuePair<string, string> login in RecruitList)
         {
@@ -42,7 +43,8 @@ public partial class User_User_Login : System.Web.UI.Page
 
                 if(username == password)
                 {
-                    Response.Redirect("Profile Page.aspx");
+                    Session["SportId"] = DropDownList1.SelectedValue;
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
@@ -63,6 +65,12 @@ public partial class User_User_Login : System.Web.UI.Page
 
 
 
+
+
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
 
     }

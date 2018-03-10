@@ -9,7 +9,7 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["Sport"] = DropDownList1.SelectedItem.Text;
+       
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
@@ -19,6 +19,7 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
 
     protected void btnView_Click(object sender, EventArgs e)
     {
+        Session["SportId"] = DropDownList1.SelectedValue;
         Response.Redirect("Home.aspx");
     }
 
