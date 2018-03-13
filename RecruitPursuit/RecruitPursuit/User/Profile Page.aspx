@@ -92,7 +92,7 @@
 
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT profile.*, coach.Sport_Id AS Expr1 FROM coach CROSS JOIN profile WHERE (coach.Sport_Id = @Session)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT profile.*, coach.Sport_Id AS Expr1 FROM coach CROSS JOIN profile WHERE (coach.Sport_Id = @Session)">
         <SelectParameters>
             <asp:SessionParameter Name="Session" SessionField="SportId" />
         </SelectParameters>
