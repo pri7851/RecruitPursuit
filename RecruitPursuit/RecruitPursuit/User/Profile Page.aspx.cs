@@ -17,9 +17,9 @@ public partial class Profile_Page : System.Web.UI.Page
     {
 
         
-        if (Request.QueryString["Pro_id"] != null)
+        if (Request.QueryString["Pro_Id"] != null)
         {
-            ProID = int.Parse(Request.QueryString["Pro_id"].ToString());
+            ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
         }
         else
         {
