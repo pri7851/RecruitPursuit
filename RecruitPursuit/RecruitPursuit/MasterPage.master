@@ -1,8 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
-
-<!DOCTYPE html>
-
-<html>
+﻿<html>
 <head runat="server">
     <link rel="stylesheet" href="StyleSheet.css"/>
     <title></title>
@@ -19,7 +15,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="Admin Home.aspx">Home</a>
+        <a class="nav-link" href="Home.aspx">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Rank</a>
