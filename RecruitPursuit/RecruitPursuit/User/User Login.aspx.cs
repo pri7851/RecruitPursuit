@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 
 public partial class User_User_Login : System.Web.UI.Page
 {
+    bool flag = false;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -16,6 +18,7 @@ public partial class User_User_Login : System.Web.UI.Page
 
     public SortedList<string, string> LoadCoaches()
     {
+        
         SortedList<string, string> CoachList = new SortedList<string, string>();
         DataView dv = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
         for(int i = 0; i < dv.Count; i++)
@@ -23,6 +26,7 @@ public partial class User_User_Login : System.Web.UI.Page
             string username = (String)dv[i]["Usename"];
             string password = (String)dv[i]["Password"];
             CoachList.Add(username, password);
+            
         }
         return CoachList;
     }
@@ -38,13 +42,36 @@ public partial class User_User_Login : System.Web.UI.Page
         {
             if(RecruitList.ContainsKey(txtLogin.Text))
             {
+                
                 int username = RecruitList.IndexOfKey(txtLogin.Text);
                 int password = RecruitList.IndexOfValue(txtPassword.Text);
+                
 
                 if(username == password)
                 {
                     Session["SportId"] = DropDownList1.SelectedValue;
-                    Response.Redirect("Home.aspx");
+                    string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Justin\Desktop\recruitpursuit.mdf; Integrated Security = True; Connect Timeout = 30";
+                    SqlConnection con = new SqlConnection(connection);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = "SELECT * FROM [coach] WHERE ([Usename] = @Usename) AND ([Password] = @Password)";
+                    cmd.Parameters.AddWithValue("Usename", txtLogin.Text);
+                    cmd.Parameters.AddWithValue("Password", txtPassword.Text);
+                   
+                   
+                    cmd.Connection = con;
+                    SqlDataReader rd = cmd.ExecuteReader();
+                    
+                    while(rd.Read())
+                    {
+                        lbl1.Text = rd[5].ToString();
+                        if (rd[1].ToString() == DropDownList1.SelectedValue)
+                        {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    
                 }
                 else
                 {
@@ -55,7 +82,7 @@ public partial class User_User_Login : System.Web.UI.Page
             {
                 lbl1.Text = "Login Failed. Wrong username.";
             }
-
+            
 
 
         }
