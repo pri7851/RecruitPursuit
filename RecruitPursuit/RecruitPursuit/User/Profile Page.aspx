@@ -12,7 +12,6 @@
         top: 239px;
     }
     .auto-style3 {
-        left: 409px;
         top: 117px;
             width: 136px;
             height: 170px;
@@ -39,17 +38,6 @@
     <br />
     <br />
     <br />
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1">
-        <Columns>
-            <asp:BoundField DataField="Pro_Id" HeaderText="Pro_Id" ReadOnly="True" SortExpression="Pro_Id" />
-            <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
-            <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
-            <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
-            <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
-            <asp:BoundField DataField="Rec_Username" HeaderText="Rec_Username" SortExpression="Rec_Username" />
-            <asp:BoundField DataField="Rec_password" HeaderText="Rec_password" SortExpression="Rec_password" />
-        </Columns>
-    </asp:GridView>
     <br />
     <br />
     <br />
@@ -155,7 +143,7 @@
     <br />
     <br />
     <br />
-    <asp:SqlDataSource ID="SqlDSnote" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Note, NPost_date FROM Notes WHERE (Pro_id = @Pro_id)" InsertCommand="INSERT INTO [Notes] ([post_date], [Notes]) VALUES (@post_date, @Notes)">
+    <asp:SqlDataSource ID="SqlDSnote" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Note, NPost_date FROM Notes WHERE (Pro_id = @Pro_id)" InsertCommand="INSERT INTO [Notes] ([post_date], [Notes]) VALUES (@post_date, @Notes)">
         <InsertParameters>
             <asp:Parameter DbType="Date" Name="post_date" />
             <asp:Parameter Name="Notes" Type="String" />
@@ -172,7 +160,7 @@
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
         <SelectParameters>
-            <asp:SessionParameter Name="Pro_Id" SessionField="Pro_Id" Type="Int32" />
+            <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     </asp:Content>

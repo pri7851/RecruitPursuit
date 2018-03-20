@@ -143,7 +143,7 @@
         <asp:Label ID="Namelbl" runat="server" CssClass="auto-style11"></asp:Label>
    
   
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"   ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" SelectCommand="SELECT Schedule.Tournament, Schedule.Location, Schedule.Date, Schedule.Time, Schedule.Team FROM Schedule INNER JOIN profile ON Schedule.Pro_id = profile.Pro_Id WHERE (Schedule.Pro_id = @Pro_id)" DeleteCommand="DELETE FROM Schedule WHERE (Sch_ID = @Sch_ID)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"   ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString %>" SelectCommand="SELECT Schedule.Tournament, Schedule.Location, Schedule.Date, Schedule.Time, Schedule.Team FROM Schedule INNER JOIN profile ON Schedule.Pro_id = profile.Pro_Id WHERE (Schedule.Pro_id = @Pro_id)" DeleteCommand="DELETE FROM Schedule WHERE (Sch_ID = @Sch_ID)">
             <DeleteParameters>
                 <asp:Parameter Name="Sch_ID" />
             </DeleteParameters>

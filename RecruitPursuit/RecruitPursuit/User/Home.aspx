@@ -16,13 +16,14 @@
          </asp:SqlDataSource>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" AllowSorting="True">
             <Columns>
+
+                <asp:HyperLinkField NavigateUrl="~/User/Profile Page.aspx" Text="View Recruit" DataNavigateUrlFields="Pro_id" DataNavigateUrlFormatString="Profile page.aspx?Pro_Id={0}" />
+
                 <asp:BoundField DataField="Pro_Id" HeaderText="Pro_Id" ReadOnly="True" SortExpression="Pro_Id" />
                 <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
                 <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
                 <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
                 <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
-
-                <asp:HyperLinkField NavigateUrl="~/User/Profile Page.aspx" Text="View Recruit" />
 
             </Columns>
         </asp:GridView>
