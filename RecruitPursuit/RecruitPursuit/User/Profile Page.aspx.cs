@@ -16,18 +16,8 @@ public partial class Profile_Page : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        
-        if (Request.QueryString["Pro_Id"] != null)
-        {
-            ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
-        }
-        else
-        {
-            Response.Write("Invalid access to page!");
-            Response.End();
 
-
-        }
+        GridViewRow a = (GridViewRow)Session["Pro_Id"];
 
 
     }
