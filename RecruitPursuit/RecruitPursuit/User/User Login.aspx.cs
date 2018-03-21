@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 
 public partial class User_User_Login : System.Web.UI.Page
 {
+    bool flag = false;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -16,6 +18,7 @@ public partial class User_User_Login : System.Web.UI.Page
 
     public SortedList<string, string> LoadCoaches()
     {
+        
         SortedList<string, string> CoachList = new SortedList<string, string>();
         DataView dv = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
         for(int i = 0; i < dv.Count; i++)
@@ -23,6 +26,7 @@ public partial class User_User_Login : System.Web.UI.Page
             string username = (String)dv[i]["Usename"];
             string password = (String)dv[i]["Password"];
             CoachList.Add(username, password);
+            
         }
         return CoachList;
     }
@@ -33,31 +37,50 @@ public partial class User_User_Login : System.Web.UI.Page
     {
         
         SortedList<string, string> RecruitList = LoadCoaches();
-        Session["Username"] = txtLogin.Text;
+        
         foreach (KeyValuePair<string, string> login in RecruitList)
         {
-            if(RecruitList.ContainsKey(txtLogin.Text))
+            if (RecruitList.ContainsKey(txtLogin.Text))
             {
-                int username = RecruitList.IndexOfKey(txtLogin.Text);
-                int password = RecruitList.IndexOfValue(txtPassword.Text);
 
-                if(username == password)
+
+                Session["SportId"] = DropDownList1.SelectedValue;
+                string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Justin\Desktop\recruitpursuit.mdf; Integrated Security = True; Connect Timeout = 30";
+                SqlConnection con = new SqlConnection(connection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT[Usename], [Password], [Sport_Id] FROM[coach] WHERE(([Usename] = @Usename) AND([Password] = @Password) AND([Sport_Id] = @Sport_Id))";
+                cmd.Parameters.AddWithValue("Usename", txtLogin.Text);
+                cmd.Parameters.AddWithValue("Password", txtPassword.Text);
+                cmd.Parameters.AddWithValue("Sport_Id", DropDownList1.SelectedValue);
+
+
+                cmd.Connection = con;
+                
+                
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if(dt.Rows.Count > 0)
                 {
-                    Session["SportId"] = DropDownList1.SelectedValue;
+                    Session["Username"] = txtLogin.Text;
                     Response.Redirect("Home.aspx");
                 }
                 else
                 {
-                    lbl1.Text = "Login Failed. Wrong password.";
+                    lbl1.Text = "Login Failed. Wrong password or Wrong Sport. Try a different password or a different sport.";
                 }
+               
+
             }
             else
             {
                 lbl1.Text = "Login Failed. Wrong username.";
+
+
+
+
             }
-
-
-
         }
 
 

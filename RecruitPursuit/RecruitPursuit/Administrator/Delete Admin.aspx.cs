@@ -38,15 +38,12 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
 
         if (flag == true)
         {
-            
-                
-                
+          
                     lblDelete.Text = "Are you sure you want to delete this user?";
                     lblDelete.Visible = true;
                     btnConfirm.Visible = true;
                     btnCancel.Visible = true;
                 
-            
         }
         else
         {

@@ -19,7 +19,7 @@ public partial class Administrator_Add_Admin : System.Web.UI.Page
 
     }
 
-    protected void btnAdd_Click(object sender, EventArgs e)
+    protected void BtnAdd_Click(object sender, EventArgs e)
     {
 
 

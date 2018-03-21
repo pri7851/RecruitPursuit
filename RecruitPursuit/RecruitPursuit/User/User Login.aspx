@@ -15,7 +15,7 @@
         
 &nbsp;Username:
             <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
-            &nbsp;<p>
+            <p>
             Password:&nbsp;
             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
         <p>

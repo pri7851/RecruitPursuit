@@ -12,17 +12,22 @@ using System.Data.SqlClient;
 public partial class Profile_Page : System.Web.UI.Page
 {
 
-
+    int ProID;
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        
 
+        if(Request.QueryString["Pro_Id"] != null)
+        {
+            ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
+        }
+        else
+        {
+            Response.Write("Invalid access to page!");
+            Response.End();
+        }
 
     }
-
- 
-
     
 
    
@@ -60,5 +65,11 @@ public partial class Profile_Page : System.Web.UI.Page
     protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
 
+    }
+
+    protected void BtnViewSch_Click(object sender, EventArgs e)
+    {
+        Session["ID"] = ProID;
+        Response.Redirect("Schedule.aspx");
     }
 }
