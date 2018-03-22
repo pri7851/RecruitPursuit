@@ -19,6 +19,7 @@ public partial class Questionnaire : System.Web.UI.Page
     {
         RadioButtonList1.Visible = true;
         ButtonAdd.Visible = true;
+        lblExample.Visible = true;
         TextBoxQuestion.Visible = true;
         Output.Text = "";
         TextBoxQuestion.Visible = true;
@@ -47,8 +48,8 @@ public partial class Questionnaire : System.Web.UI.Page
             SqlConnection con = new SqlConnection(conString);
 
             //create a command behavior object
-            String cmdString = "INSERT INTO [SportQuestions](SportQuestText, AnswerOpt1, AnswerOpt2, AnswerOpt3, AnswerOpt4, AnswerOpt5, AnswerOpt6, AnswerOpt7, AnswerOpt8, AnswerOpt9, AnswerOpt10) " +
-            "VALUES (@SportQuestText, @AnswerOpt1, @AnswerOpt2, @AnswerOpt3, @AnswerOpt4, @AnswerOpt5, @AnswerOpt6, @AnswerOpt7, @AnswerOpt8, @AnswerOpt9, @AnswerOpt10)";
+            String cmdString = "INSERT INTO [SportQuestions](SportQuestText, AnswerType, AnswerOpt1, AnswerOpt2, AnswerOpt3, AnswerOpt4, AnswerOpt5, AnswerOpt6, AnswerOpt7, AnswerOpt8, AnswerOpt9, AnswerOpt10) " +
+            "VALUES (@SportQuestText, @AnswerType, @AnswerOpt1, @AnswerOpt2, @AnswerOpt3, @AnswerOpt4, @AnswerOpt5, @AnswerOpt6, @AnswerOpt7, @AnswerOpt8, @AnswerOpt9, @AnswerOpt10)";
             SqlCommand cmd = new SqlCommand(cmdString, con);
 
             //create parameter object and add it's value;
@@ -56,6 +57,11 @@ public partial class Questionnaire : System.Web.UI.Page
             param1.ParameterName = "@SportQuestText";
             param1.Value = TextBoxQuestion.Text;
             cmd.Parameters.Add(param1);
+
+            SqlParameter param12 = new SqlParameter();
+            param12.ParameterName = "@AnswerType";
+            param12.Value = RadioButtonList1.SelectedValue;
+            cmd.Parameters.Add(param12);
 
             SqlParameter param2 = new SqlParameter();
             param2.ParameterName = "@AnswerOpt1";
@@ -107,6 +113,8 @@ public partial class Questionnaire : System.Web.UI.Page
             param11.Value = TextBoxOpt10.Text;
             cmd.Parameters.Add(param11);
 
+           
+
 
         int added = 0;
             try
@@ -130,7 +138,8 @@ public partial class Questionnaire : System.Web.UI.Page
             TextBoxQuestion.Text = "";
             TextBoxQuestion.Visible = false;
             PlaceHolder1.Visible = false;
-            TextBoxOpt1.Text = "";
+        lblExample.Visible = false;
+        TextBoxOpt1.Text = "";
             TextBoxOpt2.Text = "";
             TextBoxOpt3.Text = "";
             TextBoxOpt4.Text = "";
