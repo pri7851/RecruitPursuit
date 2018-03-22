@@ -65,7 +65,7 @@
             BorderWidth="2"
             ForeColor="Snow"
             CellPadding="5"
-            CellSpacing="5" CssClass="auto-style10" Visible="False"
+            CellSpacing="5" CssClass="auto-style10" Visible="False" style="position: relative"
             >
             <asp:TableHeaderRow 
                 runat="server" 
@@ -80,7 +80,7 @@
                 runat="server" 
                 BackColor="darkred"
                 >
-                <asp:TableCell>tournament:</asp:TableCell>
+                <asp:TableCell>Tournament:</asp:TableCell>
                 <asp:TableCell><asp:TextBox ID="TmentTxt" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow 
@@ -88,7 +88,7 @@
                 runat="server" 
                 BackColor="darkred"
                 >
-                <asp:TableCell>Location</asp:TableCell>
+                <asp:TableCell>Location:</asp:TableCell>
                 <asp:TableCell><asp:TextBox ID="LocationTxt" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow 
@@ -96,7 +96,7 @@
                 runat="server" 
                 BackColor="darkRed"
                 >
-                <asp:TableCell>Date</asp:TableCell>
+                <asp:TableCell>Date: MM/DD/YYYY</asp:TableCell>
                  <asp:TableCell><asp:TextBox ID="DateTxt" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow 
