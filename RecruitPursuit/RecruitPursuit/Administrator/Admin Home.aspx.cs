@@ -9,7 +9,14 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        if (Session["Admin"] != null)
+        {
+            Label1.Text = "Welcome " + Session["Admin"].ToString() + "!";
+        }
+        else
+        {
+            Response.Redirect("Admin Login.aspx");
+        }
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)

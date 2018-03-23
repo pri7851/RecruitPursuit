@@ -7,8 +7,6 @@
     <h2 class="display-3">Administration Log In</h2>
   <hr class="my-4">
    
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" SelectCommand="SELECT [Usename], [Password] FROM [coach]"></asp:SqlDataSource>
-   
             <br />
 Username:
             <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
