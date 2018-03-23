@@ -23,7 +23,7 @@
                 <asp:BoundField DataField="AnswerOpt10" HeaderText="AnswerOpt10" SortExpression="AnswerOpt10" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:C:\USERS\JANE\RECRUITPURSUIT.MDFConnectionString %>" SelectCommand="SELECT * FROM [SportQuestions]">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" SelectCommand="SELECT * FROM [SportQuestions]">
         </asp:SqlDataSource>
     </p>
     <p>

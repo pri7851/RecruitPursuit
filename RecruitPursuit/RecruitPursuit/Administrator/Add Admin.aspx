@@ -7,7 +7,7 @@
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:recruitpursuitConnectionString1 %>" SelectCommand="SELECT Sport.Sport_Name, Sport.Sport_Id FROM coach FULL OUTER JOIN Sport ON Sport.Sport_Id = coach.Sport_Id GROUP BY Sport.Sport_Name, Sport.Sport_Id" OnSelecting="SqlDataSource1_Selecting"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" SelectCommand="SELECT Sport.Sport_Name, Sport.Sport_Id FROM coach FULL OUTER JOIN Sport ON Sport.Sport_Id = coach.Sport_Id GROUP BY Sport.Sport_Name, Sport.Sport_Id" OnSelecting="SqlDataSource1_Selecting"></asp:SqlDataSource>
             <br />
             <br />
             <br />
