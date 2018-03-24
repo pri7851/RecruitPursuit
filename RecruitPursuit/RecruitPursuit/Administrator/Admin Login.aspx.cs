@@ -18,14 +18,10 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
     {
        
         SortedList<string, string> AdminList = new SortedList<string, string>();
-        DataView dv = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-        for (int i = 0; i < dv.Count; i++)
-        {
-            string username = (String)dv[i]["Usename"];
-            string password = (String)dv[i]["Password"];
-            AdminList.Add(username, password);
-            lbl1.Text = username + " " + password;
-        }
+        AdminList.Add("Matthew", "Kifer");
+        AdminList.Add("Justin", "Wyman");
+        AdminList.Add("Thomas", "Myers");
+        AdminList.Add("Emily", "Price");
 
         return AdminList;
         
@@ -44,6 +40,7 @@ public partial class Administrator_Admin_Login : System.Web.UI.Page
 
                 if(username == password)
                 {
+                    Session["Admin"] = txtLogin.Text;
                     Response.Redirect("Admin Home.aspx");
                 }
                 else
