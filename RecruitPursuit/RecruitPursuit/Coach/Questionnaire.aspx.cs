@@ -44,7 +44,7 @@ public partial class Questionnaire : System.Web.UI.Page
     protected void ButtonAdd_Click(object sender, EventArgs e)
     {
         
-            String conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Jane\recruitpursuit.mdf;Integrated Security=True";
+            String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
             SqlConnection con = new SqlConnection(conString);
 
             //create a command behavior object

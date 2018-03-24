@@ -25,10 +25,10 @@
         <a class="nav-link" href="#">Rank</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Schedule</a>
+        <a class="nav-link" href="Schedule.aspx">Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Questionnaire.aspx">Questionnaire</a>
+        <a class="nav-link" href="Questionnaire.aspx">Questionnaire</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

@@ -69,7 +69,7 @@
         Possible Major at Cal U:<br />
     <br />
     <h4>Junior/Previous College Information (If Applicable)</h4>
-    Name of Junior/Previous College:<br />
+    Name of Junior/Previous College:&nbsp; <br />
     Total Number Full-Time Semesters:<br />
     Cumulative Grade-Point Average:<br />
     Total Number of Units Completed:<br />

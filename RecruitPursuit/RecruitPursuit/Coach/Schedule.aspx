@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Schedule.aspx.cs" Inherits="User_Schedule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Schedule.aspx.cs" Inherits="User_Schedule" %>
 
 <%-- Add content controls here --%>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="head">
