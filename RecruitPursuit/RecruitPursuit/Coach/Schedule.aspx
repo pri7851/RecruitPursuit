@@ -46,13 +46,15 @@
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder1">
     <p class="auto-style1">
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style2" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style2" DataSourceID="SqlDataSource1" DataKeyNames="Sch_ID">
             <Columns>
                 <asp:BoundField DataField="Tournament" HeaderText="Tournament" SortExpression="Tournament" />
                 <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
-                <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:MM/dd/yyyy}" SortExpression="Date" />
+                <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                 <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
                 <asp:BoundField DataField="Team" HeaderText="Team" SortExpression="Team" />
+                <asp:BoundField DataField="Sch_ID" HeaderText="Sch_ID" InsertVisible="False" ReadOnly="True" SortExpression="Sch_ID" />
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
      
@@ -143,7 +145,7 @@
         <asp:Label ID="Namelbl" runat="server" CssClass="auto-style11"></asp:Label>
    
   
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"   ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" SelectCommand="SELECT Schedule.Tournament, Schedule.Location, Schedule.Date, Schedule.Time, Schedule.Team FROM Schedule INNER JOIN profile ON Schedule.Pro_id = profile.Pro_Id WHERE (Schedule.Pro_id = @Pro_id)" DeleteCommand="DELETE FROM Schedule WHERE (Sch_ID = @Sch_ID)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"   ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.Schedule.Tournament, dbo.Schedule.Location, dbo.Schedule.Date, dbo.Schedule.Time, dbo.Schedule.Team, dbo.Schedule.Sch_ID FROM dbo.Schedule INNER JOIN dbo.profile ON dbo.Schedule.Pro_id = dbo.profile.Pro_Id WHERE (dbo.Schedule.Pro_id = @Pro_id)" DeleteCommand="DELETE FROM Schedule WHERE (Sch_ID = @Sch_ID)">
             <DeleteParameters>
                 <asp:Parameter Name="Sch_ID" />
             </DeleteParameters>

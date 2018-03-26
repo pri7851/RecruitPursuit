@@ -11,8 +11,8 @@
             margin-bottom: 0;
         }
     .auto-style2 {
-        left: 1005px;
-        top: 285px;
+        left: 1000px;
+        top: 280px;
             position: absolute;
             z-index: 1;
         }
@@ -26,16 +26,16 @@
         }
     .auto-style4 {
         z-index: 1;
-        left: 920px;
-        top: 420px;
+        left: 785px;
+        top: 340px;
             width: 183px;
             height: 163px;
             position: absolute;
         }
     .auto-style5 {
         position: absolute;
-        top: 216px;
-        left: 895px;
+        top: 225px;
+        left: 785px;
         z-index: 1;
         margin-top: 0;
     }
@@ -49,10 +49,10 @@
     <br />
     <br />
     <br />
+    <asp:Button ID="BtnViewSch" runat="server" CssClass="auto-style5" OnClick="BtnViewSch_Click" Text="View Schedule" />
     <br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="BtnViewSch" runat="server" CssClass="auto-style5" OnClick="BtnViewSch_Click" Text="View Schedule" />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3">
         <EditItemTemplate>
             Pro_Id:
@@ -120,12 +120,7 @@
             Rec_Email:
             <asp:Label ID="Rec_EmailLabel" runat="server" Text='<%# Bind("Rec_Email") %>' />
             <br />
-            Rec_Username:
-            <asp:Label ID="Rec_UsernameLabel" runat="server" Text='<%# Bind("Rec_Username") %>' />
-            <br />
-            Rec_password:
-            <asp:Label ID="Rec_passwordLabel" runat="server" Text='<%# Bind("Rec_password") %>' />
-            <br />
+           
 
         </ItemTemplate>
     </asp:FormView>
@@ -148,17 +143,22 @@
     <br />
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" Width="183px" CssClass="auto-style4">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" Width="183px" CssClass="auto-style4" DataKeyNames="Note_id">
         <Columns>
+            <asp:CommandField ShowDeleteButton="True" />
             <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
             <asp:BoundField DataField="NPost_date" HeaderText="NPost_date" SortExpression="NPost_date" />
+            <asp:BoundField DataField="Note_id" HeaderText="Note_id" InsertVisible="False" ReadOnly="True" SortExpression="Note_id" />
         </Columns>
     </asp:GridView>
     <br />
     <br />
     <br />
     <br />
-    <asp:SqlDataSource ID="SqlDSnote" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Note, NPost_date FROM Notes WHERE (Pro_id = @Pro_id)" InsertCommand="INSERT INTO [Notes] ([post_date], [Notes]) VALUES (@post_date, @Notes)">
+    <asp:SqlDataSource ID="SqlDSnote" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" OnSelecting="SqlDataSource2_Selecting" SelectCommand="SELECT Note, NPost_date, Note_id FROM dbo.Notes WHERE (Pro_id = @Pro_id)" InsertCommand="INSERT INTO [Notes] ([post_date], [Notes]) VALUES (@post_date, @Notes)" DeleteCommand="DELETE FROM dbo.Notes WHERE (Note_id = @Note_id)">
+        <DeleteParameters>
+            <asp:Parameter Name="Note_id" />
+        </DeleteParameters>
         <InsertParameters>
             <asp:Parameter DbType="Date" Name="post_date" />
             <asp:Parameter Name="Notes" Type="String" />
@@ -167,7 +167,7 @@
             <asp:QueryStringParameter Name="Pro_id" QueryStringField="Pro_id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionString_plesk %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
         </SelectParameters>
