@@ -24,6 +24,13 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btn_Recruit_Click(object sender, EventArgs e)
     {
+        Label1.Visible = true;
+        DropDownList1.Visible = true;
+        Button3.Visible = true;
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
         Response.Redirect("Coach/Questionnaire Preview.aspx");
     }
 }
