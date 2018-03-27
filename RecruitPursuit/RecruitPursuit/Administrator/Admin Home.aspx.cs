@@ -36,4 +36,10 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
     {
 
     }
+
+    protected void btn_Logout_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Redirect("Admin Login.aspx");
+    }
 }
