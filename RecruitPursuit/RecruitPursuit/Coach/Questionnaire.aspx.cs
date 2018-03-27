@@ -29,7 +29,7 @@ public partial class Questionnaire : System.Web.UI.Page
 
     protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (RadioButtonList1.SelectedValue == "DropDownList")
+        if (RadioButtonList1.SelectedValue == "Drop Down List")
         {
             PlaceHolder1.Visible = true;
 
