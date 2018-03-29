@@ -11,7 +11,14 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblSport.Text = Session["SportName"].ToString();
+        if(Session["SportName"] != null)
+        {
+            lblSport.Text = Session["SportName"].ToString();
+        }
+        else
+        {
+            Response.Redirect("Recruit Sport Selection.aspx");
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

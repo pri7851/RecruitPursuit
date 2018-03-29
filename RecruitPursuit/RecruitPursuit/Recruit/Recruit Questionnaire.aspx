@@ -1,20 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Recruit Questionnaire.aspx.cs" Inherits="Recruit_Questionnaire" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Welcome.master" CodeFile="Recruit Questionnaire.aspx.cs" Inherits="Recruit_Questionnaire" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-           
-    <h2>
+   
+         <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+         <h2>  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
         <asp:Label ID="lblSport" runat="server"></asp:Label>
-        </h2>
+        
         <h2>Personal Information</h2>
-
+</h2> 
     First Name:  <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox>
         <br />
     <br />
@@ -72,8 +66,8 @@
         <br />
     Have you applied for Financial Aid with FAFSA?<br />
     <br />
-        </div>
-        <div>
+        
+        
     <h2>Academic Information</h2>
         <h4>High School Information</h4>
         Name of High School:  <asp:TextBox ID="TextBoxHSName" runat="server"></asp:TextBox>
@@ -143,8 +137,8 @@
     Number of Seasons played at JC/Previous School:  <asp:TextBox ID="TextBoxJC_Seasons_Played" runat="server"></asp:TextBox>
             <br />
 
-        </div>
-        <div>
+        
+        
             <p>
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 <asp:Label ID="Output" runat="server"></asp:Label>
@@ -178,7 +172,7 @@
             </p>
             <h1>Athletic Information</h1>
 
-        </div>
+        
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
                 <asp:BoundField DataField="SportQuestText" HeaderText="SportQuestText" SortExpression="SportQuestText" />
@@ -192,7 +186,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [AnswerOpt1], [AnswerOpt2], [AnswerOpt3], [AnswerOpt4], [AnswerOpt5], [AnswerOpt6], [AnswerOpt7], [AnswerOpt8], [AnswerOpt9], [AnswerOpt10] FROM [SportQuestions]"></asp:SqlDataSource>
-    </form>
-</body>
-</html>
+    </asp:Content>
+
+
 
