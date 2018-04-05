@@ -27,7 +27,7 @@
         </asp:SqlDataSource>
     </p>
     <p>
-        <asp:Button ID="ButtonNew" runat="server" OnClick="ButtonNew_Click" Text="New Question" />
+        <asp:Button ID="ButtonNew" runat="server" OnClick="ButtonNew_Click" class="btn btn-primary" Text="New Question" />
     </p>
     <p>
         <asp:Label ID="lblQuest" runat="server" Text="Criteria:" Visible="False"></asp:Label>

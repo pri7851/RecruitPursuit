@@ -42,7 +42,7 @@
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Log Out" />
 </nav>
 
-    <div>
+   <div style="padding-left:10px; padding-top:10px"> 
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
