@@ -131,7 +131,7 @@
     JC/Previous Coach&#39;s Name:  <asp:TextBox ID="TextBoxJC_Coach_Name" runat="server"></asp:TextBox>
             <br />
             <br />
-    JC/Previous Coach&#39;s Phone:  <asp:TextBox ID="TextBoxJC_Coach_Email" runat="server"></asp:TextBox>
+             JC/Previous Coach&#39;s Email:&nbsp;  <asp:TextBox ID="TextBoxJC_Coach_Email" runat="server"></asp:TextBox>
             <br />
             <br />
     Number of Seasons played at JC/Previous School:  <asp:TextBox ID="TextBoxJC_Seasons_Played" runat="server"></asp:TextBox>
