@@ -175,27 +175,27 @@
         
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="SportQuestID">
             <Columns>
+                <asp:BoundField DataField="SportQuestID" HeaderText="SportQuestID" SortExpression="SportQuestID" InsertVisible="False" ReadOnly="True" />
+                <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
                 <asp:BoundField DataField="SportQuestText" HeaderText="SportQuestText" SortExpression="SportQuestText" />
-                <asp:BoundField DataField="AnswerOpt1" HeaderText="AnswerOpt1" SortExpression="AnswerOpt1" />
-                <asp:BoundField DataField="AnswerOpt2" HeaderText="AnswerOpt2" SortExpression="AnswerOpt2" />
-                <asp:BoundField DataField="AnswerOpt3" HeaderText="AnswerOpt3" SortExpression="AnswerOpt3" />
-                <asp:BoundField DataField="AnswerOpt4" HeaderText="AnswerOpt4" SortExpression="AnswerOpt4" />
-                <asp:BoundField DataField="AnswerOpt5" HeaderText="AnswerOpt5" SortExpression="AnswerOpt5" />
-                <asp:BoundField DataField="AnswerOpt6" HeaderText="AnswerOpt6" SortExpression="AnswerOpt6" />
-                <asp:BoundField DataField="AnswerOpt7" HeaderText="AnswerOpt7" SortExpression="AnswerOpt7" />
-                <asp:BoundField DataField="AnswerOpt8" HeaderText="AnswerOpt8" SortExpression="AnswerOpt8" />
-                <asp:BoundField DataField="AnswerOpt9" HeaderText="AnswerOpt9" SortExpression="AnswerOpt9" />
-                <asp:BoundField DataField="AnswerOpt10" HeaderText="AnswerOpt10" SortExpression="AnswerOpt10" />
-                <asp:TemplateField>
+                <asp:TemplateField HeaderText="Answer">
                     <ItemTemplate>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Position" DataValueField="Position">
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <EmptyDataTemplate>
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Position" DataValueField="Position" SelectedValue='<%# Eval("Sport_Id", "{0}") %>' Width="95px">
+                </asp:DropDownList>
+            </EmptyDataTemplate>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [SportQuestions]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [AnswerOpt1], [AnswerOpt2], [AnswerOpt3], [AnswerOpt4], [AnswerOpt5], [AnswerOpt6], [AnswerOpt7], [AnswerOpt8], [AnswerOpt9], [AnswerOpt10] FROM [SportQuestions]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
+            <SelectParameters>
+                <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+            </SelectParameters>
+             </asp:SqlDataSource>
     </asp:Content>
 
 

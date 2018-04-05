@@ -64,6 +64,7 @@ public partial class User_User_Login : System.Web.UI.Page
                 if(dt.Rows.Count > 0)
                 {
                     Session["Username"] = txtLogin.Text;
+                    Session["Sport_Id"] = DropDownList1.SelectedValue;
                     Response.Redirect("Home.aspx");
                 }
                 else

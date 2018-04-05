@@ -30,7 +30,7 @@
         <a class="nav-link" href="Schedule.aspx">Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Questionnaire.aspx">Questionnaire</a>
+        <a class="nav-link" href="Pick Positions.aspx">Questionnaire</a>
       </li>
     </ul>
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
