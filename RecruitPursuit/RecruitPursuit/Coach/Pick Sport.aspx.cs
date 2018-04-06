@@ -14,7 +14,7 @@ public partial class Coach_Pick_Sport : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-         Session["SportId"] = DropDownList1.SelectedValue;
+        Session["SportId"] = DropDownList1.SelectedValue;
         Response.Redirect("Recruit Questionnaire.aspx");
     }
 }

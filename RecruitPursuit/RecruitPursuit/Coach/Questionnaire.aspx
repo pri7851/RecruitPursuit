@@ -6,18 +6,27 @@
     <h1>
     Athletic Information:</h1>
     <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="SportQuestID">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
-                <asp:BoundField DataField="SportQuestID" HeaderText="SportQuestID" SortExpression="SportQuestID" InsertVisible="False" ReadOnly="True" />
-                <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
-                <asp:BoundField DataField="SportQuestText" HeaderText="SportQuestText" SortExpression="SportQuestText" />
+                <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
+                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
             <SelectParameters>
                 <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+    </p>
+    <p>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions]"></asp:SqlDataSource>
+        <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource2">
+            <Columns>
+                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" />
+            </Columns>
+        </asp:GridView>
     </p>
     <p>
         <asp:Button ID="ButtonNew" runat="server" OnClick="ButtonNew_Click" class="btn btn-primary" Text="New Question" />
@@ -30,90 +39,8 @@
     <asp:Label ID="lblExample" runat="server" ForeColor="Gray" style="font-style: italic" Text="Examples: Position, Batting Average, Height" Visible="False"></asp:Label>
     <br />
     <br />
-    <asp:Label ID="lblAnswer" runat="server" Text="Pick an answer style:" Visible="False"></asp:Label>
-    <br />
-    <br />
-    <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="True" Visible="False" Height="16px" Width="137px">
-        <asp:ListItem>TextBox</asp:ListItem>
-        <asp:ListItem Value="Drop Down List">Drop Down List</asp:ListItem>
-    </asp:RadioButtonList>
-    <br />
-    <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible="False">
-    <asp:Label ID="lblOptions" runat="server" Text="What options would you like to include in the Drop Down List?"></asp:Label>
-    <br /><br />
-    Option 1:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt1" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 2:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt2" runat="server"></asp:TextBox>
-    <br />
-    Option 3:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt3" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 4:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt4" runat="server"></asp:TextBox>
-    <br />
-    Option 5:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt5" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 6:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt6" runat="server"></asp:TextBox>
-    <br />
-    Option 7:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt7" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 8:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBoxOpt8" runat="server"></asp:TextBox>
-    <br />
-    Option 9:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt9" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 10:&nbsp;
-    <asp:TextBox ID="TextBoxOpt10" runat="server"></asp:TextBox>
+    
 
-    </asp:PlaceHolder>
-    <br />
-    <br />
-    <asp:PlaceHolder  ID="PlaceHolder2" runat="server" Visible="False">
-        Option 11:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 12:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-    <br />
-    Option 13:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 14:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-    <br />
-    Option 15:&nbsp;&nbsp; <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 16:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-    <br />
-    Option 17:&nbsp;&nbsp; <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 18:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-    <br />
-    Option 19:&nbsp;&nbsp; <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 20:&nbsp; &nbsp;
-    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-    </asp:PlaceHolder>
-    <br />
-    <br />
-    <asp:PlaceHolder ID="PlaceHolder3" runat="server" Visible="False">
-        Option 21:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 22:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
-    <br />
-    Option 23:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 24:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
-    <br />
-    Option 25:&nbsp;&nbsp; <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 26:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
-    <br />
-    Option 27:&nbsp;&nbsp; <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 28:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
-    <br />
-    Option 29:&nbsp;&nbsp; <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 30:&nbsp; &nbsp;
-    <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
-    </asp:PlaceHolder>
 
 
         <br />
