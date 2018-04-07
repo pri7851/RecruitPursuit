@@ -10,12 +10,6 @@
             z-index: 1;
             margin-bottom: 0;
         }
-    .auto-style2 {
-        left: 1000px;
-        top: 280px;
-            position: absolute;
-            z-index: 1;
-        }
     .auto-style3 {
         top: 75px;
             width: 136px;
@@ -32,14 +26,19 @@
             height: 163px;
             position: absolute;
         }
-    .auto-style5 {
-        position: absolute;
-        top: 225px;
-        left: 785px;
-        z-index: 1;
-        margin-top: 0;
-    }
-</style>
+        .auto-style6 {
+            position: absolute;
+            top: 280px;
+            left: 980px;
+            z-index: 1;
+        }
+        .auto-style9 {
+            position: absolute;
+            top: 230px;
+            left: 785px;
+            z-index: 1;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
     <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1"></asp:TextBox>
@@ -49,7 +48,7 @@
     <br />
     <br />
     <br />
-    <asp:Button ID="BtnViewSch" runat="server" CssClass="auto-style5" OnClick="BtnViewSch_Click" Text="View Schedule" />
+    <asp:Button ID="BtnViewSch" runat="server" class="btn btn-primary" OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style9"    />
     <br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -124,8 +123,8 @@
 
         </ItemTemplate>
     </asp:FormView>
-    <asp:Button ID="AddNotes" runat="server" OnClick="Addnotes_Click" Text="Add Note" CssClass="auto-style2" />
     <br />
+    <asp:Button ID="AddNotes" runat="server" OnClick="Addnotes_Click" Text="Add Note" BackColor="#CC0000" ForeColor="White" CssClass="auto-style6" class="btn btn-primary"  />
     <br />
     <br />
     <br />
@@ -147,8 +146,8 @@
         <Columns>
             <asp:CommandField ShowDeleteButton="True" />
             <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
-            <asp:BoundField DataField="NPost_date" HeaderText="NPost_date" SortExpression="NPost_date" />
-            <asp:BoundField DataField="Note_id" HeaderText="Note_id" InsertVisible="False" ReadOnly="True" SortExpression="Note_id" />
+            <asp:BoundField DataField="NPost_date" HeaderText="Post Date" SortExpression="NPost_date" />
+            <asp:BoundField DataField="Note_id" HeaderText="Note ID" InsertVisible="False" ReadOnly="True" SortExpression="Note_id" />
         </Columns>
     </asp:GridView>
     <br />

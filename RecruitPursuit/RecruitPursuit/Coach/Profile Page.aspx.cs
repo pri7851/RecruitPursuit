@@ -13,6 +13,7 @@ public partial class Profile_Page : System.Web.UI.Page
 {
 
     int ProID;
+  
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -21,6 +22,7 @@ public partial class Profile_Page : System.Web.UI.Page
         {
             ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
         }
+       
         else
         {
             Response.Write("Invalid access to page!");
@@ -70,6 +72,6 @@ public partial class Profile_Page : System.Web.UI.Page
     protected void BtnViewSch_Click(object sender, EventArgs e)
     {
         Session["ID"] = ProID;
-        Response.Redirect("Schedule.aspx");
+        Response.Redirect("Profile_Schedule.aspx");
     }
 }
