@@ -9,6 +9,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["Admin"] != null)
+        {
+            Label1.Text = "Welcome " + Session["Admin"].ToString() + "!";
+        }
+        else
+        {
+            Response.Redirect("Admin Login.aspx");
+        }
+    }
 
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Redirect("Admin Login.aspx");
     }
 }

@@ -3,7 +3,7 @@
 
    
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-         <h2>  
+             <h2>  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
         <asp:Label ID="lblSport" runat="server"></asp:Label>
         
@@ -151,7 +151,7 @@
                         <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email]) VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Email)" SelectCommand="SELECT [Pro_Id], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email] FROM [profile]" UpdateCommand="UPDATE [profile] SET [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Email] = @Rec_Email WHERE [Pro_Id] = @Pro_Id">
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email]) VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Email)" SelectCommand="SELECT [Pro_Id], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email] FROM [profile] WHERE ([Sport_Id] = @Sport_Id)" UpdateCommand="UPDATE [profile] SET [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Email] = @Rec_Email WHERE [Pro_Id] = @Pro_Id">
                     <DeleteParameters>
                         <asp:Parameter Name="Pro_Id" Type="Int32" />
                     </DeleteParameters>
@@ -161,6 +161,9 @@
                         <asp:Parameter Name="Rec_LName" Type="String" />
                         <asp:Parameter Name="Rec_Email" Type="String" />
                     </InsertParameters>
+                    <SelectParameters>
+                        <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+                    </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="Sport_Id" Type="Int32" />
                         <asp:Parameter Name="Rec_FName" Type="String" />
@@ -173,11 +176,9 @@
             <h1>Athletic Information</h1>
 
         
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="SportQuestID">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
-                <asp:BoundField DataField="SportQuestID" HeaderText="SportQuestID" SortExpression="SportQuestID" InsertVisible="False" ReadOnly="True" />
-                <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
-                <asp:BoundField DataField="SportQuestText" HeaderText="SportQuestText" SortExpression="SportQuestText" />
+                <asp:BoundField DataField="SportQuestText" HeaderText="Position" SortExpression="SportQuestText" />
                 <asp:TemplateField HeaderText="Answer">
                     <ItemTemplate>
                         <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="Position" DataValueField="Position">
@@ -190,11 +191,32 @@
                 </asp:DropDownList>
             </EmptyDataTemplate>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [SportQuestions]"></asp:SqlDataSource>
+             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
+                 <Columns>
+                     <asp:BoundField DataField="SportQuestText" HeaderText="Sport-Related Questions" SortExpression="SportQuestText" />
+                     <asp:TemplateField HeaderText="Answer">
+                         <ItemTemplate>
+                             <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
+                         </ItemTemplate>
+                     </asp:TemplateField>
+                 </Columns>
+             </asp:GridView>
+             <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([SportQuestText] = @SportQuestText)">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="What is your position?" Name="SportQuestText" Type="String" />
+            </SelectParameters>
+             </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
             <SelectParameters>
                 <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
             </SelectParameters>
+             </asp:SqlDataSource>
+             <br />
+             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
+                 <SelectParameters>
+                     <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+                 </SelectParameters>
              </asp:SqlDataSource>
     </asp:Content>
 

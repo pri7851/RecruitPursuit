@@ -6,18 +6,6 @@
     <h1>
     Athletic Information:</h1>
     <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-            <Columns>
-                <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
-            <SelectParameters>
-                <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-    </p>
-    <p>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions]"></asp:SqlDataSource>
         <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource2">
             <Columns>
