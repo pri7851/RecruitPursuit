@@ -34,15 +34,16 @@
             <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click1" Text="Rank" />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataSourceID="SqlDataSource3" Visible="False">
+    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click1" Text="Rank" CssClass="auto-style2" />
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style1" DataSourceID="SqlDataSource3" Visible="False" BorderColor="Black" BorderStyle="Groove">
         <Columns>
-            <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
-            <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
+            <asp:BoundField DataField="Rec_FName" HeaderText="First Name" SortExpression="Rec_FName" />
+            <asp:BoundField DataField="Rec_LName" HeaderText="Last Name" SortExpression="Rec_LName" />
             <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
-            <asp:BoundField DataField="Rec_HSGradYear" HeaderText="Rec_HSGradYear" SortExpression="Rec_HSGradYear" />
-            <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
+            <asp:BoundField DataField="Rec_HSGradYear" HeaderText="HS GradYear" SortExpression="Rec_HSGradYear" />
+            <asp:BoundField DataField="Sport_Id" HeaderText="Sport Id" SortExpression="Sport_Id" />
         </Columns>
+        <HeaderStyle BackColor="#D9230F" ForeColor="White" />
     </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="head">
@@ -50,6 +51,21 @@
         .auto-style1 {
             text-align: left;
             margin-top: 0px;
+            width: 355px;
+            height: 133px;
+            position: relative;
+            top: 6px;
+            left: 5px;
+            z-index: 1;
+        }
+        .auto-style2 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: relative;
+            top: 4px;
+            left: 5px;
+            z-index: 1;
         }
     </style>
 </asp:Content>

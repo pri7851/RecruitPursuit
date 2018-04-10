@@ -144,12 +144,13 @@
                 <asp:Label ID="Output" runat="server"></asp:Label>
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource3">
                     <Columns>
-                        <asp:BoundField DataField="Pro_Id" HeaderText="Pro_Id" InsertVisible="False" ReadOnly="True" SortExpression="Pro_Id" />
-                        <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
-                        <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
-                        <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
-                        <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
+                        <asp:BoundField DataField="Pro_Id" HeaderText="Profile Id" InsertVisible="False" ReadOnly="True" SortExpression="Pro_Id" />
+                        <asp:BoundField DataField="Sport_Id" HeaderText="Sport Id" SortExpression="Sport_Id" />
+                        <asp:BoundField DataField="Rec_FName" HeaderText="First Name" SortExpression="Rec_FName" />
+                        <asp:BoundField DataField="Rec_LName" HeaderText="Last Name" SortExpression="Rec_LName" />
+                        <asp:BoundField DataField="Rec_Email" HeaderText="Email" SortExpression="Rec_Email" />
                     </Columns>
+                    <HeaderStyle BackColor="#D9230F" ForeColor="White" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email]) VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Email)" SelectCommand="SELECT [Pro_Id], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Email] FROM [profile] WHERE ([Sport_Id] = @Sport_Id)" UpdateCommand="UPDATE [profile] SET [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Email] = @Rec_Email WHERE [Pro_Id] = @Pro_Id">
                     <DeleteParameters>
@@ -190,6 +191,7 @@
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Position" DataValueField="Position" SelectedValue='<%# Eval("Sport_Id", "{0}") %>' Width="95px">
                 </asp:DropDownList>
             </EmptyDataTemplate>
+            <HeaderStyle BackColor="#D9230F" ForeColor="White" />
         </asp:GridView>
              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
                  <Columns>
@@ -200,6 +202,7 @@
                          </ItemTemplate>
                      </asp:TemplateField>
                  </Columns>
+                 <HeaderStyle BackColor="#D9230F" ForeColor="White" />
              </asp:GridView>
              <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([SportQuestText] = @SportQuestText)">

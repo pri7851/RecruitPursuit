@@ -45,5 +45,6 @@
              <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
              <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
          </Columns>
+         <HeaderStyle BackColor="#D9230F" ForeColor="White" />
      </asp:GridView>
 </asp:Content>
