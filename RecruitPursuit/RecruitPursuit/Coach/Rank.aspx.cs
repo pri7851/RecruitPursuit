@@ -11,4 +11,11 @@ public partial class Coach_Rank : System.Web.UI.Page
     {
 
     }
+
+   
+
+    protected void Button2_Click1(object sender, EventArgs e)
+    {
+        GridView1.Visible = true;
+    }
 }
