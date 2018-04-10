@@ -17,7 +17,7 @@ public partial class Questionnaire : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
+        /*
         String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
         SqlConnection con = new SqlConnection(conString);
 
@@ -54,6 +54,7 @@ public partial class Questionnaire : System.Web.UI.Page
             con.Close();
        
         }
+        */
 
         if (!Page.IsPostBack)
         {
