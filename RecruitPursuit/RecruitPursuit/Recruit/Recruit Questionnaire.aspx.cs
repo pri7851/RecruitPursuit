@@ -27,8 +27,8 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conString);
 
         //create a command behavior object
-        String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_NCAA_ID, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played)" +
-            "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_NCAA_ID, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played)";
+        String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_NCAA_ID, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played, Position)" +
+            "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_NCAA_ID, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @Position)";
         SqlCommand cmd = new SqlCommand(cmdString, con);
 
         
@@ -208,7 +208,16 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         param36.ParameterName = "@Rec_JC_Seasons_Played";
         param36.Value = TextBoxJC_Seasons_Played.Text;
         cmd.Parameters.Add(param36);
-        
+
+        SqlParameter param37 = new SqlParameter();
+        param37.ParameterName = "@PrimaryPosition";
+        param37.Value = DropDownListPrimaryPositions.SelectedValue;
+        cmd.Parameters.Add(param37);
+
+        SqlParameter param38 = new SqlParameter();
+        param38.ParameterName = "@PrimaryPosition";
+        param38.Value = DropDownListSecondaryPositions.SelectedValue;
+        cmd.Parameters.Add(param38);
 
         int added = 0;
         try
@@ -228,7 +237,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
           
         }
           Output.Text = "Added.";
-        GridView1.DataBind();
+       
     }
 
    

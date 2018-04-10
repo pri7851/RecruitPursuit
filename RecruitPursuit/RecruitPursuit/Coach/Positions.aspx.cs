@@ -52,7 +52,7 @@ public partial class Coach_Positions : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conString);
 
         //create a command behavior object
-        String cmdString = "INSERT INTO [Positions](Sport_ID, Position)" +
+        String cmdString = "INSERT INTO [Positions]( Sport_ID, Position)" +
         "VALUES (@Sport_ID, @Position1), (@Sport_ID, @Position2), (@Sport_ID, @Position3), (@Sport_ID, @Position4), (@Sport_ID, @Position5), (@Sport_ID, @Position6), (@Sport_ID, @Position7), (@Sport_ID, @Position8)";
         SqlCommand cmd = new SqlCommand(cmdString, con);
 
@@ -61,6 +61,7 @@ public partial class Coach_Positions : System.Web.UI.Page
         param0.Value = Session["SportID"];
         cmd.Parameters.Add(param0);
 
+        
         SqlParameter param1 = new SqlParameter();
         param1.ParameterName = "@Position1";
         param1.Value = TextBoxOpt1.Text;
@@ -119,5 +120,48 @@ public partial class Coach_Positions : System.Web.UI.Page
         }
 
         Response.Redirect("Questionnaire.aspx");
+    }
+
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (CheckBox1.Checked == true)
+        {
+            String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+            SqlConnection con = new SqlConnection(conString);
+
+            //create a command behavior object
+            String cmdString = "UPDATE Sport SET SportHasPositions = @SportHasPositions WHERE Sport_Id = @Sport_Id";
+            SqlCommand cmd = new SqlCommand(cmdString, con);
+
+            SqlParameter param0 = new SqlParameter();
+            param0.ParameterName = "@SportHasPositions";
+            param0.Value = "No";
+            cmd.Parameters.Add(param0);
+
+            SqlParameter param1 = new SqlParameter();
+            param1.ParameterName = "@Sport_Id";
+            param1.Value = Session["SportID"];
+            cmd.Parameters.Add(param1);
+
+            int added = 0;
+            try
+            {
+                con.Open();
+                added = cmd.ExecuteNonQuery();
+            }
+
+            catch (Exception err)
+            {
+                // Output.Text = err.Message;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+            
+            Response.Redirect("Questionnaire.aspx");
+        }
+        
     }
 }

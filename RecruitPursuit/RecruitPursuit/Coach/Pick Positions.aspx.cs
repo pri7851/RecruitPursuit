@@ -13,7 +13,7 @@ public partial class Coach_Pick_Positions : System.Web.UI.Page
     {
 
     }
-
+    /*
     protected void Button1_Click(object sender, EventArgs e)
     {
         String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
@@ -50,6 +50,7 @@ public partial class Coach_Pick_Positions : System.Web.UI.Page
         }
         
     }
+    */
 
    
 }

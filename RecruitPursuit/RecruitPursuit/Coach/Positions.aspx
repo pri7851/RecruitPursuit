@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="My sport doesn't have positions." AutoPostBack="True" /> <br /> <br />
         <asp:PlaceHolder ID="PlaceHolder1" runat="server">
     <asp:Label ID="lblOptions" runat="server" Text="What positions does your team have?"></asp:Label>
     <br /><br />
