@@ -46,7 +46,7 @@ public partial class Questionnaire : System.Web.UI.Page
 
         catch (Exception err)
         {
-            Output.Text = err.Message;
+            //Output.Text = err.Message;
         }
 
         finally
@@ -55,19 +55,21 @@ public partial class Questionnaire : System.Web.UI.Page
        
         }
 
-      
-        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
-        using (SqlCommand dataCommand =
-                new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
-       
+        if (!Page.IsPostBack)
         {
-            dataConnection.Open();
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@Sport_Id";
-            param2.Value = Session["SportID"];
-            dataCommand.Parameters.Add(param2);
+            using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+            using (SqlCommand dataCommand =
+                    new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
 
-            sportHasPositions = dataCommand.ExecuteScalar().ToString();
+            {
+                dataConnection.Open();
+                SqlParameter param2 = new SqlParameter();
+                param2.ParameterName = "@Sport_Id";
+                param2.Value = Session["SportID"];
+                dataCommand.Parameters.Add(param2);
+
+                sportHasPositions = dataCommand.ExecuteScalar().ToString();
+            }
         }
 
         if (sportHasPositions == "No")

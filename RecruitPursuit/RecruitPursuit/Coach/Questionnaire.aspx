@@ -16,8 +16,8 @@
             background-color: #D9230F;
             border-color: #D9230F;
             position: absolute;
-            top: 120px;
-            left: 20px;
+            top: 592px;
+            left: 16px;
             z-index: 1;
         }
     </style>
@@ -27,7 +27,7 @@
     Athletic Information:</h1>
     <p>
         <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="My sport doesn't have positions." AutoPostBack="True" />
-        <asp:Panel ID="Panel1" runat="server" Height="152px">
+        <asp:Panel ID="Panel1" runat="server" Height="108px">
             Positions:&nbsp;
             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
             </asp:DropDownList>
@@ -50,14 +50,16 @@
         </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions]"></asp:SqlDataSource>
             <br />
+            <asp:Button ID="ButtonNew" runat="server" type="button" class="btn btn-primary" OnClick="ButtonNew_Click" Text="New Question" />
             </asp:Panel>
 
     <p>
-        <asp:Button ID="ButtonNew" runat="server" OnClick="ButtonNew_Click" class="btn btn-primary" Text="New Question" CssClass="auto-style2" />
+        
     </p>
     <p>
+        
         <asp:Label ID="lblQuest" runat="server" Text="Criteria:" Visible="False"></asp:Label>
-&nbsp;&nbsp;&nbsp;
+&nbsp;
     <asp:TextBox ID="TextBoxQuestion" runat="server" Height="23px" OnTextChanged="TextBox1_TextChanged" Width="836px" Visible="False"></asp:TextBox>
     </p>
     <asp:Label ID="lblExample" runat="server" ForeColor="Gray" style="font-style: italic" Text="Examples: Position, Batting Average, Height" Visible="False"></asp:Label>
@@ -65,11 +67,14 @@
     <br />
 
 
-        <asp:Button ID="ButtonAdd" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False" CssClass="auto-style1" />
     &nbsp;&nbsp;&nbsp;
+   
     <br />
     <p>
-        &nbsp;</p>
+
+
+    <asp:Button ID="ButtonAdd" type="button" class="btn btn-primary" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False"/>
+    </p>
     <p>
         <asp:Button ID="btnPreview" runat="server" Text="Preview Questionnaire" />
         <asp:Label ID="Output" runat="server"></asp:Label>
