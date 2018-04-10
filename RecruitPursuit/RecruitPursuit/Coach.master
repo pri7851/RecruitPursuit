@@ -24,7 +24,7 @@
         <a class="nav-link" href="Home.aspx">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Rank</a>
+        <a class="nav-link" href="Rank.aspx">Rank</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="Schedule.aspx">Schedule</a>

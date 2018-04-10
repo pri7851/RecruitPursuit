@@ -1,6 +1,16 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Welcome.master" AutoEventWireup="true" CodeFile="User Login.aspx.cs" Inherits="User_User_Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: relative;
+            top: 1px;
+            left: 5px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="jumbotron">
@@ -21,7 +31,7 @@
         <p>
             
             <br />
-            <asp:Button ID="Button1" class="btn btn-primary btn-lg" runat="server" OnClick="btnLogin_Click" Text="Login" />
+            <asp:Button ID="Button1" class="btn btn-primary btn-lg" runat="server" OnClick="btnLogin_Click" Text="Login" CssClass="auto-style1" />
            
 
             

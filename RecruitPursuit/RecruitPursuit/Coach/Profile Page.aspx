@@ -26,17 +26,21 @@
             height: 163px;
             position: absolute;
         }
-        .auto-style6 {
-            position: absolute;
-            top: 280px;
-            left: 980px;
-            z-index: 1;
-        }
-        .auto-style9 {
-            position: absolute;
-            top: 230px;
+        .auto-style14 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: relative;
+            top: 47px;
             left: 785px;
-            z-index: 1;
+        }
+        .auto-style15 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: relative;
+            top: 11px;
+            left: 965px;
         }
     </style>
 </asp:Content>
@@ -48,7 +52,7 @@
     <br />
     <br />
     <br />
-    <asp:Button ID="BtnViewSch" runat="server" class="btn btn-primary" OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style9"    />
+    <asp:Button ID="BtnViewSch" runat="server" color="#fff" background-color = "#D9230F" border-color="#D9230F"  OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style14"    />
     <br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -417,7 +421,7 @@
         </ItemTemplate>
     </asp:FormView>
     <br />
-    <asp:Button ID="AddNotes" runat="server" OnClick="Addnotes_Click" Text="Add Note" BackColor="#CC0000" ForeColor="White" CssClass="auto-style6" class="btn btn-primary"  />
+    <asp:Button ID="AddNotes" runat="server"  OnClick="Addnotes_Click" Text="Add Note"  CssClass="auto-style15" class="btn btn-primary"  />
     <br />
     <br />
     <br />

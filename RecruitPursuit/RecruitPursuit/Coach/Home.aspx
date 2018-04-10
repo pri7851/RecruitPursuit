@@ -17,13 +17,13 @@
 
                 <asp:HyperLinkField NavigateUrl="~/User/Profile Page.aspx" Text="View Recruit" DataNavigateUrlFields="Pro_id" DataNavigateUrlFormatString="Profile page.aspx?Pro_Id={0}" />
 
-                <asp:BoundField DataField="Pro_Id" HeaderText="Pro_Id" ReadOnly="True" SortExpression="Pro_Id" />
-                <asp:BoundField DataField="Sport_Id" HeaderText="Sport_Id" SortExpression="Sport_Id" />
-                <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
-                <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
-                <asp:BoundField DataField="Rec_Email" HeaderText="Rec_Email" SortExpression="Rec_Email" />
+                <asp:BoundField DataField="Pro_Id" HeaderText="Profile ID" ReadOnly="True" SortExpression="Pro_Id" />
+                <asp:BoundField DataField="Rec_FName" HeaderText="First Name" SortExpression="Rec_FName" />
+                <asp:BoundField DataField="Rec_LName" HeaderText="Last Name" SortExpression="Rec_LName" />
+                <asp:BoundField DataField="Rec_Email" HeaderText="Email" SortExpression="Rec_Email" />
 
             </Columns>
+            <HeaderStyle BackColor="#D9230F" ForeColor="White" />
         </asp:GridView>
         </asp:Content>
 

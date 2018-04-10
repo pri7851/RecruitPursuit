@@ -15,29 +15,35 @@
             left: 250px;
             z-index: 1;
         }
-        .auto-style8 {
-            position: absolute;
-            top: 540px;
-            left: 545px;
-            z-index: 1;
-        }
-        .auto-style9 {
-            position: absolute;
-            top: 540px;
-            left: 800px;
-            z-index: 1;
-            width: 48px;
-        }
         .auto-style10 {
             left: 435px;
-            top: 528px;
+            top: 463px;
             width: 533px;
             height: 267px;
+            position: relative;
         }
         .auto-style11 {
             position: absolute;
             top: 110px;
             left: 280px;
+            z-index: 1;
+        }
+        .auto-style12 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: absolute;
+            top: 510px;
+            left: 515px;
+            z-index: 1;
+        }
+        .auto-style13 {
+            color: #fff;
+            background-color: #D9230F;
+            border-color: #D9230F;
+            position: absolute;
+            top: 515px;
+            left: 810px;
             z-index: 1;
         }
         </style>
@@ -46,16 +52,29 @@
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder1">
     <p class="auto-style1">
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style2" DataSourceID="SqlDataSource1" DataKeyNames="Sch_ID">
+    <asp:Button ID="Hidebtn" runat="server" CssClass="auto-style13" Text="Hide" OnClick="Hide_Click" Visible="False" />
+   
+  
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style2" DataSourceID="SqlDataSource1" DataKeyNames="Sch_ID" BorderColor="Black" BorderStyle="Groove" CellPadding="4" ForeColor="#333333">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Tournament" HeaderText="Tournament" SortExpression="Tournament" />
                 <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                 <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:MM/DD/YYYY}" SortExpression="Date" />
                 <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
                 <asp:BoundField DataField="Team" HeaderText="Team" SortExpression="Team" />
-                <asp:BoundField DataField="Sch_ID" HeaderText="Sch_ID" InsertVisible="False" ReadOnly="True" SortExpression="Sch_ID" />
+                <asp:BoundField DataField="Sch_ID" HeaderText="Schedule #" InsertVisible="False" ReadOnly="True" SortExpression="Sch_ID" />
                 <asp:CommandField ShowDeleteButton="True" />
             </Columns>
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#D9230F" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#D9230F" ForeColor="Black" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
      
        <asp:Table ID="AddSchTbl" 
@@ -67,7 +86,7 @@
             BorderWidth="2"
             ForeColor="Snow"
             CellPadding="5"
-            CellSpacing="5" CssClass="auto-style10" Visible="False" style="position: relative"
+            CellSpacing="5" CssClass="auto-style10" Visible="False"
             >
             <asp:TableHeaderRow 
                 runat="server" 
@@ -135,8 +154,6 @@
         
 
     </p>
-    <asp:Button ID="ShowAddbtn" runat="server" CssClass="auto-style8" OnClick="Showbtn_Click" Text="Add Schedule Info" />
-    <asp:Button ID="Hidebtn" runat="server" CssClass="auto-style9" Text="Hide" OnClick="Hide_Click" Visible="False" />
    
   
         <br />
@@ -153,6 +170,7 @@
                 <asp:SessionParameter Name="Pro_id" SessionField="ID" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+    <asp:Button ID="ShowAddbtn" runat="server" CssClass="auto-style12" OnClick="Showbtn_Click" Text="Add Schedule Info" />
         </asp:Content>
 
  
