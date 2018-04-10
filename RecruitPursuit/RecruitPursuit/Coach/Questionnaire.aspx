@@ -7,8 +7,9 @@
             background-color: #D9230F;
             border-color: #D9230F;
             position: absolute;
-            top: 490px;
-            left: 10px;
+            top: 535px;
+            left: 5px;
+            z-index: 1;
         }
         .auto-style2 {
             color: #fff;
@@ -53,7 +54,7 @@
     <br />
 
 
-        <asp:Button ID="ButtonAdd" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False" CssClass="auto-style1" style="z-index: 1" />
+        <asp:Button ID="ButtonAdd" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False" CssClass="auto-style1" />
     &nbsp;&nbsp;&nbsp;
     <br />
     <p>
