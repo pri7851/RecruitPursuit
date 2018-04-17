@@ -46,6 +46,9 @@
 </nav>
 
    <div style="padding-left:10px; padding-top:10px"> 
+       <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+
+       </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

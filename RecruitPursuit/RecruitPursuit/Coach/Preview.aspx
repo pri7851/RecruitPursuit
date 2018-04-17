@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Preview.aspx.cs" Inherits="Coach_Preview" %>
+﻿<%@ Page Title="Preview" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Preview.aspx.cs" Inherits="Coach_Preview" %>
 
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
              <h2>  
@@ -227,3 +227,14 @@
              </asp:SqlDataSource>
     </asp:Content>
 
+
+<asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
+ 
+
+ <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+     <li class="breadcrumb-item"><a href="Questionnaire.aspx">Home</a></li>
+        <li class="breadcrumb-item active">Preview</li>
+    </ol>
+
+</asp:Content>

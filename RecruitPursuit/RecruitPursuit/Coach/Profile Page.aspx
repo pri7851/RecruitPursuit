@@ -1,50 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Profile Page.aspx.cs" Inherits="Profile_Page" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Profile Page.aspx.cs" Inherits="Profile_Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-    .auto-style1 {
-        left: 785px;
-        top: 285px;
-        margin-top: 0;
-            position: absolute;
-            z-index: 1;
-            margin-bottom: 0;
-        }
-    .auto-style3 {
-        top: 75px;
-            width: 136px;
-            height: 170px;
-            position: absolute;
-            z-index: 1;
-            left: 15px;
-        }
-    .auto-style4 {
-        z-index: 1;
-        left: 785px;
-        top: 340px;
-            width: 183px;
-            height: 163px;
-            position: absolute;
-        }
-        .auto-style14 {
-            color: #fff;
-            background-color: #D9230F;
-            border-color: #D9230F;
-            position: relative;
-            top: 47px;
-            left: 785px;
-        }
-        .auto-style15 {
-            color: #fff;
-            background-color: #D9230F;
-            border-color: #D9230F;
-            position: relative;
-            top: 11px;
-            left: 965px;
-        }
-    </style>
+  
+    
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    
+
+      <br />
+    <br />
+    <br />
     <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1"></asp:TextBox>
     <br />
     <br />
@@ -469,5 +434,14 @@
         </SelectParameters>
     </asp:SqlDataSource>
     </asp:Content>
+
+
+<asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+        <li class="breadcrumb-item active">Profile</li>
+    </ol>
+</asp:Content>
+
 
 

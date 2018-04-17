@@ -12,13 +12,30 @@ public partial class Questionnaire : System.Web.UI.Page
 {
     String sportHasPositions;
 
-
+    object nullableValue;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+        using (SqlCommand dataCommand =
+                new SqlCommand("select Position from Positions Where Sport_Id = @Sport_Id", dataConnection))
 
-        /*
-        String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+        {
+            dataConnection.Open();
+            SqlParameter param2 = new SqlParameter();
+            param2.ParameterName = "@Sport_Id";
+            param2.Value = Session["SportID"];
+            dataCommand.Parameters.Add(param2);
+
+            nullableValue = dataCommand.ExecuteScalar();
+            if (nullableValue == null)// || nullableValue == DBNull.Value)
+            {
+                Panel1.Visible = false;
+                btnAdd.Visible = true;
+            }
+        }
+
+       /* String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
         SqlConnection con = new SqlConnection(conString);
 
         //create a command behavior object
@@ -39,8 +56,10 @@ public partial class Questionnaire : System.Web.UI.Page
             object nullableValue = cmd.ExecuteScalar();
             if (nullableValue == null)// || nullableValue == DBNull.Value)
             {
-                Response.Redirect("Positions.aspx");
+                Panel1.Visible = false;
+                btnAdd.Visible = true;
             }
+           
             added = cmd.ExecuteNonQuery();
         }
 
@@ -55,6 +74,7 @@ public partial class Questionnaire : System.Web.UI.Page
        
         }
         */
+
 
         if (!Page.IsPostBack)
         {
@@ -73,18 +93,34 @@ public partial class Questionnaire : System.Web.UI.Page
             }
         }
 
-        if (sportHasPositions == "No")
-        {
-            CheckBox1.Checked = true;
-            Panel1.Visible = false;
-        }
 
-        if (sportHasPositions == "Yes")
-        {
-            CheckBox1.Checked = false;
-            Panel1.Visible = true;
-        }
+            if (sportHasPositions == "No")
+            {
+                CheckBox1.Checked = true;
+                Panel1.Visible = false;
+                btnAdd.Visible = false;
+            }
 
+            if (sportHasPositions == "Yes")
+            {
+                CheckBox1.Checked = false;
+                if (nullableValue == null)// || nullableValue == DBNull.Value)
+                {
+                    Panel1.Visible = false;
+                    btnAdd.Visible = true;
+                }
+                else
+                {
+                    Panel1.Visible = true;
+                    btnAdd.Visible = false;
+                }
+
+
+                
+
+            }
+
+        
     }
 
     protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -125,6 +161,7 @@ public partial class Questionnaire : System.Web.UI.Page
                 con.Close();
             }
             Panel1.Visible = false;
+            btnAdd.Visible = false;
         }
 
         if (CheckBox1.Checked == false)
@@ -162,7 +199,18 @@ public partial class Questionnaire : System.Web.UI.Page
             {
                 con.Close();
             }
-            Panel1.Visible = true;
+
+            CheckBox1.Checked = false;
+            if (nullableValue == null)// || nullableValue == DBNull.Value)
+            {
+                Panel1.Visible = false;
+                btnAdd.Visible = true;
+            }
+            else
+            {
+                Panel1.Visible = true;
+                btnAdd.Visible = false;
+            }
         }
     }
 
@@ -249,5 +297,10 @@ public partial class Questionnaire : System.Web.UI.Page
     protected void btnEdit_Click(object sender, EventArgs e)
     {
         Response.Redirect("Pick Positions.aspx");
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Positions.aspx");
     }
 }

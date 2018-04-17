@@ -152,28 +152,25 @@
             <h1>Athletic Information</h1>
 
         
-             Primary Position:&nbsp;
-
-        
-             <asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
-             </asp:DropDownList>
-
-        
-             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
-                 <SelectParameters>
-                     <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
-                 </SelectParameters>
-             </asp:SqlDataSource>
-             <br />
-             Secondary Position:&nbsp;
-             <asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
-             </asp:DropDownList>
-&nbsp;<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
-                    <SelectParameters>
-                        <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-             <br />
+                 <asp:Panel ID="Panel4" runat="server" Visible="False">
+                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
+                     </asp:DropDownList>
+                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
+                         <SelectParameters>
+                             <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+                         </SelectParameters>
+                     </asp:SqlDataSource>
+                     <br />
+                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
+                     </asp:DropDownList>
+                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
+                         <SelectParameters>
+                             <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
+                         </SelectParameters>
+                     </asp:SqlDataSource>
+                 </asp:Panel>
+                 &nbsp;<br />
+                 &nbsp;&nbsp;<br />
              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
                  <Columns>
                      <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />

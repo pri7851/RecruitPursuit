@@ -20,6 +20,7 @@ public partial class Coach_Schedule : System.Web.UI.Page
 
     protected void FilterBtn_Click(object sender, EventArgs e)
     {
+        GridView1.Visible = true;
         if (DDL1.SelectedItem.Text != "Date")
         {
              string FilterExpression = string.Concat(DDL1.SelectedValue, " LIKE '%{0}%'");

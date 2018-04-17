@@ -61,3 +61,13 @@
         }
     </style>
 </asp:Content>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder2">
+ 
+
+ <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+ 
+        <li class="breadcrumb-item active">Rank</li>
+    </ol>
+
+</asp:Content>

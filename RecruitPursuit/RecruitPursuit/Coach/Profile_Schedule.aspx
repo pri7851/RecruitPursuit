@@ -17,9 +17,9 @@
         }
         .auto-style10 {
             left: 435px;
-            top: 463px;
+            top: 464px;
             width: 533px;
-            height: 267px;
+            height: 371px;
             position: relative;
         }
         .auto-style11 {
@@ -81,7 +81,7 @@
             runat="server" 
             Font-Size="X-Large" 
             Font-Names="Palatino"
-            BackColor="black"
+            BackColor="#D9230F"
             BorderColor="black"
             BorderWidth="2"
             ForeColor="Snow"
@@ -91,7 +91,7 @@
             <asp:TableHeaderRow 
                 runat="server" 
                 ForeColor="Snow"
-                BackColor="darkred"
+                BackColor="#D9230F"
                 Font-Bold="true"
                 >
                 <asp:TableHeaderCell>Add Schedule</asp:TableHeaderCell>
@@ -99,7 +99,7 @@
             <asp:TableRow 
                 ID="TableRow1" 
                 runat="server" 
-                BackColor="darkred"
+                BackColor="#D9230F"
                 >
                 <asp:TableCell>Tournament:</asp:TableCell>
                 <asp:TableCell><asp:TextBox ID="TmentTxt" runat="server"></asp:TextBox></asp:TableCell>
@@ -107,7 +107,7 @@
             <asp:TableRow 
                 ID="TableRow2" 
                 runat="server" 
-                BackColor="darkred"
+                BackColor="#D9230F"
                 >
                 <asp:TableCell>Location:</asp:TableCell>
                 <asp:TableCell><asp:TextBox ID="LocationTxt" runat="server"></asp:TextBox></asp:TableCell>
@@ -115,7 +115,7 @@
             <asp:TableRow 
                 ID="TableRow3" 
                 runat="server" 
-                BackColor="darkRed"
+                BackColor="#D9230F"
                 >
                 <asp:TableCell>Date: MM/DD/YYYY</asp:TableCell>
                  <asp:TableCell><asp:TextBox ID="DateTxt" runat="server"></asp:TextBox></asp:TableCell>
@@ -123,22 +123,22 @@
             <asp:TableRow 
                 ID="TableRow4" 
                 runat="server" 
-                BackColor="Darkred"
+                BackColor="#D9230F"
                 >
-               <asp:TableCell>Time:</asp:TableCell>
-                <asp:TableCell><asp:TextBox ID="TimeTxt" runat="server"></asp:TextBox></asp:TableCell>
+               <asp:TableCell>Times:</asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="TimeTxt" runat="server" placeholder="Separate times with commas."></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow 
                 ID="TableRow5" 
                 runat="server" 
-                BackColor="darkRed"
+                BackColor="#D9230F"
                 >
                 <asp:TableCell>Team:</asp:TableCell>
                 <asp:TableCell>  <asp:TextBox ID="TeamTxt" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableFooterRow 
                 runat="server" 
-                BackColor="darkred"
+                BackColor="#D9230F"
                 >
                  <asp:TableCell
                     ColumnSpan="3" 
@@ -174,3 +174,13 @@
         </asp:Content>
 
  
+<asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder2">
+ 
+
+ <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+     <li class="breadcrumb-item"><a href="Profile.aspx">Profile</a></li>
+        <li class="breadcrumb-item active">Schedule</li>
+    </ol>
+
+</asp:Content>

@@ -6,19 +6,53 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class Recruit_Questionnaire : System.Web.UI.Page
 {
+    String sportHasPositions;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Session["SportName"] != null)
+        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+        using (SqlCommand dataCommand =
+                new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
+
+        {
+            dataConnection.Open();
+            SqlParameter param2 = new SqlParameter();
+            param2.ParameterName = "@Sport_Id";
+            param2.Value = Session["Sport_Id"];
+            dataCommand.Parameters.Add(param2);
+
+            sportHasPositions = dataCommand.ExecuteScalar().ToString();
+        }
+
+
+        if (sportHasPositions == "No")
+        {
+            Panel4.Visible = false;
+
+        }
+
+        if (sportHasPositions == "Yes")
+        {
+            Panel4.Visible = true;
+
+        }
+
+        if (Session["SportName"] != null)
         {
             lblSport.Text = Session["SportName"].ToString();
+           
         }
+
         else
         {
             Response.Redirect("Recruit Sport Selection.aspx");
         }
+
+        
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -27,8 +61,8 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conString);
 
         //create a command behavior object
-        String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_NCAA_ID, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played, Position)" +
-            "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_NCAA_ID, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @Position)";
+        String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_NCAA_ID, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played)" +
+            "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_NCAA_ID, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played)";
         SqlCommand cmd = new SqlCommand(cmdString, con);
 
         
@@ -215,7 +249,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         cmd.Parameters.Add(param37);
 
         SqlParameter param38 = new SqlParameter();
-        param38.ParameterName = "@PrimaryPosition";
+        param38.ParameterName = "@SecondaryPosition";
         param38.Value = DropDownListSecondaryPositions.SelectedValue;
         cmd.Parameters.Add(param38);
 

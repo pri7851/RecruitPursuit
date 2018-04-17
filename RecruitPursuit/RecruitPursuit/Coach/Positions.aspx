@@ -34,51 +34,51 @@
     <br />
     <asp:PlaceHolder  ID="PlaceHolder2" runat="server" Visible="False">
         Option 11:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt11" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 12:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt12" runat="server"></asp:TextBox>
     <br />
     Option 13:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt13" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 14:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt14" runat="server"></asp:TextBox>
     <br />
-    Option 15:&nbsp;&nbsp; <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+    Option 15:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt15" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 16:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt16" runat="server"></asp:TextBox>
     <br />
-    Option 17:&nbsp;&nbsp; <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+    Option 17:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt17" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 18:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt18" runat="server"></asp:TextBox>
     <br />
-    Option 19:&nbsp;&nbsp; <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+    Option 19:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt19" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 20:&nbsp; &nbsp;
-    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt20" runat="server"></asp:TextBox>
     </asp:PlaceHolder>
     <br />
     <br />
     <asp:PlaceHolder ID="PlaceHolder3" runat="server" Visible="False">
         Option 21:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt21" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 22:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt22" runat="server"></asp:TextBox>
     <br />
     Option 23:&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox13" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt23" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 24:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt24" runat="server"></asp:TextBox>
     <br />
-    Option 25:&nbsp;&nbsp; <asp:TextBox ID="TextBox15" runat="server"></asp:TextBox>
+    Option 25:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt25" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 26:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox16" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt26" runat="server"></asp:TextBox>
     <br />
-    Option 27:&nbsp;&nbsp; <asp:TextBox ID="TextBox17" runat="server"></asp:TextBox>
+    Option 27:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt27" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 28:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="TextBox18" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt28" runat="server"></asp:TextBox>
     <br />
-    Option 29:&nbsp;&nbsp; <asp:TextBox ID="TextBox19" runat="server"></asp:TextBox>
+    Option 29:&nbsp;&nbsp; <asp:TextBox ID="TextBoxOpt29" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Option 30:&nbsp; &nbsp;
-    <asp:TextBox ID="TextBox20" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxOpt30" runat="server"></asp:TextBox>
     </asp:PlaceHolder>
         <br />
         <asp:Button ID="BtnShow" runat="server" OnClick="BtnShow_Click" Text="Show More" />
@@ -87,4 +87,11 @@
         <br />
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
 </asp:Content>
-
+<asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
+    <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+        <li class="breadcrumb-item"><a href="Questionnaire.aspx">Questionnaire</a></li>
+        
+        <li class="breadcrumb-item active">Add Positions</li>
+    </ol>
+    </asp:Content>

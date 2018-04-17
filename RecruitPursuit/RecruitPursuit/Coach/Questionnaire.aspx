@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Questionnaire.aspx.cs" Inherits="Questionnaire" %>
+﻿<%@ Page Title="Questionnaire" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Questionnaire.aspx.cs" Inherits="Questionnaire" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -27,11 +27,15 @@
     Athletic Information:</h1>
     <p>
         <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="My sport doesn't have positions." AutoPostBack="True" />
+         <p>
+         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add Positions" Visible="False" />
         <asp:Panel ID="Panel1" runat="server" Height="108px">
+           
+            <br />
             Positions:&nbsp;
             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
                 <SelectParameters>
                     <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
                 </SelectParameters>
@@ -85,3 +89,9 @@
   
 </asp:Content>
 
+<asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+        <li class="breadcrumb-item active">Questionnaire</li>
+    </ol>
+</asp:Content>
