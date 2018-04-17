@@ -10,18 +10,18 @@
       <br />
     <br />
     <br />
-    <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1"></asp:TextBox>
     <br />
     <br />
     <br />
     <br />
     <br />
+    <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1" style="z-index: 1; position: absolute; top: 420px; left: 930px"></asp:TextBox>
     <br />
-    <asp:Button ID="BtnViewSch" runat="server" color="#fff" background-color = "#D9230F" border-color="#D9230F"  OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style14"    />
+    <asp:Button ID="BtnViewSch" runat="server" color="#fff" background-color = "#D9230F" border-color="#D9230F"  OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style14" style="z-index: 1; position: absolute; top: 350px; left: 935px; margin-top: 25"    />
     <br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3" style="z-index: 1; width: 209px; height: 781px; position: absolute; top: 275px; left: 10px">
         <EditItemTemplate>
             Pro_Id:
             <asp:Label ID="Pro_IdLabel1" runat="server" Text='<%# Eval("Pro_Id") %>' />
@@ -386,7 +386,7 @@
         </ItemTemplate>
     </asp:FormView>
     <br />
-    <asp:Button ID="AddNotes" runat="server"  OnClick="Addnotes_Click" Text="Add Note"  CssClass="auto-style15" class="btn btn-primary"  />
+    <asp:Button ID="AddNotes" runat="server"  OnClick="Addnotes_Click" Text="Add Note"  CssClass="auto-style15" class="btn btn-primary" style="z-index: 1; position: absolute; top: 415px; left: 1120px"  />
     <br />
     <br />
     <br />
@@ -404,7 +404,7 @@
     <br />
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" Width="183px" CssClass="auto-style4" DataKeyNames="Note_id">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" Width="183px" CssClass="auto-style4" DataKeyNames="Note_id" style="z-index: 1; width: 245px; height: 163px; position: absolute; top: 475px; left: 930px">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" />
             <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
