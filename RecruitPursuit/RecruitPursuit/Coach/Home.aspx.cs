@@ -44,4 +44,9 @@ public partial class Home : System.Web.UI.Page
         Session.Clear();
         Response.Redirect("Welcome.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Ranktest2.aspx");
+    }
 }
