@@ -9,7 +9,7 @@
          </Columns>
      </asp:GridView>
 
-       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE (([Position] &lt;&gt; @Position) AND ([Sport_Id] = @Sport_Id))" DeleteCommand="DELETE FROM [Positions] WHERE [Position_Id] = @original_Position_Id" InsertCommand="INSERT INTO [Positions] ([Sport_Id], [Position]) VALUES (@Sport_Id, @Position)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Positions] SET [Sport_Id] = @Sport_Id, [Position] = @Position WHERE [Position_Id] = @original_Position_Id">
+       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE (([Sport_Id] = @Sport_Id) AND ([Position] &lt;&gt; @Position))" DeleteCommand="DELETE FROM [Positions] WHERE [Position_Id] = @original_Position_Id" InsertCommand="INSERT INTO [Positions] ([Sport_Id], [Position]) VALUES (@Sport_Id, @Position)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Positions] SET [Position] = @Position WHERE [Position_Id] = @original_Position_Id">
         <DeleteParameters>
             <asp:Parameter Name="original_Position_Id" Type="Int32" />
         </DeleteParameters>
@@ -18,11 +18,10 @@
             <asp:Parameter Name="Position" Type="String" />
         </InsertParameters>
         <SelectParameters>
-            <asp:Parameter DefaultValue="null" Name="Position" Type="String" />
             <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
+            <asp:Parameter DefaultValue="null" Name="Position" Type="String" />
         </SelectParameters>
         <UpdateParameters>
-            <asp:Parameter Name="Sport_Id" Type="Int32" />
             <asp:Parameter Name="Position" Type="String" />
             <asp:Parameter Name="original_Position_Id" Type="Int32" />
         </UpdateParameters>

@@ -28,7 +28,7 @@ public partial class Questionnaire : System.Web.UI.Page
             dataCommand.Parameters.Add(param2);
 
             nullableValue = dataCommand.ExecuteScalar();
-            if (nullableValue == null)// || nullableValue == DBNull.Value)
+            if (nullableValue == null || nullableValue.ToString() == "null")// || nullableValue == DBNull.Value)
             {
                 Panel1.Visible = false;
                 btnAdd.Visible = true;
@@ -302,5 +302,10 @@ public partial class Questionnaire : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         Response.Redirect("Positions.aspx");
+    }
+
+    protected void btnPreview_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Preview.aspx");
     }
 }

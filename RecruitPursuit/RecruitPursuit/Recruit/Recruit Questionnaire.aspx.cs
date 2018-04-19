@@ -68,7 +68,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         
         SqlParameter param1 = new SqlParameter();
         param1.ParameterName = "@Sport_Id";
-        param1.Value = Session["SportID"];
+        param1.Value = Session["Sport_Id"];
         cmd.Parameters.Add(param1);
 
         SqlParameter param2 = new SqlParameter();
@@ -300,7 +300,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
     {
         Panel1.Visible = false;
         Panel2.Visible = true;
-        Panel1.Visible = false;
+        Panel3.Visible = false;
         
     }
 }

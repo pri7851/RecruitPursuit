@@ -5,10 +5,13 @@
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-             <h2>  
+                <h2>  
         <asp:Label ID="lblSport" runat="server"></asp:Label>
                  </h2>
                  <asp:Panel ID="Panel1" runat="server">
+                              <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
         <h2>Personal Information</h2>
  
     First Name:  <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox>
@@ -74,6 +77,9 @@
 
 
              <asp:Panel ID="Panel2" runat="server" Visible="False">
+                          <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
     <h2>Academic Information</h2>
         <h4>High School Information</h4>
         Name of High School:  <asp:TextBox ID="TextBoxHSName" runat="server"></asp:TextBox>
@@ -146,6 +152,9 @@
                  <asp:Button ID="btnBack1" runat="server" Text="Back" OnClick="btnBack1_Click" /><asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click"/>
         </asp:Panel>
              <asp:Panel ID="Panel3" runat="server" Visible="False">
+                          <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
             <p>
                 <asp:Label ID="Output" runat="server"></asp:Label>
             </p>
@@ -155,13 +164,13 @@
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
                      Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
                      </asp:DropDownList>
-                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
+                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
                          <SelectParameters>
-                             <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+                             <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
-                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
+                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>

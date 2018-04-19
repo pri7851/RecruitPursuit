@@ -109,4 +109,10 @@
         <asp:Label ID="Label3" runat="server" CssClass="auto-style6" Font-Bold="True" Font-Underline="True" Text="Grad Year"></asp:Label>
     </p>
 </asp:Content>
+<asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
+        <li class="breadcrumb-item active">Rank</li>
+    </ol>
+</asp:Content>
 

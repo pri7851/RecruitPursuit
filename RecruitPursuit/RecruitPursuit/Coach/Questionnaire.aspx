@@ -80,7 +80,7 @@
     <asp:Button ID="ButtonAdd" type="button" class="btn btn-primary" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False"/>
     </p>
     <p>
-        <asp:Button ID="btnPreview" runat="server" Text="Preview Questionnaire" />
+        <asp:Button ID="btnPreview" runat="server" Text="Preview Questionnaire" OnClick="btnPreview_Click" />
         <asp:Label ID="Output" runat="server"></asp:Label>
     </p>
     <p>

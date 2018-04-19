@@ -4,8 +4,11 @@
 
 <html>
 <head runat="server">
+    <link rel="icon" type="image/x-icon" href="/path/to/favicon.ico">
+     <link runat="server" rel="icon" href="favicon.png" type="image/ico"/>
     <link rel="stylesheet" href="StyleSheet.css"/>
     <title></title>
+    
     <asp:ContentPlaceHolder id="head" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -14,7 +17,8 @@
     
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/Welcome.aspx">Recruit Pursuit</a>
+  <a class="navbar-brand" href="/Welcome.aspx">
+      <asp:Image ID="Image1" runat="server" ImageUrl="~/RecruitPursuit Logo.png" Height="116px" Width="197px" /></a>
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
     <span class="navbar-toggler-icon"></span>
   </button>
