@@ -19,8 +19,9 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
 
     protected void btnView_Click(object sender, EventArgs e)
     {
+        Session["SportId"] = DropDownList1.SelectedValue;
         Session["Sport_Id"] = DropDownList1.SelectedValue;
-        Response.Redirect("Home.aspx");
+        Response.Redirect("~/Coach/Home.aspx");
     }
 
 
@@ -33,6 +34,6 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
     protected void btn_Logout_Click(object sender, EventArgs e)
     {
         Session.Clear();
-        Response.Redirect("Admin Login.aspx");
+        Response.Redirect("~/Welcome.aspx");
     }
 }

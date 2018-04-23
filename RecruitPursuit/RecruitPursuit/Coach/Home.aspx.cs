@@ -42,7 +42,7 @@ public partial class Home : System.Web.UI.Page
     protected void btnLogout_Click(object sender, EventArgs e)
     {
         Session.Clear();
-        Response.Redirect("Welcome.aspx");
+        Response.Redirect("~/Welcome.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)

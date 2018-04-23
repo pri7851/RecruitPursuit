@@ -24,11 +24,11 @@ public partial class Questionnaire : System.Web.UI.Page
             dataConnection.Open();
             SqlParameter param2 = new SqlParameter();
             param2.ParameterName = "@Sport_Id";
-            param2.Value = Session["SportID"];
+            param2.Value = Session["Sport_Id"];
             dataCommand.Parameters.Add(param2);
 
             nullableValue = dataCommand.ExecuteScalar();
-            if (nullableValue == null || nullableValue.ToString() == "null")// || nullableValue == DBNull.Value)
+            if (nullableValue == null)// || nullableValue == DBNull.Value)
             {
                 Panel1.Visible = false;
                 btnAdd.Visible = true;
@@ -86,7 +86,7 @@ public partial class Questionnaire : System.Web.UI.Page
                 dataConnection.Open();
                 SqlParameter param2 = new SqlParameter();
                 param2.ParameterName = "@Sport_Id";
-                param2.Value = Session["SportID"];
+                param2.Value = Session["Sport_Id"];
                 dataCommand.Parameters.Add(param2);
 
                 sportHasPositions = dataCommand.ExecuteScalar().ToString();
@@ -141,7 +141,7 @@ public partial class Questionnaire : System.Web.UI.Page
 
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "@Sport_Id";
-            param1.Value = Session["SportID"];
+            param1.Value = Session["Sport_Id"];
             cmd.Parameters.Add(param1);
 
             int added = 0;
@@ -180,7 +180,7 @@ public partial class Questionnaire : System.Web.UI.Page
 
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "@Sport_Id";
-            param1.Value = Session["SportID"];
+            param1.Value = Session["Sport_Id"];
             cmd.Parameters.Add(param1);
 
             int added = 0;
@@ -244,7 +244,7 @@ public partial class Questionnaire : System.Web.UI.Page
             //create parameter object and add it's value;
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "@Sport_Id";
-            param1.Value = Session["SportID"];
+            param1.Value = Session["Sport_Id"];
             cmd.Parameters.Add(param1);
 
             SqlParameter param12 = new SqlParameter();
@@ -296,7 +296,7 @@ public partial class Questionnaire : System.Web.UI.Page
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Pick Positions.aspx");
+        Response.Redirect("Positions.aspx");
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)

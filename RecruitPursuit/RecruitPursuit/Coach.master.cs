@@ -13,6 +13,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             Label1.Text = "Welcome " + Session["Username"].ToString() + "!";
         }
+        else if (Session["Admin"] != null)
+        {
+            Label1.Text = "Welcome " + Session["Admin"].ToString() + "!";
+        }
         else
         {
             Response.Redirect("User Login.aspx");
@@ -22,6 +26,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Button1_Click(object sender, EventArgs e)
     {
         Session.Clear();
-        Response.Redirect("User Login.aspx");
+        Response.Redirect("~/Welcome.aspx");
     }
 }

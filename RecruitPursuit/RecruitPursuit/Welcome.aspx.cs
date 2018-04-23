@@ -24,7 +24,9 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btn_Recruit_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Recruit/Recruit Sport Selection.aspx");
+        Page.ClientScript.RegisterStartupScript(
+   this.GetType(), "OpenWindow", "window.open('Recruit/Recruit Sport Selection.aspx','_newtab');", true);
+       // Response.Redirect("Recruit/Recruit Sport Selection.aspx");
     }
 
     protected void Button3_Click(object sender, EventArgs e)

@@ -229,6 +229,7 @@ svg:not(:root) {
 table {
     border-collapse: collapse;
     font-size: small;
+    margin-top: 0px;
 }
 
 caption {
@@ -276,6 +277,7 @@ textarea {
 button,
 input {
     overflow: visible;
+    margin-top: 19;
 }
 
 button,
@@ -288,6 +290,7 @@ html [type="button"],
 [type="reset"],
 [type="submit"] {
     -webkit-appearance: button;
+    text-align: right;
 }
 
     button::-moz-focus-inner,

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Welcome.master" CodeFile="Recruit Questionnaire.aspx.cs" Inherits="Recruit_Questionnaire" %>
+﻿<%@ Page Title="Questionnaire" Language="C#" AutoEventWireup="true" MasterPageFile="~/Welcome.master" CodeFile="Recruit Questionnaire.aspx.cs" Inherits="Recruit_Questionnaire" %>
 
 
    
@@ -62,14 +62,28 @@
     Mother&#39;s Occupation:  <asp:TextBox ID="TextBoxMotherOcc" runat="server"></asp:TextBox>
     <br />
         <br />
-    Have you applied to Cal U?<br />
+                              Have you applied to Cal U?&nbsp;&nbsp;
+                              <asp:RadioButtonList ID="RadioButtonListApplied" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CellPadding="5" RepeatColumns="2" Width="150px">
+                                  <asp:ListItem>Yes&nbsp;&nbsp;&nbsp;    </asp:ListItem>
+                                  <asp:ListItem Value="No"></asp:ListItem>
+                              </asp:RadioButtonList>
         <br />
-    Have you registered at eligibilitycenter.org (NCAA requirement)?<br />
-        <br />
+                              <br />
+                              Have you registered at eligibilitycenter.org (NCAA requirement)?&nbsp;&nbsp;
+                     <asp:RadioButtonList ID="RadioButtonNCAA" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CellPadding="5" RepeatColumns="2" Width="150px">
+                                  <asp:ListItem>Yes&nbsp;&nbsp;&nbsp;    </asp:ListItem>
+                                  <asp:ListItem Value="No"></asp:ListItem>
+                              </asp:RadioButtonList><br />
+                              <br />
     NCAA Eligibility Center ID Number:&nbsp; <asp:TextBox ID="TextBoxNCAAID" runat="server"></asp:TextBox>
     <br />
         <br />
-    Have you applied for Financial Aid with FAFSA?<br />
+                              Have you applied for Financial Aid with FAFSA?&nbsp;&nbsp;  
+                     <asp:RadioButtonList ID="RadioButtonListFAFSA" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" CellPadding="5" RepeatColumns="2" Width="150px">
+                                  <asp:ListItem>Yes&nbsp;&nbsp;&nbsp;    </asp:ListItem>
+                                  <asp:ListItem Value="No"></asp:ListItem>
+                              </asp:RadioButtonList>&nbsp;
+                              <br />
     <br />
         <asp:Button ID="btnNext1" runat="server" Text="Next" OnClick="btnNext1_Click"/>
 
@@ -198,7 +212,13 @@
              <br />
              <br />
                 <asp:Button ID="Back2" runat="server" Text="Back" OnClick="Back2_Click" /><asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
-                 </asp:Panel>
+                  </asp:Panel>
+                          <asp:Panel ID="Panel5" runat="server" Visible="False">
+                           <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+                              Thank you for your submission!</asp:Panel>
+                
                 </asp:Content>
 
 
