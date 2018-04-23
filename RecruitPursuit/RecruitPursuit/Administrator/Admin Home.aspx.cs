@@ -35,4 +35,9 @@ public partial class Administrator_Admin_Home : System.Web.UI.Page
         Session.Clear();
         Response.Redirect("Admin Login.aspx");
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Add Admin.aspx");
+    }
 }
