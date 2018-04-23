@@ -15,13 +15,13 @@
             width: 850px;
             height: 190px;
             position: absolute;
-            top: 245px;
+            top: 290px;
             left: 215px;
             z-index: 1;
         }
         .auto-style3 {
             position: absolute;
-            top: 195px;
+            top: 245px;
             left: 450px;
             z-index: 1;
             height: 19px;
@@ -30,7 +30,7 @@
         }
         .auto-style4 {
             position: absolute;
-            top: 195px;
+            top: 245px;
             left: 675px;
             z-index: 1;
             right: 491px;
@@ -38,7 +38,7 @@
         }
         .auto-style5 {
             position: absolute;
-            top: 120px;
+            top: 175px;
             left: 585px;
             z-index: 1;
             width: 65px;
@@ -47,13 +47,13 @@
         }
         .auto-style6 {
             position: absolute;
-            top: 165px;
-            left: 460px;
+            top: 220px;
+            left: 455px;
             z-index: 1;
         }
         .auto-style7 {
             position: absolute;
-            top: 165px;
+            top: 220px;
             left: 690px;
             z-index: 1;
         }
@@ -65,7 +65,7 @@
         <asp:DropDownList ID="ddlGradyear" runat="server" AutoPostBack="True" CssClass="auto-style3" DataSourceID="SDddlGradDate" DataTextField="Rec_HSGradYear" DataValueField="Rec_HSGradYear" AppendDataBoundItems="True">
             <asp:ListItem Value="%">ALL</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" AutoPostBack="True" CssClass="auto-style4" DataSourceID="SDddlPosition" DataTextField="Rec_PrimaryPosition" DataValueField="Rec_PrimaryPosition">
+        <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" AutoPostBack="True" CssClass="auto-style4" DataSourceID="SDddlPosition" DataTextField="Rec_PrimaryPosition" DataValueField="Rec_PrimaryPosition" OnSelectedIndexChanged="ddlPosition_SelectedIndexChanged">
             <asp:ListItem Value="%">All Positions</asp:ListItem>
         </asp:DropDownList>
         <asp:GridView ID="GridView1" runat="server" CssClass="auto-style2" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SDgv1">
