@@ -19,7 +19,7 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
     
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-        string connection = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Justin\Desktop\recruitpursuit.mdf; Integrated Security = True; Connect Timeout = 30";
+        string connection = "Data Source = 184.168.47.21; Initial Catalog = RecruitPursuit; Persist Security Info = True; User ID = RecruitPursuit; Password = Recruit20!8";
         SqlConnection con = new SqlConnection(connection);
         con.Open();
         SqlCommand cmd = new SqlCommand();

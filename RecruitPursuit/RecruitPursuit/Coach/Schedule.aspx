@@ -65,7 +65,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-<asp:Calendar ID="Calendar1" runat="server" Visible="False" BackColor="White" BorderColor="#D9230F" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged1" ShowGridLines="True" Width="220px">
+    <asp:Calendar ID="Calendar1" runat="server" Visible="False" BackColor="White" BorderColor="#D9230F" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged1" ShowGridLines="True" Width="220px">
     <DayHeaderStyle BackColor="#D9230F" Font-Bold="True" Height="1px" ForeColor="White" />
     <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
     <OtherMonthDayStyle ForeColor="#CC9966" />
