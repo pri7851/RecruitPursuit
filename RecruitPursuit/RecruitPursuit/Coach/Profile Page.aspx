@@ -5,23 +5,25 @@
     
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    
+   <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#personal">Personal</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#academic">Academic</a>
+  </li>
+       <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#athletic">Athletic</a>
+  </li>
+        <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#notes">Notes</a>
+  </li>
+  
+ </ul>
 
-      <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1" style="z-index: 1; position: absolute; top: 420px; left: 930px"></asp:TextBox>
-    <br />
-    <asp:Button ID="BtnViewSch" runat="server" color="#fff" background-color = "#D9230F" border-color="#D9230F"  OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style14" style="z-index: 1; position: absolute; top: 350px; left: 935px; margin-top: 25"    />
-    <br />
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3" style="z-index: 1; width: 209px; height: 781px; position: absolute; top: 275px; left: 10px">
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade show active" id="personal">
+       <asp:FormView ID="FormView1" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3" style="z-index: 1; width: 209px; height: 781px; position: absolute; top: 275px; left: 10px">
         <EditItemTemplate>
             Pro_Id:
             <asp:Label ID="Pro_IdLabel1" runat="server" Text='<%# Eval("Pro_Id") %>' />
@@ -89,61 +91,9 @@
             Rec_FAFSA:
             <asp:TextBox ID="Rec_FAFSATextBox" runat="server" Text='<%# Bind("Rec_FAFSA") %>' />
             <br />
-            Rec_HSName:
-            <asp:TextBox ID="Rec_HSNameTextBox" runat="server" Text='<%# Bind("Rec_HSName") %>' />
-            <br />
-            Rec_HSGradYear:
-            <asp:TextBox ID="Rec_HSGradYearTextBox" runat="server" Text='<%# Bind("Rec_HSGradYear") %>' />
-            <br />
-            Rec_HSGPA:
-            <asp:TextBox ID="Rec_HSGPATextBox" runat="server" Text='<%# Bind("Rec_HSGPA") %>' />
-            <br />
-            Rec_SAT_Verbal:
-            <asp:TextBox ID="Rec_SAT_VerbalTextBox" runat="server" Text='<%# Bind("Rec_SAT_Verbal") %>' />
-            <br />
-            Rec_SAT_Math:
-            <asp:TextBox ID="Rec_SAT_MathTextBox" runat="server" Text='<%# Bind("Rec_SAT_Math") %>' />
-            <br />
-            Rec_SAT_Tot:
-            <asp:TextBox ID="Rec_SAT_TotTextBox" runat="server" Text='<%# Bind("Rec_SAT_Tot") %>' />
-            <br />
-            Rec_ACT:
-            <asp:TextBox ID="Rec_ACTTextBox" runat="server" Text='<%# Bind("Rec_ACT") %>' />
-            <br />
-            Rec_Acad_Honors:
-            <asp:TextBox ID="Rec_Acad_HonorsTextBox" runat="server" Text='<%# Bind("Rec_Acad_Honors") %>' />
-            <br />
-            Rec_Poss_Major:
-            <asp:TextBox ID="Rec_Poss_MajorTextBox" runat="server" Text='<%# Bind("Rec_Poss_Major") %>' />
-            <br />
-            Rec_JCName:
-            <asp:TextBox ID="Rec_JCNameTextBox" runat="server" Text='<%# Bind("Rec_JCName") %>' />
-            <br />
-            Rec_JC_NumSem:
-            <asp:TextBox ID="Rec_JC_NumSemTextBox" runat="server" Text='<%# Bind("Rec_JC_NumSem") %>' />
-            <br />
-            Rec_JCGPA:
-            <asp:TextBox ID="Rec_JCGPATextBox" runat="server" Text='<%# Bind("Rec_JCGPA") %>' />
-            <br />
-            Rec_JC_Tot_Units:
-            <asp:TextBox ID="Rec_JC_Tot_UnitsTextBox" runat="server" Text='<%# Bind("Rec_JC_Tot_Units") %>' />
-            <br />
-            Rec_DateAACompleted:
-            <asp:TextBox ID="Rec_DateAACompletedTextBox" runat="server" Text='<%# Bind("Rec_DateAACompleted") %>' />
-            <br />
-            Rec_JC_Coach_Name:
-            <asp:TextBox ID="Rec_JC_Coach_NameTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Name") %>' />
-            <br />
-            Rec_JC_Coach_Email:
-            <asp:TextBox ID="Rec_JC_Coach_EmailTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Email") %>' />
-            <br />
-            Rec_JC_Seasons_Played:
-            <asp:TextBox ID="Rec_JC_Seasons_PlayedTextBox" runat="server" Text='<%# Bind("Rec_JC_Seasons_Played") %>' />
-            <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </EditItemTemplate>
-        <InsertItemTemplate>
+            </EditItemTemplate>
+
+            <InsertItemTemplate>
             Sport_Id:
             <asp:TextBox ID="Sport_IdTextBox" runat="server" Text='<%# Bind("Sport_Id") %>' />
             <br />
@@ -206,62 +156,8 @@
             <br />
             Rec_FAFSA:
             <asp:TextBox ID="Rec_FAFSATextBox" runat="server" Text='<%# Bind("Rec_FAFSA") %>' />
-            <br />
-            Rec_HSName:
-            <asp:TextBox ID="Rec_HSNameTextBox" runat="server" Text='<%# Bind("Rec_HSName") %>' />
-            <br />
-            Rec_HSGradYear:
-            <asp:TextBox ID="Rec_HSGradYearTextBox" runat="server" Text='<%# Bind("Rec_HSGradYear") %>' />
-            <br />
-            Rec_HSGPA:
-            <asp:TextBox ID="Rec_HSGPATextBox" runat="server" Text='<%# Bind("Rec_HSGPA") %>' />
-            <br />
-            Rec_SAT_Verbal:
-            <asp:TextBox ID="Rec_SAT_VerbalTextBox" runat="server" Text='<%# Bind("Rec_SAT_Verbal") %>' />
-            <br />
-            Rec_SAT_Math:
-            <asp:TextBox ID="Rec_SAT_MathTextBox" runat="server" Text='<%# Bind("Rec_SAT_Math") %>' />
-            <br />
-            Rec_SAT_Tot:
-            <asp:TextBox ID="Rec_SAT_TotTextBox" runat="server" Text='<%# Bind("Rec_SAT_Tot") %>' />
-            <br />
-            Rec_ACT:
-            <asp:TextBox ID="Rec_ACTTextBox" runat="server" Text='<%# Bind("Rec_ACT") %>' />
-            <br />
-            Rec_Acad_Honors:
-            <asp:TextBox ID="Rec_Acad_HonorsTextBox" runat="server" Text='<%# Bind("Rec_Acad_Honors") %>' />
-            <br />
-            Rec_Poss_Major:
-            <asp:TextBox ID="Rec_Poss_MajorTextBox" runat="server" Text='<%# Bind("Rec_Poss_Major") %>' />
-            <br />
-            Rec_JCName:
-            <asp:TextBox ID="Rec_JCNameTextBox" runat="server" Text='<%# Bind("Rec_JCName") %>' />
-            <br />
-            Rec_JC_NumSem:
-            <asp:TextBox ID="Rec_JC_NumSemTextBox" runat="server" Text='<%# Bind("Rec_JC_NumSem") %>' />
-            <br />
-            Rec_JCGPA:
-            <asp:TextBox ID="Rec_JCGPATextBox" runat="server" Text='<%# Bind("Rec_JCGPA") %>' />
-            <br />
-            Rec_JC_Tot_Units:
-            <asp:TextBox ID="Rec_JC_Tot_UnitsTextBox" runat="server" Text='<%# Bind("Rec_JC_Tot_Units") %>' />
-            <br />
-            Rec_DateAACompleted:
-            <asp:TextBox ID="Rec_DateAACompletedTextBox" runat="server" Text='<%# Bind("Rec_DateAACompleted") %>' />
-            <br />
-            Rec_JC_Coach_Name:
-            <asp:TextBox ID="Rec_JC_Coach_NameTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Name") %>' />
-            <br />
-            Rec_JC_Coach_Email:
-            <asp:TextBox ID="Rec_JC_Coach_EmailTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Email") %>' />
-            <br />
-            Rec_JC_Seasons_Played:
-            <asp:TextBox ID="Rec_JC_Seasons_PlayedTextBox" runat="server" Text='<%# Bind("Rec_JC_Seasons_Played") %>' />
-            <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </InsertItemTemplate>
-        <ItemTemplate>
+                </InsertItemTemplate>
+              <ItemTemplate>
             Pro_Id:
             <asp:Label ID="Pro_IdLabel" runat="server" Text='<%# Eval("Pro_Id") %>' />
             <br />
@@ -330,7 +226,125 @@
             Rec_FAFSA:<br />&nbsp;
             <asp:Label ID="Rec_FAFSALabel" runat="server" Text='<%# Bind("Rec_FAFSA") %>' />
             <br />
-            ACADEMIC INFO<br /> Rec_HSName:
+              </ItemTemplate>
+              </asp:FormView>
+      </div>
+  <div class="tab-pane fade" id="academic">
+      <asp:FormView ID="FormView2" runat="server" DataKeyNames="Pro_Id" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" CssClass="auto-style3" style="z-index: 1; width: 209px; height: 781px; position: absolute; top: 275px; left: 10px">
+        <EditItemTemplate>
+           Rec_HSName:
+            <asp:TextBox ID="Rec_HSNameTextBox" runat="server" Text='<%# Bind("Rec_HSName") %>' />
+            <br />
+            Rec_HSGradYear:
+            <asp:TextBox ID="Rec_HSGradYearTextBox" runat="server" Text='<%# Bind("Rec_HSGradYear") %>' />
+            <br />
+            Rec_HSGPA:
+            <asp:TextBox ID="Rec_HSGPATextBox" runat="server" Text='<%# Bind("Rec_HSGPA") %>' />
+            <br />
+            Rec_SAT_Verbal:
+            <asp:TextBox ID="Rec_SAT_VerbalTextBox" runat="server" Text='<%# Bind("Rec_SAT_Verbal") %>' />
+            <br />
+            Rec_SAT_Math:
+            <asp:TextBox ID="Rec_SAT_MathTextBox" runat="server" Text='<%# Bind("Rec_SAT_Math") %>' />
+            <br />
+            Rec_SAT_Tot:
+            <asp:TextBox ID="Rec_SAT_TotTextBox" runat="server" Text='<%# Bind("Rec_SAT_Tot") %>' />
+            <br />
+            Rec_ACT:
+            <asp:TextBox ID="Rec_ACTTextBox" runat="server" Text='<%# Bind("Rec_ACT") %>' />
+            <br />
+            Rec_Acad_Honors:
+            <asp:TextBox ID="Rec_Acad_HonorsTextBox" runat="server" Text='<%# Bind("Rec_Acad_Honors") %>' />
+            <br />
+            Rec_Poss_Major:
+            <asp:TextBox ID="Rec_Poss_MajorTextBox" runat="server" Text='<%# Bind("Rec_Poss_Major") %>' />
+            <br />
+            Rec_JCName:
+            <asp:TextBox ID="Rec_JCNameTextBox" runat="server" Text='<%# Bind("Rec_JCName") %>' />
+            <br />
+            Rec_JC_NumSem:
+            <asp:TextBox ID="Rec_JC_NumSemTextBox" runat="server" Text='<%# Bind("Rec_JC_NumSem") %>' />
+            <br />
+            Rec_JCGPA:
+            <asp:TextBox ID="Rec_JCGPATextBox" runat="server" Text='<%# Bind("Rec_JCGPA") %>' />
+            <br />
+            Rec_JC_Tot_Units:
+            <asp:TextBox ID="Rec_JC_Tot_UnitsTextBox" runat="server" Text='<%# Bind("Rec_JC_Tot_Units") %>' />
+            <br />
+            Rec_DateAACompleted:
+            <asp:TextBox ID="Rec_DateAACompletedTextBox" runat="server" Text='<%# Bind("Rec_DateAACompleted") %>' />
+            <br />
+            Rec_JC_Coach_Name:
+            <asp:TextBox ID="Rec_JC_Coach_NameTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Name") %>' />
+            <br />
+            Rec_JC_Coach_Email:
+            <asp:TextBox ID="Rec_JC_Coach_EmailTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Email") %>' />
+            <br />
+            Rec_JC_Seasons_Played:
+            <asp:TextBox ID="Rec_JC_Seasons_PlayedTextBox" runat="server" Text='<%# Bind("Rec_JC_Seasons_Played") %>' />
+            <br />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </EditItemTemplate>
+
+          <InsertItemTemplate>
+           Rec_HSName:
+            <asp:TextBox ID="Rec_HSNameTextBox" runat="server" Text='<%# Bind("Rec_HSName") %>' />
+            <br />
+            Rec_HSGradYear:
+            <asp:TextBox ID="Rec_HSGradYearTextBox" runat="server" Text='<%# Bind("Rec_HSGradYear") %>' />
+            <br />
+            Rec_HSGPA:
+            <asp:TextBox ID="Rec_HSGPATextBox" runat="server" Text='<%# Bind("Rec_HSGPA") %>' />
+            <br />
+            Rec_SAT_Verbal:
+            <asp:TextBox ID="Rec_SAT_VerbalTextBox" runat="server" Text='<%# Bind("Rec_SAT_Verbal") %>' />
+            <br />
+            Rec_SAT_Math:
+            <asp:TextBox ID="Rec_SAT_MathTextBox" runat="server" Text='<%# Bind("Rec_SAT_Math") %>' />
+            <br />
+            Rec_SAT_Tot:
+            <asp:TextBox ID="Rec_SAT_TotTextBox" runat="server" Text='<%# Bind("Rec_SAT_Tot") %>' />
+            <br />
+            Rec_ACT:
+            <asp:TextBox ID="Rec_ACTTextBox" runat="server" Text='<%# Bind("Rec_ACT") %>' />
+            <br />
+            Rec_Acad_Honors:
+            <asp:TextBox ID="Rec_Acad_HonorsTextBox" runat="server" Text='<%# Bind("Rec_Acad_Honors") %>' />
+            <br />
+            Rec_Poss_Major:
+            <asp:TextBox ID="Rec_Poss_MajorTextBox" runat="server" Text='<%# Bind("Rec_Poss_Major") %>' />
+            <br />
+            Rec_JCName:
+            <asp:TextBox ID="Rec_JCNameTextBox" runat="server" Text='<%# Bind("Rec_JCName") %>' />
+            <br />
+            Rec_JC_NumSem:
+            <asp:TextBox ID="Rec_JC_NumSemTextBox" runat="server" Text='<%# Bind("Rec_JC_NumSem") %>' />
+            <br />
+            Rec_JCGPA:
+            <asp:TextBox ID="Rec_JCGPATextBox" runat="server" Text='<%# Bind("Rec_JCGPA") %>' />
+            <br />
+            Rec_JC_Tot_Units:
+            <asp:TextBox ID="Rec_JC_Tot_UnitsTextBox" runat="server" Text='<%# Bind("Rec_JC_Tot_Units") %>' />
+            <br />
+            Rec_DateAACompleted:
+            <asp:TextBox ID="Rec_DateAACompletedTextBox" runat="server" Text='<%# Bind("Rec_DateAACompleted") %>' />
+            <br />
+            Rec_JC_Coach_Name:
+            <asp:TextBox ID="Rec_JC_Coach_NameTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Name") %>' />
+            <br />
+            Rec_JC_Coach_Email:
+            <asp:TextBox ID="Rec_JC_Coach_EmailTextBox" runat="server" Text='<%# Bind("Rec_JC_Coach_Email") %>' />
+            <br />
+            Rec_JC_Seasons_Played:
+            <asp:TextBox ID="Rec_JC_Seasons_PlayedTextBox" runat="server" Text='<%# Bind("Rec_JC_Seasons_Played") %>' />
+            <br />
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </InsertItemTemplate>
+
+       <ItemTemplate>
+           Rec_HSName:
             <asp:Label ID="Rec_HSNameLabel" runat="server" Text='<%# Bind("Rec_HSName") %>' />
             <br />
             Rec_HSGradYear:
@@ -381,10 +395,42 @@
             Rec_JC_Seasons_Played:
             <asp:Label ID="Rec_JC_Seasons_PlayedLabel" runat="server" Text='<%# Bind("Rec_JC_Seasons_Played") %>' />
             <br />
-           
+           </ItemTemplate>
+             </asp:FormView>
+     </div>
+      <div class="tab-pane fade" id="athletic">
+    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+  </div>
+      <div class="tab-pane fade" id="notes">
+            <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1" style="z-index: 1; position: absolute; top: 420px; left: 930px"></asp:TextBox>
+    <br />
+    <asp:Button ID="BtnViewSch" runat="server" color="#fff" background-color = "#D9230F" border-color="#D9230F"  OnClick="BtnViewSch_Click" Text="View Schedule" CssClass="auto-style14" style="z-index: 1; position: absolute; top: 350px; left: 935px; margin-top: 25"    />
+    <br />
+     </div>
+  
+</div>
+    
 
-        </ItemTemplate>
-    </asp:FormView>
+      <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+       
+       
+            <br />
+           
+        
+           
+           
+ 
     <br />
     <asp:Button ID="AddNotes" runat="server"  OnClick="Addnotes_Click" Text="Add Note"  CssClass="auto-style15" class="btn btn-primary" style="z-index: 1; position: absolute; top: 415px; left: 1120px"  />
     <br />
