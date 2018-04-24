@@ -75,29 +75,30 @@
     <TodayDayStyle BackColor="Red" ForeColor="White" />
         </asp:Calendar>
       
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.profile.Rec_FName, dbo.profile.Rec_LName, dbo.Schedule.Tournament, dbo.Schedule.Location, dbo.Schedule.Date, dbo.Schedule.Time, dbo.Schedule.Team, dbo.Schedule.Pro_id FROM dbo.profile INNER JOIN dbo.Schedule ON dbo.profile.Pro_Id = dbo.Schedule.Pro_id WHERE (dbo.profile.Sport_Id = @Sport_Id)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.profile.Rec_FName, dbo.profile.Rec_LName,dbo.profile.Rec_FName+ dbo.profile.Rec_LName AS Name, dbo.Schedule.Tournament, dbo.Schedule.Location, dbo.Schedule.Date, dbo.Schedule.Time, dbo.Schedule.Team, dbo.Schedule.Pro_id FROM dbo.profile INNER JOIN dbo.Schedule ON dbo.profile.Pro_Id = dbo.Schedule.Pro_id WHERE (dbo.profile.Sport_Id = @Sport_Id)">
             <SelectParameters>
                 <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" />
+                <asp:SessionParameter Name="Rec_FName" SessionField="Name" />
+                <asp:SessionParameter Name="Rec_LName" SessionField="Name" />
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
         <br />
         <asp:DropDownList ID="DDL1" runat="server" CssClass="auto-style5" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            <asp:ListItem Value="Rec_FName">First Name</asp:ListItem>
-            <asp:ListItem Value="Rec_LName">Last Name</asp:ListItem>
+            <asp:ListItem>Name</asp:ListItem>
             <asp:ListItem>Date</asp:ListItem>
             <asp:ListItem>Location</asp:ListItem>
             <asp:ListItem>Tournament</asp:ListItem>
         </asp:DropDownList>
         <br />
-        <asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style4"></asp:TextBox>
+        <asp:TextBox ID="txtSearch" runat="server" CssClass="auto-style4" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
         
         <asp:Button ID="FilterBtn" runat="server" CssClass="auto-style11" OnClick="FilterBtn_Click" Text="Filter" />
         <asp:Label ID="Label3" runat="server" CssClass="auto-style10" Text="For"></asp:Label>
         <asp:Label ID="Label2" runat="server" CssClass="auto-style9" Text="Search by:"></asp:Label>
         <asp:Button ID="Clearbtn" runat="server" CssClass="auto-style12" OnClick="Clearbtn_Click" Text="Clear Filter" />
        
-         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style3" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderStyle="Groove" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Visible="False"  >
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="auto-style3"  AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" BorderColor="Black" BorderStyle="Groove" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Visible="False"  >
              <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:HyperLinkField DataNavigateUrlFields="Pro_id" DataNavigateUrlFormatString="Profile Page.aspx?Pro_Id={0}" Text="View Recruit" />
