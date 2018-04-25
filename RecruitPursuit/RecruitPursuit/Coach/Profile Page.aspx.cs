@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Mvc.Ajax;
+using AjaxControlToolkit;
 
 
 public partial class Profile_Page : System.Web.UI.Page
@@ -15,19 +17,20 @@ public partial class Profile_Page : System.Web.UI.Page
     bool show = true;
     int ID;
     int ProID;
-  
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["ID"] != null)
         {
-            ID = int.Parse(Session["ID"].ToString());
+            ID = int.Parse(Session["Pro_Id"].ToString());
         }
 
-        if (Request.QueryString["Pro_Id"] != null)
+        else if (Request.QueryString["Pro_Id"] != null)
         {
             ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
+
         }
-       
+
         else
         {
             Response.Write("Invalid access to page!");
@@ -35,9 +38,9 @@ public partial class Profile_Page : System.Web.UI.Page
         }
 
     }
-    
 
-   
+
+
 
     protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
@@ -53,21 +56,25 @@ public partial class Profile_Page : System.Web.UI.Page
     {
 
 
-      
 
-        /*
-            SqlDSnote.InsertCommandType = SqlDataSourceCommandType.Text;
-            SqlDSnote.InsertCommand = "Insert into Notes (Pro_Id,NPost_date,Note) VALUES (@Pro_id,@NPost_date,@Note)";
 
-            SqlDSnote.InsertParameters.Add("Pro_id", Request.QueryString["Pro_id"]);
-            SqlDSnote.InsertParameters.Add("NPost_date", DateTime.Now.ToString());
-            SqlDSnote.InsertParameters.Add("Note", TxtNotes.Text);
 
-            SqlDSnote.Insert();
+        SqlDSnote.InsertCommandType = SqlDataSourceCommandType.Text;
+        SqlDSnote.InsertCommand = "Insert into Notes (Pro_Id,NPost_date,Note) VALUES (@Pro_id,@NPost_date,@Note)";
 
-            TxtNotes.Text = "";
-*/
+        SqlDSnote.InsertParameters.Add("Pro_id", Request.QueryString["Pro_id"]);
+        SqlDSnote.InsertParameters.Add("NPost_date", DateTime.Now.ToString());
+        SqlDSnote.InsertParameters.Add("Note", TxtNotes.Text);
+
+        SqlDSnote.Insert();
+
+        TxtNotes.Text = "";
+
     }
+
+    protected void Rec_Rating_Changed (object sender, EventArgs e) {
+
+        }
 
     protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
@@ -302,34 +309,27 @@ public partial class Profile_Page : System.Web.UI.Page
         if (hide == false)
         {
             AddSchTbl.Visible = true;
-            Hidebtn.Visible = true;
+            //Hidebtn.Visible = true;
 
 
         }
     }
 
-    protected void Hide_Click(object sender, EventArgs e)
-    {
-        if (show == true)
-        {
-            AddSchTbl.Visible = false;
-            Hidebtn.Visible = false;
+  
 
-
-        }
-
-    }
+    
 
 
     protected void Insertdatabtn_click(object sender, EventArgs e)
     {
         SqlDataSource1.InsertCommandType = SqlDataSourceCommandType.Text;
-        SqlDataSource1.InsertCommand = "Insert into Schedule (Pro_Id, Tournament, Location, Date, Time, Team) VALUES (@Pro_id,@Tournament, @Location, @Date, @Time, @Team )";
+        SqlDataSource1.InsertCommand = "Insert into Schedule (Pro_id, Tournament, Location, StartDate, EndDate, Time, Team) VALUES (@Pro_id, @Tournament, @Location, @StartDate, @EndDate, @Time, @Team )";
 
-        SqlDataSource1.InsertParameters.Add("Pro_id", Convert.ToString(Session["ID"]));
+        SqlDataSource1.InsertParameters.Add("Pro_id", Convert.ToString(Request.QueryString["Pro_Id"]));
         SqlDataSource1.InsertParameters.Add("Tournament", TmentTxt.Text);
         SqlDataSource1.InsertParameters.Add("Location", LocationTxt.Text);
-        SqlDataSource1.InsertParameters.Add("Date", DateTxt.Text);
+        SqlDataSource1.InsertParameters.Add("StartDate", StartDateTxt.Text);
+        SqlDataSource1.InsertParameters.Add("EndDate", EndDateTxt.Text);
         SqlDataSource1.InsertParameters.Add("Time", TimeTxt.Text);
         SqlDataSource1.InsertParameters.Add("Team", TeamTxt.Text);
 
@@ -337,9 +337,13 @@ public partial class Profile_Page : System.Web.UI.Page
 
         TmentTxt.Text = "";
         LocationTxt.Text = "";
-        DateTxt.Text = "";
+        StartDateTxt.Text = "";
+        EndDateTxt.Text = "";
         TimeTxt.Text = "";
         TeamTxt.Text = "";
+
+        AddSchTbl.Visible = false;
+        GridView2.DataBind();
     }
 
 
