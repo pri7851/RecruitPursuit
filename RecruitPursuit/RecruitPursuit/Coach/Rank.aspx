@@ -15,14 +15,14 @@
             width: 850px;
             height: 190px;
             position: absolute;
-            top: 245px;
+            top: 290px;
             left: 215px;
             z-index: 1;
         }
         .auto-style3 {
             position: absolute;
-            top: 410px;
-            left: 33px;
+            top: 195px;
+            left: 450px;
             z-index: 1;
             height: 19px;
             width: 87px;
@@ -30,15 +30,15 @@
         }
         .auto-style4 {
             position: absolute;
-            top: 325px;
-            left: 27px;
+            top: 195px;
+            left: 675px;
             z-index: 1;
             right: 975px;
             margin-top: 0px;
         }
         .auto-style5 {
             position: absolute;
-            top: 120px;
+            top: 175px;
             left: 585px;
             z-index: 1;
             width: 65px;
@@ -47,20 +47,15 @@
         }
         .auto-style6 {
             position: absolute;
-            top: 371px;
-            left: 39px;
+            top: 165px;
+            left: 460px;
             z-index: 1;
             height: 21px;
         }
         .auto-style7 {
             position: absolute;
-            top: 279px;
-            left: 45px;
-            z-index: 1;
-        }
-        .auto-style8 {
-            left: 618px;
-            top: 205px;
+            top: 165px;
+            left: 690px;
             z-index: 1;
             position: absolute;
         }
