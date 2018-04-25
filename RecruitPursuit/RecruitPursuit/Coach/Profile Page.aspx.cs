@@ -50,7 +50,7 @@ public partial class Profile_Page : System.Web.UI.Page
 
       
 
-
+        /*
             SqlDSnote.InsertCommandType = SqlDataSourceCommandType.Text;
             SqlDSnote.InsertCommand = "Insert into Notes (Pro_Id,NPost_date,Note) VALUES (@Pro_id,@NPost_date,@Note)";
 
@@ -61,7 +61,7 @@ public partial class Profile_Page : System.Web.UI.Page
             SqlDSnote.Insert();
 
             TxtNotes.Text = "";
-        
+*/
     }
 
     protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

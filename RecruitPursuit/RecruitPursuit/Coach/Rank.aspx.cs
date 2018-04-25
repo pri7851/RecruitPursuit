@@ -11,4 +11,9 @@ public partial class Coach_Ranktest2 : System.Web.UI.Page
     {
 
     }
+
+    protected void ddlPosition_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
