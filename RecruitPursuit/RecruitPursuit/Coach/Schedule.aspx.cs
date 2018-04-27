@@ -9,9 +9,6 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Globalization;
-using java.util;
-using org.omg.CORBA;
-using java.awt;
 using System.Web.Mvc;
 
 public partial class Coach_Schedule : System.Web.UI.Page
