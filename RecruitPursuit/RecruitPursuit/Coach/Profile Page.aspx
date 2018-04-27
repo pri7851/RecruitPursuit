@@ -1,82 +1,93 @@
 ﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Coach.master" AutoEventWireup="true" CodeFile="Profile Page.aspx.cs" Inherits="Profile_Page" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
   
     
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+     
+    
     <asp:Panel ID="Panel1" runat="server">
+
         <asp:Button ID="btnPersonal1" class="btn btn-primary" runat="server" Text="Personal" ForeColor="White" />
         <asp:Button ID="btnAcademic1" class="btn btn-outline-primary" runat="server" Text="Academic" OnClick="btnAcademic1_Click" />
         <asp:Button ID="btnAthletic1" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic1_Click" />
         <asp:Button ID="btnNotes1" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes1_Click" />
         <asp:Button ID="btnSchedule1" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule1_Click"/>
         <br />
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
         <br />
-           <asp:DataList runat="server" ID="listPersonal" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
-               <ItemTemplate>
-                   Name:
-                   <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
-                   &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
-                   <br />
-                   Address:
-                   <asp:Label ID="Rec_AddressLabel" runat="server" Text='<%# Eval("Rec_Address") %>' />
-                   <br />
-                   City:
-                   <asp:Label ID="Rec_CityLabel" runat="server" Text='<%# Eval("Rec_City") %>' />
-                   <br />
-                   State:
-                   <asp:Label ID="Rec_StateLabel" runat="server" Text='<%# Eval("Rec_State") %>' />
-                   <br />
-                   Zip:
-                   <asp:Label ID="Rec_ZipLabel" runat="server" Text='<%# Eval("Rec_Zip") %>' />
-                   <br />
-                   Country:
-                   <asp:Label ID="Rec_CountryLabel" runat="server" Text='<%# Eval("Rec_Country") %>' />
-                   <br />
-                   Citizenship:
-                   <asp:Label ID="Rec_CitizenLabel" runat="server" Text='<%# Eval("Rec_Citizen") %>' />
-                   <br />
-                   Email:
-                   <asp:Label ID="Rec_EmailLabel" runat="server" Text='<%# Eval("Rec_Email") %>' />
-                   <br />
-                   DOB:
-                   <asp:Label ID="Rec_DOBLabel" runat="server" Text='<%# Eval("Rec_DOB") %>' />
-                   <br />
-                   Home Phone:
-                   <asp:Label ID="Rec_HomePhoneLabel" runat="server" Text='<%# Eval("Rec_HomePhone") %>' />
-                   <br />
-                   Cell Phone:
-                   <asp:Label ID="Rec_CellPhoneLabel" runat="server" Text='<%# Eval("Rec_CellPhone") %>' />
-                   <br />
-                   Father Name:
-                   <asp:Label ID="Rec_FatherNameLabel" runat="server" Text='<%# Eval("Rec_FatherName") %>' />
-                   <br />
-                   Father Occupation:
-                   <asp:Label ID="Rec_FatherOccLabel" runat="server" Text='<%# Eval("Rec_FatherOcc") %>' />
-                   <br />
-                   Mother Name:
-                   <asp:Label ID="Rec_MotherNameLabel" runat="server" Text='<%# Eval("Rec_MotherName") %>' />
-                   <br />
-                   Mother Occupation:
-                   <asp:Label ID="Rec_MotherOccLabel" runat="server" Text='<%# Eval("Rec_MotherOcc") %>' />
-                   <br />
-                   Applied to Cal U?
-                   <asp:Label ID="Rec_App2CalLabel" runat="server" Text='<%# Eval("Rec_App2Cal") %>' />
-                   <br />
-                   Registered to NCAA?
-                   <asp:Label ID="Rec_Reg2NCAALabel" runat="server" Text='<%# Eval("Rec_Reg2NCAA") %>' />
-                   <br />
-                   NCAA ID:
-                   <asp:Label ID="Rec_NCAA_IDLabel" runat="server" Text='<%# Eval("Rec_NCAA_ID") %>' />
-                   <br />
-                   FAFSA:
-                   <asp:Label ID="Rec_FAFSALabel" runat="server" Text='<%# Eval("Rec_FAFSA") %>' />
-                   <br />
-                   <br />
-                   <br />
-               </ItemTemplate>
-           </asp:DataList>
+    
+
+            <asp:DataList ID="listPersonal" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
+                <ItemTemplate>
+                  <h2>
+                        <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
+                        &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
+                    </h2>
+                    <strong>Address:</strong>
+                    <asp:Label ID="Rec_AddressLabel" runat="server" Text='<%# Eval("Rec_Address") %>' />
+                    <br />
+                    <strong>City: </strong>
+                    <asp:Label ID="Rec_CityLabel" runat="server" Text='<%# Eval("Rec_City") %>' />
+                    <br />
+                    <strong>State: </strong>
+                    <asp:Label ID="Rec_StateLabel" runat="server" Text='<%# Eval("Rec_State") %>' />
+                    <br />
+                    <strong>Zip:</strong>
+                    <asp:Label ID="Rec_ZipLabel" runat="server" Text='<%# Eval("Rec_Zip") %>' />
+                    <br />
+                    <strong>Country:</strong>
+                    <asp:Label ID="Rec_CountryLabel" runat="server" Text='<%# Eval("Rec_Country") %>' />
+                    <br />
+                    <strong>Citizenship:</strong>
+                    <asp:Label ID="Rec_CitizenLabel" runat="server" Text='<%# Eval("Rec_Citizen") %>' />
+                    <br />
+                    <strong>Email:</strong>
+                    <asp:Label ID="Rec_EmailLabel" runat="server" Text='<%# Eval("Rec_Email") %>' />
+                    <br />
+                    <strong>DOB:</strong>
+                    <asp:Label ID="Rec_DOBLabel" runat="server" Text='<%# Eval("Rec_DOB") %>' />
+                    <br />
+                    <strong>Home Phone:</strong>
+                    <asp:Label ID="Rec_HomePhoneLabel" runat="server" Text='<%# Eval("Rec_HomePhone") %>' />
+                    <br />
+                    <strong>Cell Phone:</strong>
+                    <asp:Label ID="Rec_CellPhoneLabel" runat="server" Text='<%# Eval("Rec_CellPhone") %>' />
+                    <br />
+                    <strong>Father Name:</strong>
+                    <asp:Label ID="Rec_FatherNameLabel" runat="server" Text='<%# Eval("Rec_FatherName") %>' />
+                    <br />
+                    <strong>Father Occupation:</strong>
+                    <asp:Label ID="Rec_FatherOccLabel" runat="server" Text='<%# Eval("Rec_FatherOcc") %>' />
+                    <br />
+                    <strong>Mother Name:</strong>
+                    <asp:Label ID="Rec_MotherNameLabel" runat="server" Text='<%# Eval("Rec_MotherName") %>' />
+                    <br />
+                    <strong>Mother Occupation:</strong>
+                    <asp:Label ID="Rec_MotherOccLabel" runat="server" Text='<%# Eval("Rec_MotherOcc") %>' />
+                    <br />
+                    <strong>Applied to Cal U?</strong>
+                    <asp:Label ID="Rec_App2CalLabel" runat="server" Text='<%# Eval("Rec_App2Cal") %>' />
+                    <br />
+                    <strong>Registered to NCAA?</strong>
+                    <asp:Label ID="Rec_Reg2NCAALabel" runat="server" Text='<%# Eval("Rec_Reg2NCAA") %>' />
+                    <br />
+                    <strong>NCAA ID: </strong>
+                    <asp:Label ID="Rec_NCAA_IDLabel" runat="server" Text='<%# Eval("Rec_NCAA_ID") %>' />
+                    <br />
+                    <strong>FAFSA: </strong>
+                    <asp:Label ID="Rec_FAFSALabel" runat="server" Text='<%# Eval("Rec_FAFSA") %>' />
+                    <br />
+                    <br />
+                    <br />
+                </ItemTemplate>
+            </asp:DataList>
+
+        
+          
+
            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([PostDate], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Address], [Rec_City], [Rec_State], [Rec_Zip], [Rec_Country], [Rec_Citizen], [Rec_Email], [Rec_DOB], [Rec_HomePhone], [Rec_CellPhone], [Rec_FatherName], [Rec_FatherOcc], [Rec_MotherName], [Rec_MotherOcc], [Rec_App2Cal], [Rec_Reg2NCAA], [Rec_NCAA_ID], [Rec_FAFSA], [Rec_HSName], [Rec_HSGradYear], [Rec_HSGPA], [Rec_SAT_Verbal], [Rec_SAT_Math], [Rec_SAT_Tot], [Rec_ACT], [Rec_Acad_Honors], [Rec_Poss_Major], [Rec_JCName], [Rec_JC_NumSem], [Rec_JCGPA], [Rec_JC_Tot_Units], [Rec_DateAACompleted], [Rec_JC_Coach_Name], [Rec_JC_Coach_Email], [Rec_JC_Seasons_Played], [Rec_PrimaryPosition], [Rec_SecondaryPosition]) VALUES (@PostDate, @Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_App2Cal, @Rec_Reg2NCAA, @Rec_NCAA_ID, @Rec_FAFSA, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @Rec_PrimaryPosition, @Rec_SecondaryPosition)" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)" UpdateCommand="UPDATE [profile] SET [PostDate] = @PostDate, [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Address] = @Rec_Address, [Rec_City] = @Rec_City, [Rec_State] = @Rec_State, [Rec_Zip] = @Rec_Zip, [Rec_Country] = @Rec_Country, [Rec_Citizen] = @Rec_Citizen, [Rec_Email] = @Rec_Email, [Rec_DOB] = @Rec_DOB, [Rec_HomePhone] = @Rec_HomePhone, [Rec_CellPhone] = @Rec_CellPhone, [Rec_FatherName] = @Rec_FatherName, [Rec_FatherOcc] = @Rec_FatherOcc, [Rec_MotherName] = @Rec_MotherName, [Rec_MotherOcc] = @Rec_MotherOcc, [Rec_App2Cal] = @Rec_App2Cal, [Rec_Reg2NCAA] = @Rec_Reg2NCAA, [Rec_NCAA_ID] = @Rec_NCAA_ID, [Rec_FAFSA] = @Rec_FAFSA, [Rec_HSName] = @Rec_HSName, [Rec_HSGradYear] = @Rec_HSGradYear, [Rec_HSGPA] = @Rec_HSGPA, [Rec_SAT_Verbal] = @Rec_SAT_Verbal, [Rec_SAT_Math] = @Rec_SAT_Math, [Rec_SAT_Tot] = @Rec_SAT_Tot, [Rec_ACT] = @Rec_ACT, [Rec_Acad_Honors] = @Rec_Acad_Honors, [Rec_Poss_Major] = @Rec_Poss_Major, [Rec_JCName] = @Rec_JCName, [Rec_JC_NumSem] = @Rec_JC_NumSem, [Rec_JCGPA] = @Rec_JCGPA, [Rec_JC_Tot_Units] = @Rec_JC_Tot_Units, [Rec_DateAACompleted] = @Rec_DateAACompleted, [Rec_JC_Coach_Name] = @Rec_JC_Coach_Name, [Rec_JC_Coach_Email] = @Rec_JC_Coach_Email, [Rec_JC_Seasons_Played] = @Rec_JC_Seasons_Played, [Rec_PrimaryPosition] = @Rec_PrimaryPosition, [Rec_SecondaryPosition] = @Rec_SecondaryPosition WHERE [Pro_Id] = @Pro_Id">
                <DeleteParameters>
                    <asp:Parameter Name="Pro_Id" Type="Int32" />
@@ -172,7 +183,8 @@
                    <asp:Parameter Name="Pro_Id" Type="Int32" />
                </UpdateParameters>
            </asp:SqlDataSource>
-        </asp:Panel>
+        
+            </asp:Panel>
  
 
            
@@ -186,6 +198,10 @@
         <br />
         <asp:DataList ID="listAcademic" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource3">
                <ItemTemplate>
+                   <h2>
+                        <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
+                        &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
+                    </h2>
                    Graduation Year:
                    <asp:Label ID="Rec_HSGradYearLabel" runat="server" Text='<%# Eval("Rec_HSGradYear") %>' />
                    <br />
@@ -382,26 +398,28 @@
     
 
     <br />
-        <asp:TextBox ID="TxtNotes" runat="server" CssClass="auto-style1" Height="275px" style="z-index: 1; top: 420px; left: 930px" Width="609px"></asp:TextBox>
+        <asp:TextBox ID="TxtNotes" runat="server" Height="275px" style="z-index: 1; top: 420px; left: 930px; text-align: left;" Width="609px" TextMode="MultiLine"></asp:TextBox>
     <br />
     <br />
     <asp:Button ID="AddNotes" runat="server"  OnClick="Addnotes_Click" Text="Add Note"  CssClass="auto-style15" class="btn btn-primary" style="z-index: 1;  top: 415px; left: 1120px"  />
         <br />
         <br />
         <br />
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" DataKeyNames="Note_id" >
+        <Columns>
+            <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" ItemStyle-Width="300px"/>
+            <asp:BoundField DataField="NPost_date" HeaderText="Post Date" SortExpression="NPost_date" />
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+
+        </Columns>
+        
+    </asp:GridView>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <br />
         <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" Height="163px" Width="183px" CssClass="auto-style4" DataKeyNames="Note_id" style="z-index: 1; width: 245px; height: 163px; top: 475px; left: 930px">
-        <Columns>
-            <asp:CommandField ShowDeleteButton="True" />
-            <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
-            <asp:BoundField DataField="NPost_date" HeaderText="Post Date" SortExpression="NPost_date" />
-            <asp:BoundField DataField="Note_id" HeaderText="Note ID" InsertVisible="False" ReadOnly="True" SortExpression="Note_id" />
-        </Columns>
-    </asp:GridView>
+        <br />
         <br />
         <br />
         <br />
@@ -464,13 +482,10 @@
 
         <br />
     <p class="auto-style1">
-    <asp:Label ID="Namelbl" runat="server" CssClass="auto-style11"></asp:Label>
 
         <br />
         <asp:Table ID="AddSchTbl" runat="server" BackColor="#D9230F" BorderColor="black" BorderWidth="2" CellPadding="5" CellSpacing="5" CssClass="auto-style10" Font-Names="Palatino" Font-Size="X-Large" ForeColor="Snow" Visible="False">
-            <asp:TableHeaderRow runat="server" BackColor="#D9230F" Font-Bold="true" ForeColor="Snow">
-                <asp:TableHeaderCell>Add Schedule</asp:TableHeaderCell>
-            </asp:TableHeaderRow>
+            
             <asp:TableRow ID="TableRow1" runat="server" BackColor="#D9230F">
                 <asp:TableCell>Tournament:</asp:TableCell>
                 <asp:TableCell><asp:TextBox ID="TmentTxt" runat="server"></asp:TextBox></asp:TableCell>
@@ -480,8 +495,12 @@
                 <asp:TableCell><asp:TextBox ID="LocationTxt" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow ID="TableRow3" runat="server" BackColor="#D9230F">
-                <asp:TableCell>Date: MM/DD/YYYY</asp:TableCell>
-                <asp:TableCell><asp:TextBox ID="DateTxt" runat="server"></asp:TextBox></asp:TableCell>
+                <asp:TableCell>Start Date: </asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="StartDateTxt" placeholder=" MM/DD/YYYY" runat="server"></asp:TextBox></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow ID="TableRow6" runat="server" BackColor="#D9230F">
+                <asp:TableCell>End Date:</asp:TableCell>
+                <asp:TableCell><asp:TextBox ID="EndDateTxt" placeholder=" MM/DD/YYYY" runat="server"></asp:TextBox></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow ID="TableRow4" runat="server" BackColor="#D9230F">
                 <asp:TableCell>Times:</asp:TableCell>
@@ -493,20 +512,22 @@
             </asp:TableRow>
             <asp:TableFooterRow runat="server" BackColor="#D9230F">
                 <asp:TableCell ColumnSpan="3" Font-Italic="true" HorizontalAlign="Right">
-                   <asp:Button ID="Insertdatabtn" runat="server" Text="InsertData" OnClick="Insertdatabtn_click"  />
+                   <asp:Button ID="Insertdatabtn" class="btn btn-secondary btn-lg btn-block" runat="server" Text="Add" OnClick="Insertdatabtn_click" Font-Size="Medium" />
                 </asp:TableCell>
             </asp:TableFooterRow>
         </asp:Table>
+
+        <br />
         <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BorderColor="Black" BorderStyle="Groove" CellPadding="4" DataKeyNames="Sch_ID" datasourceid="SqlDataSource4" ForeColor="#333333">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Tournament" HeaderText="Tournament" SortExpression="Tournament" />
                 <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
-                <asp:BoundField DataField="Date" DataFormatString="{0:MM/DD/YYYY}" HeaderText="Date" SortExpression="Date" />
-                <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
+                <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+                <asp:BoundField DataField="Time" HeaderText="Times" SortExpression="Time" />
                 <asp:BoundField DataField="Team" HeaderText="Team" SortExpression="Team" />
-                <asp:BoundField DataField="Sch_ID" HeaderText="Schedule #" InsertVisible="False" ReadOnly="True" SortExpression="Sch_ID" />
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#D9230F" Font-Bold="True" ForeColor="White" />
@@ -518,15 +539,33 @@
             <SortedDescendingCellStyle BackColor="#FCF6C0" />
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM Schedule WHERE (Sch_ID = @Sch_ID)" SelectCommand="SELECT dbo.Schedule.Tournament, dbo.Schedule.Location, dbo.Schedule.Date, dbo.Schedule.Time, dbo.Schedule.Team, dbo.Schedule.Sch_ID FROM dbo.Schedule INNER JOIN dbo.profile ON dbo.Schedule.Pro_id = dbo.profile.Pro_Id WHERE (dbo.Schedule.Pro_id = @Pro_id)">
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [Schedule] WHERE [Sch_ID] = @Sch_ID" SelectCommand="SELECT * FROM [Schedule] WHERE ([Pro_id] = @Pro_id)" InsertCommand="INSERT INTO [Schedule] ([Pro_id], [Tournament], [Location], [StartDate], [EndDate], [Time], [Team]) VALUES (@Pro_id, @Tournament, @Location, @StartDate, @EndDate, @Time, @Team)" UpdateCommand="UPDATE [Schedule] SET [Pro_id] = @Pro_id, [Tournament] = @Tournament, [Location] = @Location, [StartDate] = @StartDate, [EndDate] = @EndDate, [Time] = @Time, [Team] = @Team WHERE [Sch_ID] = @Sch_ID">
         <DeleteParameters>
-            <asp:Parameter Name="Sch_ID" />
+            <asp:Parameter Name="Sch_ID" Type="Int32" />
         </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Pro_id" Type="Int32" />
+            <asp:Parameter Name="Tournament" Type="String" />
+            <asp:Parameter Name="Location" Type="String" />
+            <asp:Parameter DbType="Date" Name="StartDate" />
+            <asp:Parameter DbType="Date" Name="EndDate" />
+            <asp:Parameter Name="Time" Type="String" />
+            <asp:Parameter Name="Team" Type="String" />
+        </InsertParameters>
         <SelectParameters>
-            <asp:SessionParameter Name="Pro_id" SessionField="ID" Type="Int32" />
+            <asp:QueryStringParameter Name="Pro_id" QueryStringField="Pro_Id" Type="Int32" />
         </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Pro_id" Type="Int32" />
+            <asp:Parameter Name="Tournament" Type="String" />
+            <asp:Parameter Name="Location" Type="String" />
+            <asp:Parameter DbType="Date" Name="StartDate" />
+            <asp:Parameter DbType="Date" Name="EndDate" />
+            <asp:Parameter Name="Time" Type="String" />
+            <asp:Parameter Name="Team" Type="String" />
+            <asp:Parameter Name="Sch_ID" Type="Int32" />
+        </UpdateParameters>
     </asp:SqlDataSource>
-        <asp:Button ID="Hidebtn" runat="server" CssClass="auto-style13" OnClick="Hide_Click" Text="Hide" Visible="False" />
     </p>
     <br />
 
