@@ -504,8 +504,8 @@
             <Columns>
                 <asp:BoundField DataField="Tournament" HeaderText="Tournament" SortExpression="Tournament" />
                 <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
-                <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
-                <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+                <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate"  DataFormatString="{0:MM/dd/yyyy}" />
+                <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate"  DataFormatString="{0:MM/dd/yyyy}" />
                 <asp:BoundField DataField="Time" HeaderText="Times" SortExpression="Time" />
                 <asp:BoundField DataField="Team" HeaderText="Team" SortExpression="Team" />
                 <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
@@ -561,6 +561,7 @@
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
     <ol class="breadcrumb">
+        <li class="breadcrumb-item"></li>
         <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
         <li class="breadcrumb-item active">Profile</li>
     </ol>
