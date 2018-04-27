@@ -196,6 +196,7 @@
                  &nbsp;&nbsp;<br />
              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
                  <Columns>
+                     <asp:BoundField DataField="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" SortExpression="SportQuestID" />
                      <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
                      <asp:TemplateField>
                          <ItemTemplate>
@@ -204,7 +205,7 @@
                      </asp:TemplateField>
                  </Columns>
              </asp:GridView>
-             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
+             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT[SportQuestID], [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
                  <SelectParameters>
                      <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
                  </SelectParameters>

@@ -346,9 +346,28 @@
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
           <br />
         <br />
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource5">
+            <ItemTemplate>
+                Question:
+                <asp:Label ID="SportQuestTextLabel" runat="server" Text='<%# Eval("SportQuestText") %>' />
+                <br />
+                Answer:
+                <asp:Label ID="Answer_textLabel" runat="server" Text='<%# Eval("Answer_text") %>' />
+                <br />
+                <br />
+            </ItemTemplate>
+        </asp:DataList>
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.SportQuestions.SportQuestText, dbo.Answers.Answer_text FROM dbo.Answers INNER JOIN dbo.SportQuestions ON dbo.Answers.SportQuestID = dbo.SportQuestions.SportQuestID WHERE (dbo.Answers.Pro_Id = @Pro_Id)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+          <br />
+        <br />
 
     </asp:Panel>
-
+    
     <asp:Panel ID="Panel4" runat="server" Visible="False">
         <asp:Button ID="btnPersonal4" class="btn btn-outline-primary" runat="server" Text="Personal" OnClick="btnPersonal4_Click"/>
         <asp:Button ID="btnAcademic4" class="btn btn-outline-primary" runat="server" Text="Academic" OnClick="btnAcademic4_Click" />
