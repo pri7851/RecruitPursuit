@@ -20,6 +20,48 @@ public partial class Profile_Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        if (Page.IsPostBack)
+        {
+            string value = SliderValue.Text;
+            
+            if (value == "2")
+            {
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = true;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+            }
+
+            if (value == "3")
+            {
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = true;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+            }
+
+            if (value == "4")
+            {
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = true;
+                PanelStar5.Visible = false;
+            }
+
+            if (value == "5")
+            {
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = true;
+            }
+            //LastUpdate.Text = "Last update: " + DateTime.Now.ToLongTimeString();
+        }
         if (Session["ID"] != null)
         {
             ID = int.Parse(Session["Pro_Id"].ToString());

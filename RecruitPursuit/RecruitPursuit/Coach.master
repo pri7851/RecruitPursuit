@@ -30,33 +30,33 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="Home.aspx">Home</a>
+        <a class="nav-link" href="Home.aspx"><h4>Home</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Rank.aspx">Rank</a>
+        <a class="nav-link" href="Rank.aspx"><h4>Rank</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Schedule.aspx">Schedule</a>
+        <a class="nav-link" href="Schedule.aspx"><h4>Schedule</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Questionnaire.aspx">Questionnaire</a>
+        <a class="nav-link" href="Questionnaire.aspx"><h4>Questionnaire</h4></a>
      
     </ul>
 <form id="form1" runat="server">
 </div>
   
-        <asp:TextBox ID="SearchBox" runat="server" placeholder="Please enter a name"></asp:TextBox>
-      &nbsp;<asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="SearchBox" runat="server" placeholder="Please enter a name" Width="300px" Height="40px"></asp:TextBox>
+      &nbsp;<asp:Button ID="Button2" class="btn btn-secondary" runat="server" Text="Search" OnClick="Button2_Click" Height="35px" Width="87px" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
       <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;
-       <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Log Out" />
+&nbsp;&nbsp;&nbsp;
+       <asp:Button ID="Button1" class="btn btn-secondary" runat="server" OnClick="Button1_Click" Text="Log Out" />
    
   </div>
 </nav>
     
-   <div style="padding-left:10px; padding-top:10px"> 
+   <div style="padding-left:30px; padding-top:10px; padding-right: 30px;"> 
        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
 
        </asp:ContentPlaceHolder>

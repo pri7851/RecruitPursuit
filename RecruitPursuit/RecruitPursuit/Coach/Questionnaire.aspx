@@ -26,6 +26,8 @@
     <h1>
     Athletic Information:</h1>
     <p>
+        <asp:Button ID="btnPreview" runat="server" Text="Preview Questionnaire" OnClick="btnPreview_Click" />
+        <p>
         <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="My sport doesn't have positions." AutoPostBack="True" />
          <p>
          <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add Positions" Visible="False" />
@@ -46,15 +48,19 @@
         <asp:Panel ID="Panel2" runat="server" Height="196px">
         <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource2" AutoGenerateColumns="False">
             <Columns>
-                <asp:BoundField DataField="SportQuestText" HeaderText="SportQuestText" SortExpression="SportQuestText" />
+                <asp:BoundField DataField="SportQuestText" HeaderText="Question" SortExpression="SportQuestText" />
                 <asp:CommandField ShowEditButton="True" />
                 <asp:CommandField ShowDeleteButton="True" />
             </Columns>
             <HeaderStyle BackColor="#D9230F" ForeColor="White" />
         </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([SportQuestText] = @SportQuestText)">
+                <SelectParameters>
+                    <asp:Parameter DefaultValue="Batting Average" Name="SportQuestText" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <br />
-            <asp:Button ID="ButtonNew" runat="server" type="button" class="btn btn-primary" OnClick="ButtonNew_Click" Text="New Question" />
+            <asp:Button ID="ButtonNew" runat="server" type="button" OnClick="ButtonNew_Click" Text="New Question" />
             </asp:Panel>
 
     <p>
@@ -77,10 +83,9 @@
     <p>
 
 
-    <asp:Button ID="ButtonAdd" type="button" class="btn btn-primary" runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False"/>
+    <asp:Button ID="ButtonAdd" type="button"  runat="server" OnClick="ButtonAdd_Click" Text="Add Question" Visible="False"/>
     </p>
     <p>
-        <asp:Button ID="btnPreview" runat="server" Text="Preview Questionnaire" OnClick="btnPreview_Click" />
         <asp:Label ID="Output" runat="server"></asp:Label>
     </p>
     <p>

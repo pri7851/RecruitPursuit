@@ -3,9 +3,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
   
     
+    <style type="text/css">
+    .auto-style1 {
+        width: 1011px;
+    }
+    .auto-style2 {
+        width: 139px;
+        height: 29px;
+    }
+        .auto-style3 {
+            font-size: medium;
+            font-weight: 700;
+        }
+        .auto-style4 {
+            font-size: medium;
+        }
+
+    </style>
+  
+    
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    
      
+    
+   
     
     <asp:Panel ID="Panel1" runat="server">
 
@@ -14,19 +36,69 @@
         <asp:Button ID="btnAthletic1" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic1_Click" />
         <asp:Button ID="btnNotes1" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes1_Click" />
         <asp:Button ID="btnSchedule1" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule1_Click"/>
+          
+        <span class="heading">
         <br />
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
         <br />
+        </span>
+        
+       <div class="row">
+       <div class="col order-2">
+      
     
-
+      
+           <asp:TextBox ID="Slider1" runat="server" AutoPostBack="true" />
+           <asp:Label ID="SliderValue" runat="server" AutoPostBack="true" />
+           <cc1:SliderExtender ID="se1" runat="server" BoundControlID="SliderValue" Maximum="5" Minimum="1" TargetControlId="Slider1" />
+           <asp:ScriptManager ID="asm" runat="server" />
+           <asp:Panel ID="PanelStar1" runat="server" Visible="True">
+        <span class="fa fa-star checked "></span>
+        <span class="fa fa-star " ></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star"></span>
+        </asp:Panel>
+        <asp:Panel ID="PanelStar2" runat="server" Visible="False">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked" ></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </asp:Panel>
+        <asp:Panel ID="PanelStar3" runat="server" Visible="False">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked" ></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </asp:Panel>
+        <asp:Panel ID="PanelStar4" runat="server" Visible="False">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked" ></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        </asp:Panel>
+        <asp:Panel ID="PanelStar5" runat="server" Visible="False">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked" ></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        </asp:Panel>
+         </div>     
+            <br />
+       
+            <br />
+       <div class="col order-1">
             <asp:DataList ID="listPersonal" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
                 <ItemTemplate>
                   <h2>
                         <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
                         &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
                     </h2>
-                    <strong>Address:</strong>
+                    <strong>
+                    <span class="auto-style3">Address:</span></strong><span class="auto-style3">
                     <asp:Label ID="Rec_AddressLabel" runat="server" Text='<%# Eval("Rec_Address") %>' />
                     <br />
                     <strong>City: </strong>
@@ -79,6 +151,7 @@
                     <br />
                     <strong>FAFSA: </strong>
                     <asp:Label ID="Rec_FAFSALabel" runat="server" Text='<%# Eval("Rec_FAFSA") %>' />
+                    </span>
                     <br />
                     <br />
                     <br />
@@ -183,7 +256,9 @@
                    <asp:Parameter Name="Pro_Id" Type="Int32" />
                </UpdateParameters>
            </asp:SqlDataSource>
-        
+           </div>
+        </div>
+            
             </asp:Panel>
  
 
@@ -202,56 +277,61 @@
                         <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
                         &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
                     </h2>
-                   Graduation Year:
+                   <span class="auto-style3"><strong>
+                   <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
+                   <br />
+                   <br />
+                   Graduation Year:</strong>
                    <asp:Label ID="Rec_HSGradYearLabel" runat="server" Text='<%# Eval("Rec_HSGradYear") %>' />
                    <br />
-                   High School:
+                   <strong>High School:</strong>
                    <asp:Label ID="Rec_HSNameLabel" runat="server" Text='<%# Eval("Rec_HSName") %>' />
                    <br />
-                   GPA:
+                   <strong>GPA: </strong>
                    <asp:Label ID="Rec_HSGPALabel" runat="server" Text='<%# Eval("Rec_HSGPA") %>' />
                    <br />
-                   SAT Verbal:
+                   <strong>SAT Verbal:</strong>
                    <asp:Label ID="Rec_SAT_VerbalLabel" runat="server" Text='<%# Eval("Rec_SAT_Verbal") %>' />
                    <br />
-                   SAT Math:
+                   <strong>SAT Math:</strong>
                    <asp:Label ID="Rec_SAT_MathLabel" runat="server" Text='<%# Eval("Rec_SAT_Math") %>' />
                    <br />
-                   SAT Total:
+                   <strong>SAT Total:</strong>
                    <asp:Label ID="Rec_SAT_TotLabel" runat="server" Text='<%# Eval("Rec_SAT_Tot") %>' />
                    <br />
-                   ACT:
+                   <strong>ACT:</strong>
                    <asp:Label ID="Rec_ACTLabel" runat="server" Text='<%# Eval("Rec_ACT") %>' />
                    <br />
-                   Academic Honors:
+                   <strong>Academic Honors:</strong>
                    <asp:Label ID="Rec_Acad_HonorsLabel" runat="server" Text='<%# Eval("Rec_Acad_Honors") %>' />
                    <br />
-                   Possible Major:
+                   <strong>Possible Major:</strong>
                    <asp:Label ID="Rec_Poss_MajorLabel" runat="server" Text='<%# Eval("Rec_Poss_Major") %>' />
                    <br />
-                   Junior College Name:
+                   <strong>Junior College Name:</strong>
                    <asp:Label ID="Rec_JCNameLabel" runat="server" Text='<%# Eval("Rec_JCName") %>' />
                    <br />
-                   Number of Semesters:
+                   <strong>Number of Semesters:</strong>
                    <asp:Label ID="Rec_JC_NumSemLabel" runat="server" Text='<%# Eval("Rec_JC_NumSem") %>' />
                    <br />
-                   Junior College GPA:
+                   <strong>Junior College GPA:</strong>
                    <asp:Label ID="Rec_JCGPALabel" runat="server" Text='<%# Eval("Rec_JCGPA") %>' />
                    <br />
-                   Total Units:
+                   <strong>Total Units:</strong>
                    <asp:Label ID="Rec_JC_Tot_UnitsLabel" runat="server" Text='<%# Eval("Rec_JC_Tot_Units") %>' />
                    <br />
-                   Date AA Completed:
+                   <strong>Date AA Completed:</strong>
                    <asp:Label ID="Rec_DateAACompletedLabel" runat="server" Text='<%# Eval("Rec_DateAACompleted") %>' />
                    <br />
-                   Junior College Coach_Name:
+                   <strong>Junior College Coach_Name:</strong>
                    <asp:Label ID="Rec_JC_Coach_NameLabel" runat="server" Text='<%# Eval("Rec_JC_Coach_Name") %>' />
                    <br />
-                   Junior College Coach_Email:
+                   <strong>Junior College Coach_Email:</strong>
                    <asp:Label ID="Rec_JC_Coach_EmailLabel" runat="server" Text='<%# Eval("Rec_JC_Coach_Email") %>' />
                    <br />
-                   Junior College Seasons_Played:
+                   <strong>Junior College Seasons_Played:</strong>
                    <asp:Label ID="Rec_JC_Seasons_PlayedLabel" runat="server" Text='<%# Eval("Rec_JC_Seasons_Played") %>' />
+                   </span>
                    <br />
 <br />
                </ItemTemplate>
@@ -362,6 +442,13 @@
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
           <br />
         <br />
+        <h2>Jane Doe</h2>
+        <span class="auto-style3">
+        <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
+        <br />
+        <br />
+        Primary Position: </span><span class="auto-style4">Shortstop</span><span class="auto-style3"><br /> Secondary Position: </span><span class="auto-style4">Catcher</span><span class="auto-style3"><br /> Batting Average: </span><span class="auto-style4">3.50</span><span class="auto-style3"><br /> Do you bat left-handed or right-handed? </span><span class="auto-style4">Right</span><br />
+        <br />
 
     </asp:Panel>
 
@@ -388,7 +475,7 @@
         <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" DataKeyNames="Note_id" >
         <Columns>
-            <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" ItemStyle-Width="300px"/>
+            <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" ItemStyle-Width="300px" HeaderStyle-Width="300px" />
             <asp:BoundField DataField="NPost_date" HeaderText="Post Date" SortExpression="NPost_date" />
             <asp:CommandField ButtonType="Button" ShowEditButton="True" />
             <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
@@ -555,6 +642,7 @@
     <br />
     
        </asp:Panel>
+     </div>
     </asp:Content>
 
 

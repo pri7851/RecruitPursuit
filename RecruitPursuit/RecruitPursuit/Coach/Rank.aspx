@@ -15,47 +15,38 @@
             width: 850px;
             height: 190px;
             position: absolute;
-            top: 290px;
-            left: 215px;
+            top: 288px;
+            left: 268px;
             z-index: 1;
         }
         .auto-style3 {
             position: absolute;
-            top: 195px;
-            left: 450px;
+            top: 350px;
+            left: 137px;
             z-index: 1;
             height: 19px;
-            width: 87px;
-            right: 985px;
+            width: 99px;
+            right: 1326px;
         }
         .auto-style4 {
             position: absolute;
-            top: 195px;
-            left: 675px;
+            top: 413px;
+            left: 134px;
             z-index: 1;
-            right: 975px;
+            right: 1333px;
             margin-top: 0px;
-        }
-        .auto-style5 {
-            position: absolute;
-            top: 175px;
-            left: 585px;
-            z-index: 1;
-            width: 65px;
-            height: 25px;
-            right: 619px;
         }
         .auto-style6 {
             position: absolute;
-            top: 165px;
-            left: 460px;
+            top: 351px;
+            left: 45px;
             z-index: 1;
-            height: 21px;
+            height: 28px;
         }
         .auto-style7 {
             position: absolute;
-            top: 165px;
-            left: 690px;
+            top: 410px;
+            left: 51px;
             z-index: 1;
             position: absolute;
         }
@@ -65,9 +56,9 @@
     <p class="auto-style1">
         <asp:Label ID="Label5" runat="server" CssClass="auto-style6" Font-Bold="True" Font-Underline="True" Text="Grad Year"></asp:Label>
         <asp:Label ID="Label6" runat="server" CssClass="auto-style6" Font-Bold="True" Font-Underline="True" Text="Grad Year"></asp:Label>
-        <asp:Label ID="Label7" runat="server" style="position: absolute; z-index: 1; left: 43px; top: 234px; font-weight: 700; text-decoration: underline" Text="Filter By:"></asp:Label>
-        <asp:Label ID="Label8" runat="server" style="z-index: 1; left: 551px; top: 207px; position: absolute; font-weight: 700; text-decoration: underline" Text="Sort By:"></asp:Label>
-        <asp:DropDownList ID="ddlSort" runat="server" AutoPostBack="True" CssClass="auto-style8" OnTextChanged="ddlSort_TextChanged">
+        <asp:Label ID="Label7" runat="server" style="position: absolute; z-index: 1; left: 55px; top: 305px; font-weight: 700; text-decoration: underline" Text="Filter By:"></asp:Label>
+        <asp:Label ID="Label8" runat="server" style="z-index: 1; left: 516px; top: 220px; position: absolute; font-weight: 700; text-decoration: underline" Text="Sort By:"></asp:Label>
+        <asp:DropDownList ID="ddlSort" runat="server" style="position: absolute; top: 219px; left: 592px;" AutoPostBack="True" OnTextChanged="ddlSort_TextChanged">
             <asp:ListItem>--Select--</asp:ListItem>
             <asp:ListItem Value="PostDate">Most Recent</asp:ListItem>
             <asp:ListItem Value="Rec_HSGPA">GPA</asp:ListItem>
@@ -102,7 +93,6 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:Label ID="Label4" runat="server" CssClass="auto-style7" Font-Bold="True" Font-Overline="False" Font-Underline="True" Text="Position"></asp:Label>
-        <asp:Label ID="Label2" runat="server" CssClass="auto-style5" Font-Bold="True" Font-Size="Large" Text="FILTER:"></asp:Label>
         <asp:SqlDataSource ID="SDddlPosition" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Rec_PrimaryPosition] FROM [profile] WHERE ([Sport_Id] = @Sport_Id) group by [Rec_PrimaryPosition]">
             <SelectParameters>
                 <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" />

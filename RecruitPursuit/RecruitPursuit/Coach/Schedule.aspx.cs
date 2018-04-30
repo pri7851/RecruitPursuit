@@ -53,15 +53,15 @@ public partial class Coach_Schedule : System.Web.UI.Page
                 }
             }
         }
-            if (DDL1.SelectedItem.Text == "Date")
+            if (DDL1.SelectedItem.Text == "StartDate")
             {
-                string FilterExpression = "Date" + " ='" + Convert.ToDateTime(txtSearch.Text).ToString("MM/dd/yyyy") + "'";
+                string FilterExpression = "StartDate" + " ='" + Convert.ToDateTime(txtSearch.Text).ToString("MM/dd/yyyy") + "'";
 
                 SqlDataSource1.FilterParameters.Clear();
                 SqlDataSource1.FilterParameters.Add(new ControlParameter(DDL1.SelectedValue, "txtSearch", "Text"));
                 SqlDataSource1.FilterExpression = FilterExpression;
             }
-           else if (DDL1.SelectedItem.Text != "Date")
+           else if (DDL1.SelectedItem.Text != "StartDate")
             {
                 string FilterExpression = string.Concat(DDL1.SelectedValue, " LIKE '%{0}%'");
                 SqlDataSource1.FilterParameters.Clear();
