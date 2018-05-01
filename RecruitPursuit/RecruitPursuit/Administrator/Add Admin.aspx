@@ -13,7 +13,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-            <asp:HyperLink ID="HypAdminHome" runat="server" NavigateUrl="~/Administrator/Admin Home.aspx">Admin Home</asp:HyperLink>
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
