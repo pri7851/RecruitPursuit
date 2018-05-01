@@ -393,4 +393,9 @@ public partial class Profile_Page : System.Web.UI.Page
 
 
 
+
+    protected void btnAthletics3_Click(object sender, EventArgs e)
+    {
+        
+    }
 }
