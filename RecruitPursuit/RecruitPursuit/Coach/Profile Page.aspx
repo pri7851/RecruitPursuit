@@ -161,6 +161,11 @@
         
           
 
+            <asp:Button ID="Deletebtn" runat="server" OnClick="Deletebtn_Click" Text="Delete Profile" />
+
+        
+          
+
            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([PostDate], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Address], [Rec_City], [Rec_State], [Rec_Zip], [Rec_Country], [Rec_Citizen], [Rec_Email], [Rec_DOB], [Rec_HomePhone], [Rec_CellPhone], [Rec_FatherName], [Rec_FatherOcc], [Rec_MotherName], [Rec_MotherOcc], [Rec_App2Cal], [Rec_Reg2NCAA], [Rec_NCAA_ID], [Rec_FAFSA], [Rec_HSName], [Rec_HSGradYear], [Rec_HSGPA], [Rec_SAT_Verbal], [Rec_SAT_Math], [Rec_SAT_Tot], [Rec_ACT], [Rec_Acad_Honors], [Rec_Poss_Major], [Rec_JCName], [Rec_JC_NumSem], [Rec_JCGPA], [Rec_JC_Tot_Units], [Rec_DateAACompleted], [Rec_JC_Coach_Name], [Rec_JC_Coach_Email], [Rec_JC_Seasons_Played], [Rec_PrimaryPosition], [Rec_SecondaryPosition]) VALUES (@PostDate, @Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_App2Cal, @Rec_Reg2NCAA, @Rec_NCAA_ID, @Rec_FAFSA, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @Rec_PrimaryPosition, @Rec_SecondaryPosition)" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)" UpdateCommand="UPDATE [profile] SET [PostDate] = @PostDate, [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Address] = @Rec_Address, [Rec_City] = @Rec_City, [Rec_State] = @Rec_State, [Rec_Zip] = @Rec_Zip, [Rec_Country] = @Rec_Country, [Rec_Citizen] = @Rec_Citizen, [Rec_Email] = @Rec_Email, [Rec_DOB] = @Rec_DOB, [Rec_HomePhone] = @Rec_HomePhone, [Rec_CellPhone] = @Rec_CellPhone, [Rec_FatherName] = @Rec_FatherName, [Rec_FatherOcc] = @Rec_FatherOcc, [Rec_MotherName] = @Rec_MotherName, [Rec_MotherOcc] = @Rec_MotherOcc, [Rec_App2Cal] = @Rec_App2Cal, [Rec_Reg2NCAA] = @Rec_Reg2NCAA, [Rec_NCAA_ID] = @Rec_NCAA_ID, [Rec_FAFSA] = @Rec_FAFSA, [Rec_HSName] = @Rec_HSName, [Rec_HSGradYear] = @Rec_HSGradYear, [Rec_HSGPA] = @Rec_HSGPA, [Rec_SAT_Verbal] = @Rec_SAT_Verbal, [Rec_SAT_Math] = @Rec_SAT_Math, [Rec_SAT_Tot] = @Rec_SAT_Tot, [Rec_ACT] = @Rec_ACT, [Rec_Acad_Honors] = @Rec_Acad_Honors, [Rec_Poss_Major] = @Rec_Poss_Major, [Rec_JCName] = @Rec_JCName, [Rec_JC_NumSem] = @Rec_JC_NumSem, [Rec_JCGPA] = @Rec_JCGPA, [Rec_JC_Tot_Units] = @Rec_JC_Tot_Units, [Rec_DateAACompleted] = @Rec_DateAACompleted, [Rec_JC_Coach_Name] = @Rec_JC_Coach_Name, [Rec_JC_Coach_Email] = @Rec_JC_Coach_Email, [Rec_JC_Seasons_Played] = @Rec_JC_Seasons_Played, [Rec_PrimaryPosition] = @Rec_PrimaryPosition, [Rec_SecondaryPosition] = @Rec_SecondaryPosition WHERE [Pro_Id] = @Pro_Id">
                <DeleteParameters>
                    <asp:Parameter Name="Pro_Id" Type="Int32" />
@@ -540,6 +545,14 @@
             <asp:QueryStringParameter Name="Pro_id" QueryStringField="Pro_id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM dbo.profile WHERE (Pro_Id = @Pro_Id)" SelectCommand="SELECT Pro_Id, PostDate, Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_App2Cal, Rec_Reg2NCAA, Rec_NCAA_ID, Rec_FAFSA, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played, Rec_PrimaryPosition, Rec_SecondaryPosition FROM dbo.profile WHERE (Pro_Id = @Pro_Id)">
+            <DeleteParameters>
+                <asp:Parameter Name="Pro_Id" />
+            </DeleteParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />

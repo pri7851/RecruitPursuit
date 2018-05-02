@@ -393,4 +393,14 @@ public partial class Profile_Page : System.Web.UI.Page
 
 
 
+
+    protected void Deletebtn_Click(object sender, EventArgs e)
+    {
+        
+        SqlDataSource1.DeleteCommandType = SqlDataSourceCommandType.Text;
+        SqlDataSource1.DeleteCommand = "DELETE FROM dbo.profile WHERE (Pro_Id = @Pro_Id)";
+        SqlDataSource1.DeleteParameters.Add("Pro_Id", Request.QueryString["Pro_Id"]);
+        SqlDataSource1.Delete();
+        
+    }
 }
