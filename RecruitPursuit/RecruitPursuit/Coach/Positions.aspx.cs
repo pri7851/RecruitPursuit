@@ -87,6 +87,16 @@ public partial class Coach_Positions : System.Web.UI.Page
     {
         String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
         SqlConnection con = new SqlConnection(conString);
+        String cmdString = "INSERT INTO Positions VALUES(@Sport_Id, @Position)";
+        SqlCommand cmd = new SqlCommand(cmdString, con);
+        cmd.Connection = con;
+        cmd.Parameters.AddWithValue("@Sport_Id", Session["Sport_Id"].ToString());
+        cmd.Parameters.AddWithValue("@Position", TextBoxPosition.Text);
+        con.Open();
+        cmd.ExecuteNonQuery();
+        con.Close();
+        /*String conString = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+        SqlConnection con = new SqlConnection(conString);
 
         //create a command behavior object
         String cmdString = "INSERT INTO [Positions](Sport_Id, Position)" +
@@ -118,7 +128,7 @@ public partial class Coach_Positions : System.Web.UI.Page
         finally
         {
             con.Close();
-        }
+        } */
         TextBoxPosition.Text = "";
         Panel2.Visible = true;
         GridView1.DataBind();

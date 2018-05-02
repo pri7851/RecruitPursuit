@@ -5,16 +5,18 @@
       <h1>Athletic Information</h1>
 
         
-                 <asp:Panel ID="Panel4" runat="server" Visible="False">
-                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
+                 <asp:Panel ID="Panel4" runat="server">
+                     <asp:Label ID="lblPrimaryPosition" runat="server" Text="Primary Position: "></asp:Label>
+                     &nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
-                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
+                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
-                             <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
+                             <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
-                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
+                     <asp:Label ID="lblSecondaryPosition" runat="server" Text="Secondary Position: "></asp:Label>
+                     <asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
