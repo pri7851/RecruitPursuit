@@ -4,31 +4,16 @@
   
     
     <style type="text/css">
-    .auto-style1 {
-        width: 1011px;
-    }
-    .auto-style2 {
-        width: 139px;
-        height: 29px;
-    }
-        .auto-style3 {
-            font-size: medium;
-            font-weight: 700;
-        }
-        .auto-style4 {
-            font-size: medium;
-        }
-
+                
         .auto-style5 {
             font-size: large;
         }
 
-    </style>
+        </style>
   
     
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
-    
      <asp:DataList ID="DataList2" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
                 <ItemTemplate>
                   <h1>
@@ -38,8 +23,10 @@
                    
                 </ItemTemplate>
             </asp:DataList>   
-    
-  
+
+     
+     
+    <asp:Panel ID="PanelStarRatings" runat="server">
     
            <asp:ScriptManager ID="asm" runat="server" />
      
@@ -94,6 +81,7 @@
          
       <br />
      <br />
+        </asp:Panel>
     <asp:Panel ID="Panel1" runat="server">
 
         <asp:Button ID="btnPersonal1" class="btn btn-primary" runat="server" Text="Personal" ForeColor="White" />
@@ -295,7 +283,7 @@
         <asp:Button ID="btnAthletic2" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic2_Click" />
         <asp:Button ID="btnNotes2" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes2_Click" />
         <asp:Button ID="btnSchedule2" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule2_Click"/>
-        <asp:Button ID="btnDelete2" runat="server" Text="Delete" class="btn btn-outline-primary" OnClick="btnDelete2_Click" />
+       
          <br />
         <br />
         <asp:DataList ID="listAcademic" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource3">
@@ -475,26 +463,136 @@
         <asp:Button ID="btnAthletics3" class="btn btn-primary" runat="server" Text="Athletic" ForeColor="White" />
         <asp:Button ID="btnNotes3" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes3_Click" />
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
-          <asp:Button ID="btnDelete3" runat="server" Text="Delete" class="btn btn-outline-primary" OnClick="btnDelete3_Click" />
+      
         <br />
         <br />
         
-        <span class="auto-style3">
         
-        <br />
-        <br />
+        
+        <asp:DataList ID="DataListPositions" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource8">
+            <ItemTemplate>
+                <strong><span class="auto-style5">Primary</span></strong><span class="auto-style5"> <strong>Position:</strong>
+                <asp:Label ID="Rec_PrimaryPositionLabel" runat="server" Text='<%# Eval("Rec_PrimaryPosition") %>' />
+                <br />
+                <br />
+                <strong>Secondary Position:</strong>
+                <asp:Label ID="Rec_SecondaryPositionLabel" runat="server" Text='<%# Eval("Rec_SecondaryPosition") %>' />
+                </span>
+                <br />
+                <br />
+            </ItemTemplate>
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [profile] WHERE [Pro_Id] = @Pro_Id" InsertCommand="INSERT INTO [profile] ([PostDate], [Sport_Id], [Rec_FName], [Rec_LName], [Rec_Address], [Rec_City], [Rec_State], [Rec_Zip], [Rec_Country], [Rec_Citizen], [Rec_Email], [Rec_DOB], [Rec_HomePhone], [Rec_CellPhone], [Rec_FatherName], [Rec_FatherOcc], [Rec_MotherName], [Rec_MotherOcc], [Rec_App2Cal], [Rec_Reg2NCAA], [Rec_NCAA_ID], [Rec_FAFSA], [Rec_HSName], [Rec_HSGradYear], [Rec_HSGPA], [Rec_SAT_Verbal], [Rec_SAT_Math], [Rec_SAT_Tot], [Rec_ACT], [Rec_Acad_Honors], [Rec_Poss_Major], [Rec_JCName], [Rec_JC_NumSem], [Rec_JCGPA], [Rec_JC_Tot_Units], [Rec_DateAACompleted], [Rec_JC_Coach_Name], [Rec_JC_Coach_Email], [Rec_JC_Seasons_Played], [Rec_PrimaryPosition], [Rec_SecondaryPosition], [StarRating]) VALUES (@PostDate, @Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_App2Cal, @Rec_Reg2NCAA, @Rec_NCAA_ID, @Rec_FAFSA, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @Rec_PrimaryPosition, @Rec_SecondaryPosition, @StarRating)" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)" UpdateCommand="UPDATE [profile] SET [PostDate] = @PostDate, [Sport_Id] = @Sport_Id, [Rec_FName] = @Rec_FName, [Rec_LName] = @Rec_LName, [Rec_Address] = @Rec_Address, [Rec_City] = @Rec_City, [Rec_State] = @Rec_State, [Rec_Zip] = @Rec_Zip, [Rec_Country] = @Rec_Country, [Rec_Citizen] = @Rec_Citizen, [Rec_Email] = @Rec_Email, [Rec_DOB] = @Rec_DOB, [Rec_HomePhone] = @Rec_HomePhone, [Rec_CellPhone] = @Rec_CellPhone, [Rec_FatherName] = @Rec_FatherName, [Rec_FatherOcc] = @Rec_FatherOcc, [Rec_MotherName] = @Rec_MotherName, [Rec_MotherOcc] = @Rec_MotherOcc, [Rec_App2Cal] = @Rec_App2Cal, [Rec_Reg2NCAA] = @Rec_Reg2NCAA, [Rec_NCAA_ID] = @Rec_NCAA_ID, [Rec_FAFSA] = @Rec_FAFSA, [Rec_HSName] = @Rec_HSName, [Rec_HSGradYear] = @Rec_HSGradYear, [Rec_HSGPA] = @Rec_HSGPA, [Rec_SAT_Verbal] = @Rec_SAT_Verbal, [Rec_SAT_Math] = @Rec_SAT_Math, [Rec_SAT_Tot] = @Rec_SAT_Tot, [Rec_ACT] = @Rec_ACT, [Rec_Acad_Honors] = @Rec_Acad_Honors, [Rec_Poss_Major] = @Rec_Poss_Major, [Rec_JCName] = @Rec_JCName, [Rec_JC_NumSem] = @Rec_JC_NumSem, [Rec_JCGPA] = @Rec_JCGPA, [Rec_JC_Tot_Units] = @Rec_JC_Tot_Units, [Rec_DateAACompleted] = @Rec_DateAACompleted, [Rec_JC_Coach_Name] = @Rec_JC_Coach_Name, [Rec_JC_Coach_Email] = @Rec_JC_Coach_Email, [Rec_JC_Seasons_Played] = @Rec_JC_Seasons_Played, [Rec_PrimaryPosition] = @Rec_PrimaryPosition, [Rec_SecondaryPosition] = @Rec_SecondaryPosition, [StarRating] = @StarRating WHERE [Pro_Id] = @Pro_Id">
+            <DeleteParameters>
+                <asp:Parameter Name="Pro_Id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="PostDate" Type="String" />
+                <asp:Parameter Name="Sport_Id" Type="Int32" />
+                <asp:Parameter Name="Rec_FName" Type="String" />
+                <asp:Parameter Name="Rec_LName" Type="String" />
+                <asp:Parameter Name="Rec_Address" Type="String" />
+                <asp:Parameter Name="Rec_City" Type="String" />
+                <asp:Parameter Name="Rec_State" Type="String" />
+                <asp:Parameter Name="Rec_Zip" Type="Int32" />
+                <asp:Parameter Name="Rec_Country" Type="String" />
+                <asp:Parameter Name="Rec_Citizen" Type="String" />
+                <asp:Parameter Name="Rec_Email" Type="String" />
+                <asp:Parameter Name="Rec_DOB" Type="String" />
+                <asp:Parameter Name="Rec_HomePhone" Type="String" />
+                <asp:Parameter Name="Rec_CellPhone" Type="String" />
+                <asp:Parameter Name="Rec_FatherName" Type="String" />
+                <asp:Parameter Name="Rec_FatherOcc" Type="String" />
+                <asp:Parameter Name="Rec_MotherName" Type="String" />
+                <asp:Parameter Name="Rec_MotherOcc" Type="String" />
+                <asp:Parameter Name="Rec_App2Cal" Type="String" />
+                <asp:Parameter Name="Rec_Reg2NCAA" Type="String" />
+                <asp:Parameter Name="Rec_NCAA_ID" Type="String" />
+                <asp:Parameter Name="Rec_FAFSA" Type="String" />
+                <asp:Parameter Name="Rec_HSName" Type="String" />
+                <asp:Parameter Name="Rec_HSGradYear" Type="String" />
+                <asp:Parameter Name="Rec_HSGPA" Type="Double" />
+                <asp:Parameter Name="Rec_SAT_Verbal" Type="Int32" />
+                <asp:Parameter Name="Rec_SAT_Math" Type="Int32" />
+                <asp:Parameter Name="Rec_SAT_Tot" Type="Int32" />
+                <asp:Parameter Name="Rec_ACT" Type="Int32" />
+                <asp:Parameter Name="Rec_Acad_Honors" Type="String" />
+                <asp:Parameter Name="Rec_Poss_Major" Type="String" />
+                <asp:Parameter Name="Rec_JCName" Type="String" />
+                <asp:Parameter Name="Rec_JC_NumSem" Type="Int32" />
+                <asp:Parameter Name="Rec_JCGPA" Type="Int32" />
+                <asp:Parameter Name="Rec_JC_Tot_Units" Type="Int32" />
+                <asp:Parameter Name="Rec_DateAACompleted" Type="String" />
+                <asp:Parameter Name="Rec_JC_Coach_Name" Type="String" />
+                <asp:Parameter Name="Rec_JC_Coach_Email" Type="String" />
+                <asp:Parameter Name="Rec_JC_Seasons_Played" Type="Int32" />
+                <asp:Parameter Name="Rec_PrimaryPosition" Type="String" />
+                <asp:Parameter Name="Rec_SecondaryPosition" Type="String" />
+                <asp:Parameter Name="StarRating" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="PostDate" Type="String" />
+                <asp:Parameter Name="Sport_Id" Type="Int32" />
+                <asp:Parameter Name="Rec_FName" Type="String" />
+                <asp:Parameter Name="Rec_LName" Type="String" />
+                <asp:Parameter Name="Rec_Address" Type="String" />
+                <asp:Parameter Name="Rec_City" Type="String" />
+                <asp:Parameter Name="Rec_State" Type="String" />
+                <asp:Parameter Name="Rec_Zip" Type="Int32" />
+                <asp:Parameter Name="Rec_Country" Type="String" />
+                <asp:Parameter Name="Rec_Citizen" Type="String" />
+                <asp:Parameter Name="Rec_Email" Type="String" />
+                <asp:Parameter Name="Rec_DOB" Type="String" />
+                <asp:Parameter Name="Rec_HomePhone" Type="String" />
+                <asp:Parameter Name="Rec_CellPhone" Type="String" />
+                <asp:Parameter Name="Rec_FatherName" Type="String" />
+                <asp:Parameter Name="Rec_FatherOcc" Type="String" />
+                <asp:Parameter Name="Rec_MotherName" Type="String" />
+                <asp:Parameter Name="Rec_MotherOcc" Type="String" />
+                <asp:Parameter Name="Rec_App2Cal" Type="String" />
+                <asp:Parameter Name="Rec_Reg2NCAA" Type="String" />
+                <asp:Parameter Name="Rec_NCAA_ID" Type="String" />
+                <asp:Parameter Name="Rec_FAFSA" Type="String" />
+                <asp:Parameter Name="Rec_HSName" Type="String" />
+                <asp:Parameter Name="Rec_HSGradYear" Type="String" />
+                <asp:Parameter Name="Rec_HSGPA" Type="Double" />
+                <asp:Parameter Name="Rec_SAT_Verbal" Type="Int32" />
+                <asp:Parameter Name="Rec_SAT_Math" Type="Int32" />
+                <asp:Parameter Name="Rec_SAT_Tot" Type="Int32" />
+                <asp:Parameter Name="Rec_ACT" Type="Int32" />
+                <asp:Parameter Name="Rec_Acad_Honors" Type="String" />
+                <asp:Parameter Name="Rec_Poss_Major" Type="String" />
+                <asp:Parameter Name="Rec_JCName" Type="String" />
+                <asp:Parameter Name="Rec_JC_NumSem" Type="Int32" />
+                <asp:Parameter Name="Rec_JCGPA" Type="Int32" />
+                <asp:Parameter Name="Rec_JC_Tot_Units" Type="Int32" />
+                <asp:Parameter Name="Rec_DateAACompleted" Type="String" />
+                <asp:Parameter Name="Rec_JC_Coach_Name" Type="String" />
+                <asp:Parameter Name="Rec_JC_Coach_Email" Type="String" />
+                <asp:Parameter Name="Rec_JC_Seasons_Played" Type="Int32" />
+                <asp:Parameter Name="Rec_PrimaryPosition" Type="String" />
+                <asp:Parameter Name="Rec_SecondaryPosition" Type="String" />
+                <asp:Parameter Name="StarRating" Type="String" />
+                <asp:Parameter Name="Pro_Id" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
         <br />
         <asp:DataList ID="dlSportQuestions" runat="server" DataSourceID="SqlDataSource5">
             <ItemTemplate>
-                <span class="auto-style3">
-               <strong> Question:</strong>
+               <span class="auto-style5">
+               <strong> 
                 <asp:Label ID="SportQuestTextLabel" runat="server" Text='<%# Eval("SportQuestText") %>' />
+                    </strong>
                 <br />
-            <strong> Answer: </strong>
+           
                 <asp:Label ID="Answer_textLabel" runat="server" Text='<%# Eval("Answer_text") %>' />
+                   </span>
                 <br />
                 <br />
-                    </span>
+                    
             </ItemTemplate>
         </asp:DataList>
         <br />
@@ -511,7 +609,7 @@
           <br />
         <br />
 
-    </asp:Panel>
+     </asp:Panel>
     
     <asp:Panel ID="Panel4" runat="server" Visible="False">
         <asp:Button ID="btnPersonal4" class="btn btn-outline-primary" runat="server" Text="Personal" OnClick="btnPersonal4_Click"/>
@@ -519,7 +617,7 @@
         <asp:Button ID="btnAthletic4" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic4_Click" />
         <asp:Button ID="btnNotes4" class="btn btn-primary" runat="server" Text="Notes" OnClick="btnNotes4_Click" ForeColor="White" />
         <asp:Button ID="btnSchedule4" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule4_Click" />
-        <asp:Button ID="btnDelete4" runat="server" class="btn btn-outline-primary" Text="Delete" OnClick="btnDelete4_Click"  />
+     
 
 
     <br />
@@ -597,7 +695,7 @@
         <asp:Button ID="btnAthletic5" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic5_Click" />
         <asp:Button ID="btnNotes5" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes5_Click"  />
         <asp:Button ID="btnSchedule5" class="btn btn-primary" runat="server" Text="Schedule" ForeColor="White" OnClick="btnSchedule5_Click"/>
-        <asp:Button ID="btnDelete5" runat="server" class="btn btn-outline-primary" Text="Delete" OnClick="btnDelete5_Click" />
+      
 
    
 
@@ -706,15 +804,11 @@
     
        </asp:Panel>
     <asp:Panel runat="server" ID="Panel6" Visible="false">
-        <asp:Button ID="btnPersonal6" class="btn btn-outline-primary" runat="server" Text="Personal" OnClick="btnPersonal5_Click"/>
-        <asp:Button ID="btnAcademic6" class="btn btn-outline-primary" runat="server" Text="Academic" OnClick="btnAcademic5_Click" />
-        <asp:Button ID="btnAthletic6" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic5_Click" />
-        <asp:Button ID="btnNotes6" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes5_Click"  />
-        <asp:Button ID="btnSchedule6" class="btn btn-outline-primary" runat="server" Text="Schedule"  OnClick="btnSchedule5_Click"/>
-        <asp:Button ID="btnDelete6" runat="server" class="btn btn-primary" Text="Delete" ForeColor="White" />
+        
         <br />
         <br />
-        Upon successful deletion, you will be redirected back to the Home page.<br /> Are you sure you want to delete this recruit?<br />
+        <div style="text-align: center">
+       Upon successful deletion, you will be redirected back to the Home page.<br /> Are you sure you want to delete this recruit?<br />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -723,6 +817,7 @@
         <asp:Button ID="btnDeleteCancel" runat="server" OnClick="btnDeleteCancel_Click" Text="Cancel" />
         <br />
         <br />
+            </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <br />
@@ -731,16 +826,19 @@
                 <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <br />
+        
     </asp:Panel>
      </div>
-    </asp:Content>
+
+    <asp:Button ID="btnDelete2" runat="server" class="btn btn-primary btn-lg btn-block" Font-Size="Large" OnClick="btnDelete2_Click" Text="Delete"  Height="40px" />
+        <br />
+        <br />
+        </asp:Content>
 
 
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"></li>
         <li class="breadcrumb-item"><a href="Home.aspx">Home</a></li>
         <li class="breadcrumb-item active">Profile</li>
     </ol>

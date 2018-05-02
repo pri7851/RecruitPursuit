@@ -17,26 +17,61 @@ public partial class Profile_Page : System.Web.UI.Page
     bool show = true;
     int ID;
     int ProID;
+    String sportHasPositions;
+    String starValue;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+        using (SqlCommand dataCommand =
+                new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
+
+        {
+            dataConnection.Open();
+            SqlParameter param2 = new SqlParameter();
+            param2.ParameterName = "@Sport_Id";
+            param2.Value = Session["Sport_Id"];
+            dataCommand.Parameters.Add(param2);
+
+            sportHasPositions = dataCommand.ExecuteScalar().ToString();
+        }
+
+
+        if (sportHasPositions == "No")
+        {
+            DataListPositions.Visible = false;
+
+        }
+
+        if (sportHasPositions == "Yes")
+        {
+            DataListPositions.Visible = true;
+
+        }
+
+        
         Panel6.Visible = false;
         if (Page.IsPostBack)
         {
             using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
             using (SqlCommand dataCommand =
-                    new SqlCommand("insert StarRating from profile Where StarRating = @StarRating and Pro_Id = @Pro_Id", dataConnection))
+                    new SqlCommand("insert into [profile](StarRating) VALUES (@StarRating) Where Pro_Id = @Pro_Id", dataConnection))
+            using (SqlCommand dataCommand2 =
+            new SqlCommand("Select StarRating from profile Where Pro_Id = @Pro_Id", dataConnection))
 
             {
                 dataConnection.Open();
                 SqlParameter param2 = new SqlParameter();
                 param2.ParameterName = "@Pro_Id";
                 param2.Value = Request.QueryString["Pro_Id"];
-                dataCommand.Parameters.Add(param2);
+                dataCommand2.Parameters.Add(param2);
 
-                string value = SliderValue.Text;
+                starValue = dataCommand2.ExecuteScalar().ToString();
+               
 
-                if (value == "1")
+                String value = SliderValue.Text;
+
+                if (starValue == "1" || value == "1" )
                 {
                     PanelStar1.Visible = true;
                     PanelStar2.Visible = false;
@@ -44,64 +79,112 @@ public partial class Profile_Page : System.Web.UI.Page
                     PanelStar4.Visible = false;
                     PanelStar5.Visible = false;
 
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@StarRating";
-                    param1.Value = value;
-                    dataCommand.Parameters.Add(param1);
+                    if (value == "1")
+                    {
+                        
+                        SqlParameter param0 = new SqlParameter();
+                        param0.ParameterName = "@Pro_Id";
+                        param0.Value = Request.QueryString["Pro_Id"];
+                        dataCommand.Parameters.Add(param0);
+
+                        SqlParameter param1 = new SqlParameter();
+                        param1.ParameterName = "@StarRating";
+                        param1.Value = value;
+                        dataCommand.Parameters.Add(param1);
+                    }
                 }
 
-                if (value == "2")
+                if (  starValue == "2" || value == "2")
                 {
                     PanelStar1.Visible = false;
                     PanelStar2.Visible = true;
                     PanelStar3.Visible = false;
                     PanelStar4.Visible = false;
                     PanelStar5.Visible = false;
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@StarRating";
-                    param1.Value = value;
-                    dataCommand.Parameters.Add(param1);
+
+                    if (value == "2")
+                    {
+                        
+                        SqlParameter param0 = new SqlParameter();
+                        param0.ParameterName = "@Pro_Id";
+                        param0.Value = Request.QueryString["Pro_Id"];
+                        dataCommand.Parameters.Add(param0);
+
+                        SqlParameter param1 = new SqlParameter();
+                        param1.ParameterName = "@StarRating";
+                        param1.Value = value;
+                        dataCommand.Parameters.Add(param1);
+                    }
                 }
 
-                if (value == "3")
+                if ( starValue == "3" || value == "3" )
                 {
                     PanelStar1.Visible = false;
                     PanelStar2.Visible = false;
                     PanelStar3.Visible = true;
                     PanelStar4.Visible = false;
                     PanelStar5.Visible = false;
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@StarRating";
-                    param1.Value = value;
-                    dataCommand.Parameters.Add(param1);
+                    if (value == "3")
+                    {
+                        
+                        SqlParameter param0 = new SqlParameter();
+                        param0.ParameterName = "@Pro_Id";
+                        param0.Value = Request.QueryString["Pro_Id"];
+                        dataCommand.Parameters.Add(param0);
+
+                        SqlParameter param1 = new SqlParameter();
+                        param1.ParameterName = "@StarRating";
+                        param1.Value = value;
+                        dataCommand.Parameters.Add(param1);
+                    }
                 }
 
-                if (value == "4")
+                if (starValue == "4" || value == "4" )
                 {
                     PanelStar1.Visible = false;
                     PanelStar2.Visible = false;
                     PanelStar3.Visible = false;
                     PanelStar4.Visible = true;
                     PanelStar5.Visible = false;
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@StarRating";
-                    param1.Value = value;
-                    dataCommand.Parameters.Add(param1);
+
+                    if (value == "4")
+                    {
+                       
+                        SqlParameter param0 = new SqlParameter();
+                        param0.ParameterName = "@Pro_Id";
+                        param0.Value = Request.QueryString["Pro_Id"];
+                        dataCommand.Parameters.Add(param0);
+
+                        SqlParameter param1 = new SqlParameter();
+                        param1.ParameterName = "@StarRating";
+                        param1.Value = value;
+                        dataCommand.Parameters.Add(param1);
+                    }
                 }
 
-                if (value == "5")
+                if ( starValue == "5" || value == "5" )
                 {
                     PanelStar1.Visible = false;
                     PanelStar2.Visible = false;
                     PanelStar3.Visible = false;
                     PanelStar4.Visible = false;
                     PanelStar5.Visible = true;
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@StarRating";
-                    param1.Value = value;
-                    dataCommand.Parameters.Add(param1);
+                    if (value == "5")
+                    {
+                       
+                        SqlParameter param0 = new SqlParameter();
+                        param0.ParameterName = "@Pro_Id";
+                        param0.Value = Request.QueryString["Pro_Id"];
+                        dataCommand.Parameters.Add(param0);
+
+                        SqlParameter param1 = new SqlParameter();
+                        param1.ParameterName = "@StarRating";
+                        param1.Value = value;
+                        dataCommand.Parameters.Add(param1);
+                    }
                 }
                 //LastUpdate.Text = "Last update: " + DateTime.Now.ToLongTimeString();
+                dataConnection.Close();
             }
 
             if (Session["ID"] != null)
@@ -439,15 +522,7 @@ public partial class Profile_Page : System.Web.UI.Page
 
 
 
-    protected void btnDelete1_Click(object sender, EventArgs e)
-    {
-        Panel1.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel4.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = true;
-    }
+   
 
     protected void btnDelete2_Click(object sender, EventArgs e)
     {
@@ -457,38 +532,11 @@ public partial class Profile_Page : System.Web.UI.Page
         Panel4.Visible = false;
         Panel5.Visible = false;
         Panel6.Visible = true;
+        btnDelete2.Visible = false;
+        PanelStarRatings.Visible = false;
     }
 
-    protected void btnDelete3_Click(object sender, EventArgs e)
-    {
-        Panel1.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel4.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = true;
-    }
-
-    protected void btnDelete4_Click(object sender, EventArgs e)
-    {
-        Panel1.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel4.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = true;
-    }
-
-    protected void btnDelete5_Click(object sender, EventArgs e)
-    {
-        Panel1.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel4.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = true;
-    }
-
+   
     protected void btnPersonal1_Click(object sender, EventArgs e)
     {
 
@@ -502,6 +550,8 @@ public partial class Profile_Page : System.Web.UI.Page
         Panel4.Visible = false;
         Panel5.Visible = false;
         Panel6.Visible = false;
+        btnDelete2.Visible = true;
+        PanelStarRatings.Visible = true;
     }
 
     protected void btnDeleteConfirm_Click(object sender, EventArgs e)
