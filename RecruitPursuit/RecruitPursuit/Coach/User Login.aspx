@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     
     
+    <style type="text/css">
+        .auto-style1 {
+            left: 1px;
+            top: 1px;
+        }
+    </style>
+    
+    
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="jumbotron" >
@@ -17,13 +25,13 @@
         
     </h2>
     Select Sport:  
-        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Sport_Name" DataValueField="Sport_Id" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+        <asp:DropDownList ID="ddlSports" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Sport_Name" DataValueField="Sport_Id" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="auto-style1" >
     </asp:DropDownList>
             &nbsp;&nbsp;
 &nbsp;<p>
             <br />
         
-&nbsp;Username:
+Username:
             <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
             <p>
             Password:&nbsp;
@@ -37,6 +45,8 @@
             
  
         <p>
+            
+            &nbsp;<p>
             
             <asp:Label ID="lbl1" runat="server"></asp:Label>
            

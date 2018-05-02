@@ -17,8 +17,9 @@
                     <asp:BoundField DataField="Position" HeaderText="Position" SortExpression="Position" />
                     <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" />
                 </Columns>
+                <HeaderStyle BackColor="#D9230F" ForeColor="White" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [Positions] WHERE [Position_Id] = @Position_Id" InsertCommand="INSERT INTO [Positions] ([Sport_Id], [Position]) VALUES (@Sport_Id, @Position)" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)" UpdateCommand="UPDATE [Positions] SET [Sport_Id] = @Sport_Id, [Position] = @Position WHERE [Position_Id] = @Position_Id">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" DeleteCommand="DELETE FROM [Positions] WHERE [Position_Id] = @Position_Id" InsertCommand="INSERT INTO [Positions] ([Sport_Id], [Position]) VALUES (@Sport_Id, @Position)" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)" UpdateCommand="UPDATE dbo.Positions SET Position = @Position WHERE (Position_Id = @Position_Id)">
                 <DeleteParameters>
                     <asp:Parameter Name="Position_Id" Type="Int32" />
                 </DeleteParameters>
@@ -30,7 +31,6 @@
                     <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
                 </SelectParameters>
                 <UpdateParameters>
-                    <asp:Parameter Name="Sport_Id" Type="Int32" />
                     <asp:Parameter Name="Position" Type="String" />
                     <asp:Parameter Name="Position_Id" Type="Int32" />
                 </UpdateParameters>

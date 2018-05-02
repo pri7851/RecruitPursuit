@@ -44,7 +44,7 @@ public partial class User_User_Login : System.Web.UI.Page
             {
 
 
-                Session["Sport_Id"] = DropDownList1.SelectedValue;
+                Session["Sport_Id"] = ddlSports.SelectedValue;
                 string connection = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
                 SqlConnection con = new SqlConnection(connection);
                 con.Open();
@@ -52,7 +52,7 @@ public partial class User_User_Login : System.Web.UI.Page
                 cmd.CommandText = "SELECT[Usename], [Password], [Sport_Id] FROM[coach] WHERE(([Usename] = @Usename) AND([Password] = @Password) AND([Sport_Id] = @Sport_Id))";
                 cmd.Parameters.AddWithValue("Usename", txtLogin.Text);
                 cmd.Parameters.AddWithValue("Password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("Sport_Id", DropDownList1.SelectedValue);
+                cmd.Parameters.AddWithValue("Sport_Id", ddlSports.SelectedValue);
 
 
                 cmd.Connection = con;
@@ -64,7 +64,7 @@ public partial class User_User_Login : System.Web.UI.Page
                 if(dt.Rows.Count > 0)
                 {
                     Session["Username"] = txtLogin.Text;
-                    Session["SportId"] = DropDownList1.SelectedValue;
+                    Session["SportId"] = ddlSports.SelectedValue;
                     Response.Redirect("Home.aspx");
                 }
                 else

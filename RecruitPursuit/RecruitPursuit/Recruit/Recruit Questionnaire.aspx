@@ -181,10 +181,11 @@
                           <h2>
                               <asp:Label ID="Output" runat="server"></asp:Label>
                               Athletic Information</h2>
-
+                 </asp:Panel>
         
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
-                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
+                     <asp:Label ID="lblPrimaryPosition" runat="server" Text="Primary Position:"></asp:Label>
+                     &nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
@@ -192,14 +193,15 @@
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
-                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
+                     <asp:Label ID="lblSecondaryPosition" runat="server" Text="Secondary Position:"></asp:Label>
+                     <asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
                              <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
                          </SelectParameters>
                      </asp:SqlDataSource>
-                 </asp:Panel>
+                 
                  &nbsp;<br />
                  &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6">
                               <Columns>
