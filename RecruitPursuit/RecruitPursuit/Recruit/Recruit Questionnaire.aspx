@@ -4,7 +4,7 @@
    
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                 <h2>  
         <asp:Label ID="lblSport" runat="server"></asp:Label>
                  </h2>
@@ -12,7 +12,9 @@
                               <div class="progress">
   <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-        <h2>Personal Information</h2>
+        <h2>&nbsp;</h2>
+ 
+                              <h2>Personal Information</h2>
  
     First Name:  <asp:TextBox ID="TextBoxFirstName" runat="server"></asp:TextBox>
         <br />
@@ -94,8 +96,11 @@
                           <div class="progress">
   <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-    <h2>Academic Information</h2>
-        <h4>High School Information</h4>
+    <h2>&nbsp;</h2>
+                          <h2>Academic Information</h2>
+                          <p>
+                              &nbsp;</p>
+                          <h4>High School Information</h4>
         Name of High School:  <asp:TextBox ID="TextBoxHSName" runat="server"></asp:TextBox>
     <br />
 
@@ -137,8 +142,11 @@
             <br />
  
         Possible Major at Cal U:<asp:TextBox ID="TextBoxPoss_Major" runat="server"></asp:TextBox>
+                          <br />
+                          <br />
+                          <br />
             <br />
-            <h4>Junior/Previous College Information (If Applicable)</h4>
+                          <h4>Junior/Previous College Information (If Applicable)</h4>
     Name of Junior/Previous College: <asp:TextBox ID="TextBoxJCName" runat="server"></asp:TextBox>
             <br />
             <br />
@@ -163,16 +171,16 @@
     Number of Seasons played at JC/Previous School:  <asp:TextBox ID="TextBoxJC_Seasons_Played" runat="server"></asp:TextBox>
             <br />
 
-                 <asp:Button ID="btnBack1" runat="server" Text="Back" OnClick="btnBack1_Click" /><asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click"/>
+                          <asp:Button ID="btnNext2" runat="server" Text="Next" OnClick="btnNext2_Click"/>
         </asp:Panel>
              <asp:Panel ID="Panel3" runat="server" Visible="False">
                           <div class="progress">
   <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-            <p>
-                <asp:Label ID="Output" runat="server"></asp:Label>
-            </p>
-            <h1>Athletic Information</h1>
+                          <h2>&nbsp;</h2>
+                          <h2>
+                              <asp:Label ID="Output" runat="server"></asp:Label>
+                              Athletic Information</h2>
 
         
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
@@ -194,17 +202,18 @@
                  </asp:Panel>
                  &nbsp;<br />
                  &nbsp;&nbsp;<br />
-             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
-                 <Columns>
-                     <asp:BoundField DataField="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" SortExpression="SportQuestID" />
-                     <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
-                     <asp:TemplateField>
-                         <ItemTemplate>
-                             <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
-                         </ItemTemplate>
-                     </asp:TemplateField>
-                 </Columns>
-             </asp:GridView>
+                          <div class="text-left">
+                              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="5" DataSourceID="SqlDataSource4" GridLines="None">
+                                  <Columns>
+                                      <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
+                                      <asp:TemplateField>
+                                          <ItemTemplate>
+                                              <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
+                                          </ItemTemplate>
+                                      </asp:TemplateField>
+                                  </Columns>
+                              </asp:GridView>
+                          </div>
              <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT[SportQuestID], [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
                  <SelectParameters>
                      <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
@@ -212,7 +221,7 @@
              </asp:SqlDataSource>
              <br />
              <br />
-                <asp:Button ID="Back2" runat="server" Text="Back" OnClick="Back2_Click" /><asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                          <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                   </asp:Panel>
                           <asp:Panel ID="Panel5" runat="server" Visible="False">
                            <div class="progress">

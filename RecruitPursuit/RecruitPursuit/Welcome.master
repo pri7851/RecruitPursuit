@@ -10,19 +10,37 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div style="padding-left:40px; padding-top:10px; padding-right: 40px;"> 
   <a class="navbar-brand" href="/Welcome.aspx">
-      <asp:Label ID="LabelSport" runat="server" Text=""></asp:Label></a>
- 
- 
+      
+      <asp:Label ID="LabelSport" runat="server" Font-Size="Medium"></asp:Label></a>
+        </div>
 </nav>
+        
     <form id="form1" runat="server">
 
-    <div>
+     
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+        <div class="footer"> 
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" ValidateRequestMode="Inherit">
+                 <asp:Panel ID="Panel1" runat="server" style="background-color: #D9230F" Height="70px">
+                     <asp:HyperLink ID="HyperLinkHelp" runat="server">Help</asp:HyperLink>
+
+                 </asp:Panel>
+            </asp:ContentPlaceHolder>
+
+
     </div>
+         <footer >
+
+    </footer>
     </form>
+
+    
+
 </body>
 </html>

@@ -19,16 +19,81 @@
             font-size: medium;
         }
 
+        .auto-style5 {
+            font-size: large;
+        }
+
     </style>
   
     
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
     
+     <asp:DataList ID="DataList2" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
+                <ItemTemplate>
+                  <h1>
+                        <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
+                        &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
+                    </h1>
+                   
+                </ItemTemplate>
+            </asp:DataList>   
+    
+  
+    
+           <asp:ScriptManager ID="asm" runat="server" />
      
-    
-   
-    
+        <asp:Panel ID="PanelStar1" runat="server" Visible="True">
+        <span class="fa fa-star checked" style="font-size:31px"></span>
+        <span class="fa fa-star " style="font-size:31px"></span>
+        <span class="fa fa-star "style="font-size:31px"></span>
+        <span class="fa fa-star "style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        </asp:Panel>
+
+        <asp:Panel ID="PanelStar2" runat="server" Visible="False">
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked" style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        </asp:Panel>
+
+        <asp:Panel ID="PanelStar3" runat="server" Visible="False">
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked" style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        </asp:Panel>
+
+        <asp:Panel ID="PanelStar4" runat="server" Visible="False">
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked" style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star"style="font-size:31px"></span>
+        </asp:Panel>
+
+        <asp:Panel ID="PanelStar5" runat="server" Visible="False">
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked" style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        <span class="fa fa-star checked"style="font-size:31px"></span>
+        </asp:Panel>
+      <br />
+      
+      <div style="float: left">
+             <asp:TextBox ID="Slider1" runat="server" AutoPostBack="true" />
+              </div>
+        <div style="float: left">
+           <asp:Textbox ID="SliderValue" runat="server" AutoPostBack="true" Height="0px" Width="0px" Wrap="False" />
+            </div>
+           <cc1:SliderExtender ID="se1" runat="server" BoundControlID="SliderValue" Maximum="5" Minimum="1" TargetControlId="Slider1" />
+         
+      <br />
+     <br />
     <asp:Panel ID="Panel1" runat="server">
 
         <asp:Button ID="btnPersonal1" class="btn btn-primary" runat="server" Text="Personal" ForeColor="White" />
@@ -36,123 +101,83 @@
         <asp:Button ID="btnAthletic1" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic1_Click" />
         <asp:Button ID="btnNotes1" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes1_Click" />
         <asp:Button ID="btnSchedule1" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule1_Click"/>
-          
-        <span class="heading">
         <br />
         <br />
-        </span>
-        
-       <div class="row">
-       <div class="col order-2">
-      
-    
-      
-           <asp:TextBox ID="Slider1" runat="server" AutoPostBack="true" />
-           <asp:Label ID="SliderValue" runat="server" AutoPostBack="true" />
-           <cc1:SliderExtender ID="se1" runat="server" BoundControlID="SliderValue" Maximum="5" Minimum="1" TargetControlId="Slider1" />
-           <asp:ScriptManager ID="asm" runat="server" />
-           <asp:Panel ID="PanelStar1" runat="server" Visible="True">
-        <span class="fa fa-star checked "></span>
-        <span class="fa fa-star " ></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star"></span>
-        </asp:Panel>
-        <asp:Panel ID="PanelStar2" runat="server" Visible="False">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked" ></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        </asp:Panel>
-        <asp:Panel ID="PanelStar3" runat="server" Visible="False">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked" ></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        </asp:Panel>
-        <asp:Panel ID="PanelStar4" runat="server" Visible="False">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked" ></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        </asp:Panel>
-        <asp:Panel ID="PanelStar5" runat="server" Visible="False">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked" ></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        </asp:Panel>
-         </div>     
-            <br />
-       
-            <br />
-       <div class="col order-1">
+               
             <asp:DataList ID="listPersonal" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource2">
                 <ItemTemplate>
-                  <h2>
-                        <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
-                        &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
-                    </h2>
-                    <strong>
-                    <span class="auto-style3">Address:</span></strong><span class="auto-style3">
-                    <asp:Label ID="Rec_AddressLabel" runat="server" Text='<%# Eval("Rec_Address") %>' />
-                    <br />
-                    <strong>City: </strong>
-                    <asp:Label ID="Rec_CityLabel" runat="server" Text='<%# Eval("Rec_City") %>' />
-                    <br />
-                    <strong>State: </strong>
-                    <asp:Label ID="Rec_StateLabel" runat="server" Text='<%# Eval("Rec_State") %>' />
-                    <br />
-                    <strong>Zip:</strong>
+                
+                    <strong> <span class="auto-style5">Address:</span></strong><span class="auto-style5">
                     <asp:Label ID="Rec_ZipLabel" runat="server" Text='<%# Eval("Rec_Zip") %>' />
                     <br />
-                    <strong>Country:</strong>
-                    <asp:Label ID="Rec_CountryLabel" runat="server" Text='<%# Eval("Rec_Country") %>' />
                     <br />
-                    <strong>Citizenship:</strong>
-                    <asp:Label ID="Rec_CitizenLabel" runat="server" Text='<%# Eval("Rec_Citizen") %>' />
+                    <strong>Country:</strong>
+                    <asp:Label ID="Rec_CityLabel" runat="server" Text='<%# Eval("Rec_City") %>' />
+                    <br />
+                    <br />
+                    <strong>State:</strong>
+                    <asp:Label ID="Rec_StateLabel" runat="server" Text='<%# Eval("Rec_State") %>' />
+                    <br />
+                    <br />
+                    <strong>Zip:</strong>
+                    <asp:Label ID="Rec_AddressLabel" runat="server" Text='<%# Eval("Rec_Address") %>' />
+                    <br />
+                    <br />
+                    <strong>City: </strong>&nbsp;<asp:Label ID="Rec_CitizenLabel" runat="server" Text='<%# Eval("Rec_Citizen") %>' />
+                    <br />
                     <br />
                     <strong>Email:</strong>
-                    <asp:Label ID="Rec_EmailLabel" runat="server" Text='<%# Eval("Rec_Email") %>' />
+                    <asp:Label ID="Rec_CountryLabel" runat="server" Text='<%# Eval("Rec_Country") %>' />
                     <br />
-                    <strong>DOB:</strong>
+                    <br />
+                    <strong>Citizenship:</strong>
                     <asp:Label ID="Rec_DOBLabel" runat="server" Text='<%# Eval("Rec_DOB") %>' />
                     <br />
-                    <strong>Home Phone:</strong>
-                    <asp:Label ID="Rec_HomePhoneLabel" runat="server" Text='<%# Eval("Rec_HomePhone") %>' />
                     <br />
-                    <strong>Cell Phone:</strong>
+                    <strong>Home Phone:</strong>
+                    <asp:Label ID="Rec_EmailLabel" runat="server" Text='<%# Eval("Rec_Email") %>' />
+                    <br />
+                    <br />
+                    <strong>DOB:</strong>
                     <asp:Label ID="Rec_CellPhoneLabel" runat="server" Text='<%# Eval("Rec_CellPhone") %>' />
                     <br />
-                    <strong>Father Name:</strong>
-                    <asp:Label ID="Rec_FatherNameLabel" runat="server" Text='<%# Eval("Rec_FatherName") %>' />
                     <br />
-                    <strong>Father Occupation:</strong>
+                    <strong>Father Name:</strong>
+                    <asp:Label ID="Rec_HomePhoneLabel" runat="server" Text='<%# Eval("Rec_HomePhone") %>' />
+                    <br />
+                    <br />
+                    <strong>Cell Phone:</strong>
                     <asp:Label ID="Rec_FatherOccLabel" runat="server" Text='<%# Eval("Rec_FatherOcc") %>' />
                     <br />
-                    <strong>Mother Name:</strong>
-                    <asp:Label ID="Rec_MotherNameLabel" runat="server" Text='<%# Eval("Rec_MotherName") %>' />
                     <br />
-                    <strong>Mother Occupation:</strong>
+                    <strong>Mother Name:</strong>
+                    <asp:Label ID="Rec_FatherNameLabel" runat="server" Text='<%# Eval("Rec_FatherName") %>' />
+                    <br />
+                    <br />
+                    <strong>Father Occupation:</strong>
                     <asp:Label ID="Rec_MotherOccLabel" runat="server" Text='<%# Eval("Rec_MotherOcc") %>' />
                     <br />
-                    <strong>Applied to Cal U?</strong>
-                    <asp:Label ID="Rec_App2CalLabel" runat="server" Text='<%# Eval("Rec_App2Cal") %>' />
                     <br />
-                    <strong>Registered to NCAA?</strong>
+                    <strong>Applied to Cal U?</strong>
+                    <asp:Label ID="Rec_MotherNameLabel" runat="server" Text='<%# Eval("Rec_MotherName") %>' />
+                    <br />
+                    <br />
+                    <strong>Mother Occupation:</strong>
                     <asp:Label ID="Rec_Reg2NCAALabel" runat="server" Text='<%# Eval("Rec_Reg2NCAA") %>' />
                     <br />
-                    <strong>NCAA ID: </strong>
+                    <br />
+                    <strong>NCAA ID: </strong>&nbsp;<asp:Label ID="Rec_App2CalLabel" runat="server" Text='<%# Eval("Rec_App2Cal") %>' />
+                    <br />
+                    <br />
+                    <strong>Registered to NCAA?</strong>
                     <asp:Label ID="Rec_NCAA_IDLabel" runat="server" Text='<%# Eval("Rec_NCAA_ID") %>' />
                     <br />
-                    <strong>FAFSA: </strong>
+                    <br />
+                    <strong>FAFSA:</strong>
                     <asp:Label ID="Rec_FAFSALabel" runat="server" Text='<%# Eval("Rec_FAFSA") %>' />
                     </span>
                     <br />
+                    </span>
                     <br />
                     <br />
                 </ItemTemplate>
@@ -256,8 +281,9 @@
                    <asp:Parameter Name="Pro_Id" Type="Int32" />
                </UpdateParameters>
            </asp:SqlDataSource>
-           </div>
-        </div>
+        
+           <br />
+  
             
             </asp:Panel>
  
@@ -273,65 +299,73 @@
         <br />
         <asp:DataList ID="listAcademic" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource3">
                <ItemTemplate>
-                   <h2>
-                        <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
-                        &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
-                    </h2>
-                   <span class="auto-style3"><strong>
-                   <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
-                   <br />
-                   <br />
-                   Graduation Year:</strong>
+                  <strong><span class="auto-style5">Graduation Year:</span></strong><span class="auto-style5">
                    <asp:Label ID="Rec_HSGradYearLabel" runat="server" Text='<%# Eval("Rec_HSGradYear") %>' />
+                   <br />
                    <br />
                    <strong>High School:</strong>
                    <asp:Label ID="Rec_HSNameLabel" runat="server" Text='<%# Eval("Rec_HSName") %>' />
                    <br />
+                   <br />
                    <strong>GPA: </strong>
                    <asp:Label ID="Rec_HSGPALabel" runat="server" Text='<%# Eval("Rec_HSGPA") %>' />
+                   <br />
                    <br />
                    <strong>SAT Verbal:</strong>
                    <asp:Label ID="Rec_SAT_VerbalLabel" runat="server" Text='<%# Eval("Rec_SAT_Verbal") %>' />
                    <br />
+                   <br />
                    <strong>SAT Math:</strong>
                    <asp:Label ID="Rec_SAT_MathLabel" runat="server" Text='<%# Eval("Rec_SAT_Math") %>' />
+                   <br />
                    <br />
                    <strong>SAT Total:</strong>
                    <asp:Label ID="Rec_SAT_TotLabel" runat="server" Text='<%# Eval("Rec_SAT_Tot") %>' />
                    <br />
+                   <br />
                    <strong>ACT:</strong>
                    <asp:Label ID="Rec_ACTLabel" runat="server" Text='<%# Eval("Rec_ACT") %>' />
+                   <br />
                    <br />
                    <strong>Academic Honors:</strong>
                    <asp:Label ID="Rec_Acad_HonorsLabel" runat="server" Text='<%# Eval("Rec_Acad_Honors") %>' />
                    <br />
+                   <br />
                    <strong>Possible Major:</strong>
                    <asp:Label ID="Rec_Poss_MajorLabel" runat="server" Text='<%# Eval("Rec_Poss_Major") %>' />
+                   <br />
                    <br />
                    <strong>Junior College Name:</strong>
                    <asp:Label ID="Rec_JCNameLabel" runat="server" Text='<%# Eval("Rec_JCName") %>' />
                    <br />
+                   <br />
                    <strong>Number of Semesters:</strong>
                    <asp:Label ID="Rec_JC_NumSemLabel" runat="server" Text='<%# Eval("Rec_JC_NumSem") %>' />
+                   <br />
                    <br />
                    <strong>Junior College GPA:</strong>
                    <asp:Label ID="Rec_JCGPALabel" runat="server" Text='<%# Eval("Rec_JCGPA") %>' />
                    <br />
+                   <br />
                    <strong>Total Units:</strong>
                    <asp:Label ID="Rec_JC_Tot_UnitsLabel" runat="server" Text='<%# Eval("Rec_JC_Tot_Units") %>' />
+                   <br />
                    <br />
                    <strong>Date AA Completed:</strong>
                    <asp:Label ID="Rec_DateAACompletedLabel" runat="server" Text='<%# Eval("Rec_DateAACompleted") %>' />
                    <br />
+                   <br />
                    <strong>Junior College Coach_Name:</strong>
                    <asp:Label ID="Rec_JC_Coach_NameLabel" runat="server" Text='<%# Eval("Rec_JC_Coach_Name") %>' />
+                   <br />
                    <br />
                    <strong>Junior College Coach_Email:</strong>
                    <asp:Label ID="Rec_JC_Coach_EmailLabel" runat="server" Text='<%# Eval("Rec_JC_Coach_Email") %>' />
                    <br />
+                   <br />
                    <strong>Junior College Seasons_Played:</strong>
                    <asp:Label ID="Rec_JC_Seasons_PlayedLabel" runat="server" Text='<%# Eval("Rec_JC_Seasons_Played") %>' />
-                   </span>
+                   </span></span>
                    <br />
 <br />
                </ItemTemplate>
@@ -442,9 +476,9 @@
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
           <br />
         <br />
-        <h2>Jane Doe</h2>
+        
         <span class="auto-style3">
-        <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
+        
         <br />
         <br />
         Primary Position: </span><span class="auto-style4">Shortstop</span><span class="auto-style3"><br /> Secondary Position: </span><span class="auto-style4">Catcher</span><span class="auto-style3"><br /> Batting Average: </span><span class="auto-style4">3.50</span><span class="auto-style3"><br /> Do you bat left-handed or right-handed? </span><span class="auto-style4">Right</span><br />

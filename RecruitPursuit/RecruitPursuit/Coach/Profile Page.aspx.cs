@@ -23,64 +23,106 @@ public partial class Profile_Page : System.Web.UI.Page
 
         if (Page.IsPostBack)
         {
-            string value = SliderValue.Text;
-            
-            if (value == "2")
+            using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+            using (SqlCommand dataCommand =
+                    new SqlCommand("insert StarRating from profile Where StarRating = @StarRating and Pro_Id = @Pro_Id", dataConnection))
+
             {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = true;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = false;
+                dataConnection.Open();
+                SqlParameter param2 = new SqlParameter();
+                param2.ParameterName = "@Pro_Id";
+                param2.Value = Request.QueryString["Pro_Id"];
+                dataCommand.Parameters.Add(param2);
+
+                string value = SliderValue.Text;
+
+                if (value == "1")
+                {
+                    PanelStar1.Visible = true;
+                    PanelStar2.Visible = false;
+                    PanelStar3.Visible = false;
+                    PanelStar4.Visible = false;
+                    PanelStar5.Visible = false;
+
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@StarRating";
+                    param1.Value = value;
+                    dataCommand.Parameters.Add(param1);
+                }
+
+                if (value == "2")
+                {
+                    PanelStar1.Visible = false;
+                    PanelStar2.Visible = true;
+                    PanelStar3.Visible = false;
+                    PanelStar4.Visible = false;
+                    PanelStar5.Visible = false;
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@StarRating";
+                    param1.Value = value;
+                    dataCommand.Parameters.Add(param1);
+                }
+
+                if (value == "3")
+                {
+                    PanelStar1.Visible = false;
+                    PanelStar2.Visible = false;
+                    PanelStar3.Visible = true;
+                    PanelStar4.Visible = false;
+                    PanelStar5.Visible = false;
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@StarRating";
+                    param1.Value = value;
+                    dataCommand.Parameters.Add(param1);
+                }
+
+                if (value == "4")
+                {
+                    PanelStar1.Visible = false;
+                    PanelStar2.Visible = false;
+                    PanelStar3.Visible = false;
+                    PanelStar4.Visible = true;
+                    PanelStar5.Visible = false;
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@StarRating";
+                    param1.Value = value;
+                    dataCommand.Parameters.Add(param1);
+                }
+
+                if (value == "5")
+                {
+                    PanelStar1.Visible = false;
+                    PanelStar2.Visible = false;
+                    PanelStar3.Visible = false;
+                    PanelStar4.Visible = false;
+                    PanelStar5.Visible = true;
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@StarRating";
+                    param1.Value = value;
+                    dataCommand.Parameters.Add(param1);
+                }
+                //LastUpdate.Text = "Last update: " + DateTime.Now.ToLongTimeString();
             }
 
-            if (value == "3")
+            if (Session["ID"] != null)
             {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = true;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = false;
+                ID = int.Parse(Session["Pro_Id"].ToString());
             }
 
-            if (value == "4")
+            else if (Request.QueryString["Pro_Id"] != null)
             {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = true;
-                PanelStar5.Visible = false;
+                ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
+
             }
 
-            if (value == "5")
+            else
             {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = true;
+                Response.Write("Invalid access to page!");
+                Response.End();
             }
-            //LastUpdate.Text = "Last update: " + DateTime.Now.ToLongTimeString();
-        }
-        if (Session["ID"] != null)
-        {
-            ID = int.Parse(Session["Pro_Id"].ToString());
-        }
-
-        else if (Request.QueryString["Pro_Id"] != null)
-        {
-            ProID = int.Parse(Request.QueryString["Pro_Id"].ToString());
 
         }
-
-        else
-        {
-            Response.Write("Invalid access to page!");
-            Response.End();
-        }
-
     }
-
 
 
 
@@ -93,11 +135,13 @@ public partial class Profile_Page : System.Web.UI.Page
     {
 
     }
+ 
 
     protected void Addnotes_Click(object sender, EventArgs e)
     {
+    
 
-
+       
 
 
 

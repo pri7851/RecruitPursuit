@@ -79,6 +79,52 @@ body {
     background-color: #FCFCFC;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0px;
+    /*Change the color as per your need */
+    background-color: #D9230F;
+    color: #D9230F;
+    width: 100%;
+    text-align: center;
+}
+
+/* ****************** Some basic stuff ****************** */
+li {
+    clear: both;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eee;
+}
+/* ****************** RatingStar ****************** */
+.ratingStar {
+    white-space: nowrap;
+    margin: 1em;
+    height: 14px;
+}
+
+    .ratingStar .ratingItem {
+        font-size: 0pt;
+        width: 13px;
+        height: 12px;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .ratingStar .Filled {
+        background-image: url(images/ratingStarFilled.png);
+    }
+
+    .ratingStar .Empty {
+        background-image: url(images/ratingStarEmpty.png);
+    }
+
+    .ratingStar .Saved {
+        background-image: url(images/ratingStarSaved.png);
+    }
+
 [tabindex="-1"]:focus {
     outline: 0 !important;
 }
