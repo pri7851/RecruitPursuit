@@ -303,6 +303,10 @@ html [type="button"],
 [type="submit"] {
     -webkit-appearance: button;
     text-align: right;
+    z-index: 1;
+    left: 712px;
+    top: 2424px;
+    position: absolute;
 }
 
     button::-moz-focus-inner,
