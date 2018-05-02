@@ -20,7 +20,7 @@ public partial class Profile_Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Panel6.Visible = false;
         if (Page.IsPostBack)
         {
             using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
@@ -158,9 +158,10 @@ public partial class Profile_Page : System.Web.UI.Page
 
     }
 
-    protected void Rec_Rating_Changed (object sender, EventArgs e) {
+    protected void Rec_Rating_Changed(object sender, EventArgs e)
+    {
 
-        }
+    }
 
     protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
@@ -213,7 +214,7 @@ public partial class Profile_Page : System.Web.UI.Page
         Panel3.Visible = false;
         Panel4.Visible = false;
         Panel5.Visible = true;
-        
+
     }
 
 
@@ -274,13 +275,13 @@ public partial class Profile_Page : System.Web.UI.Page
         Panel4.Visible = false;
         Panel5.Visible = false;
     }
-        
+
     protected void btnNotes3_Click(object sender, EventArgs e)
     {
-            Panel1.Visible = false;
-            Panel2.Visible = false;
-            Panel3.Visible = false;
-            Panel4.Visible = true;
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = true;
         Panel5.Visible = false;
 
     }
@@ -401,9 +402,9 @@ public partial class Profile_Page : System.Web.UI.Page
         }
     }
 
-  
 
-    
+
+
 
 
     protected void Insertdatabtn_click(object sender, EventArgs e)
@@ -437,4 +438,78 @@ public partial class Profile_Page : System.Web.UI.Page
 
 
 
+
+    protected void btnDelete1_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+    }
+
+    protected void btnDelete2_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+    }
+
+    protected void btnDelete3_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+    }
+
+    protected void btnDelete4_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+    }
+
+    protected void btnDelete5_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+    }
+
+    protected void btnPersonal1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnDeleteCancel_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = true;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel4.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = false;
+    }
+
+    protected void btnDeleteConfirm_Click(object sender, EventArgs e)
+    {
+        SqlDataSource7.DeleteCommandType = SqlDataSourceCommandType.Text;
+        SqlDataSource7.DeleteCommand = "DELETE FROM dbo.profile WHERE (Pro_Id = @Pro_Id)";
+        SqlDataSource7.DeleteParameters.Add("Pro_Id", Request.QueryString["Pro_Id"]);
+        SqlDataSource7.Delete();
+        Response.Redirect("Home.aspx");
+    }
 }

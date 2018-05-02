@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <div class="jumbotron">
-         <asp:HyperLink ID="HyperLink1" runat="server"  NavigateUrl="~/Welcome.aspx">Back</asp:HyperLink>
     <h2 class="display-3">Administration Log In</h2>
   <hr class="my-4">
    
@@ -13,7 +12,7 @@ Username:
             <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
             <br />
             <br />
-Password:            <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
+Password:            <asp:TextBox ID="txtPassword" runat="server" OnTextChanged="txtPassword_TextChanged" TextMode="Password" ></asp:TextBox>
         
         <br />
          <br />

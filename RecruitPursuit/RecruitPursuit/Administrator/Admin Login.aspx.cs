@@ -8,10 +8,16 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 public partial class Administrator_Admin_Login : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e) { }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        
+       
+    }
    /* 
     bool flag = false;
     protected void Page_Load(object sender, EventArgs e)

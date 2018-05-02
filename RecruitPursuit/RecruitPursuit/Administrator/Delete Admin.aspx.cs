@@ -35,15 +35,25 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
                 break;
             }
         }
-
-        if (flag == true)
+        if(txtName.Text == "" && txtConfirm.Text == "")
         {
-          
+            lblDelete.Text = "Please enter a username to delete!";
+        }
+        
+        if (flag == true && txtName.Text == txtConfirm.Text)
+        {
+            
                     lblDelete.Text = "Are you sure you want to delete this user?";
                     lblDelete.Visible = true;
                     btnConfirm.Visible = true;
                     btnCancel.Visible = true;
                 
+        }
+        else
+        if(flag == true && txtName.Text != txtConfirm.Text)
+        {
+            lblDelete.Text = "Usernames do not match! Please try again!";
+
         }
         else
         {
@@ -57,12 +67,17 @@ public partial class Administrator_Delete_Admin : System.Web.UI.Page
 
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
+        lblDelete.Visible = false;
         Label1.Visible = true;
         SqlDataSource1.DeleteCommandType = SqlDataSourceCommandType.Text;
         SqlDataSource1.DeleteCommand = "DELETE FROM coach WHERE Usename=@Usename";
         SqlDataSource1.DeleteParameters.Add("Usename", txtName.Text);
         SqlDataSource1.Delete();
         Label1.Visible = true;
+        btnConfirm.Visible = false;
+        btnCancel.Visible = false;
+        txtName.Text = "";
+        txtConfirm.Text = "";
     }
 
     

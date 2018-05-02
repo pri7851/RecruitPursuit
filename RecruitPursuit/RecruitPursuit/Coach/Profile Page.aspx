@@ -295,6 +295,7 @@
         <asp:Button ID="btnAthletic2" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic2_Click" />
         <asp:Button ID="btnNotes2" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes2_Click" />
         <asp:Button ID="btnSchedule2" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule2_Click"/>
+        <asp:Button ID="btnDelete2" runat="server" Text="Delete" class="btn btn-outline-primary" OnClick="btnDelete2_Click" />
          <br />
         <br />
         <asp:DataList ID="listAcademic" runat="server" DataKeyField="Pro_Id" DataSourceID="SqlDataSource3">
@@ -474,24 +475,26 @@
         <asp:Button ID="btnAthletics3" class="btn btn-primary" runat="server" Text="Athletic" ForeColor="White" />
         <asp:Button ID="btnNotes3" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes3_Click" />
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
-          <br />
+          <asp:Button ID="btnDelete3" runat="server" Text="Delete" class="btn btn-outline-primary" OnClick="btnDelete3_Click" />
+        <br />
         <br />
         
         <span class="auto-style3">
         
         <br />
         <br />
-        Primary Position: </span><span class="auto-style4">Shortstop</span><span class="auto-style3"><br /> Secondary Position: </span><span class="auto-style4">Catcher</span><span class="auto-style3"><br /> Batting Average: </span><span class="auto-style4">3.50</span><span class="auto-style3"><br /> Do you bat left-handed or right-handed? </span><span class="auto-style4">Right</span><br />
         <br />
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource5">
+        <asp:DataList ID="dlSportQuestions" runat="server" DataSourceID="SqlDataSource5">
             <ItemTemplate>
-                Question:
+                <span class="auto-style3">
+               <strong> Question:</strong>
                 <asp:Label ID="SportQuestTextLabel" runat="server" Text='<%# Eval("SportQuestText") %>' />
                 <br />
-                Answer:
+            <strong> Answer: </strong>
                 <asp:Label ID="Answer_textLabel" runat="server" Text='<%# Eval("Answer_text") %>' />
                 <br />
                 <br />
+                    </span>
             </ItemTemplate>
         </asp:DataList>
         <br />
@@ -499,6 +502,11 @@
             <SelectParameters>
                 <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" />
             </SelectParameters>
+        </asp:SqlDataSource>
+          <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Rec_FName], [Rec_LName] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+              <SelectParameters>
+                  <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
+              </SelectParameters>
         </asp:SqlDataSource>
           <br />
         <br />
@@ -511,6 +519,7 @@
         <asp:Button ID="btnAthletic4" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic4_Click" />
         <asp:Button ID="btnNotes4" class="btn btn-primary" runat="server" Text="Notes" OnClick="btnNotes4_Click" ForeColor="White" />
         <asp:Button ID="btnSchedule4" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule4_Click" />
+        <asp:Button ID="btnDelete4" runat="server" class="btn btn-outline-primary" Text="Delete" OnClick="btnDelete4_Click"  />
 
 
     <br />
@@ -526,7 +535,7 @@
         <br />
         <br />
         <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" DataKeyNames="Note_id" >
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDSnote" DataKeyNames="Note_id" CellPadding="5" >
         <Columns>
             <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" ItemStyle-Width="300px" HeaderStyle-Width="300px" />
             <asp:BoundField DataField="NPost_date" HeaderText="Post Date" SortExpression="NPost_date" />
@@ -534,7 +543,7 @@
             <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
 
         </Columns>
-        
+        <HeaderStyle BackColor="#D9230F" ForeColor="White" />
     </asp:GridView>
         <br />
         <br />
@@ -588,6 +597,7 @@
         <asp:Button ID="btnAthletic5" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic5_Click" />
         <asp:Button ID="btnNotes5" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes5_Click"  />
         <asp:Button ID="btnSchedule5" class="btn btn-primary" runat="server" Text="Schedule" ForeColor="White" OnClick="btnSchedule5_Click"/>
+        <asp:Button ID="btnDelete5" runat="server" class="btn btn-outline-primary" Text="Delete" OnClick="btnDelete5_Click" />
 
    
 
@@ -602,7 +612,7 @@
     <asp:Button ID="ShowAddbtn" runat="server" OnClick="Showbtn_Click" Text="Add Schedule Info" />
 
         <br />
-    <p class="auto-style1">
+    
 
         <br />
         <asp:Table ID="AddSchTbl" runat="server" BackColor="#D9230F" BorderColor="black" BorderWidth="2" CellPadding="5" CellSpacing="5" CssClass="auto-style10" Font-Names="Palatino" Font-Size="X-Large" ForeColor="Snow" Visible="False">
@@ -687,7 +697,7 @@
             <asp:Parameter Name="Sch_ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    </p>
+    
     <br />
 
     <br />
@@ -695,6 +705,34 @@
     <br />
     
        </asp:Panel>
+    <asp:Panel runat="server" ID="Panel6" Visible="false">
+        <asp:Button ID="btnPersonal6" class="btn btn-outline-primary" runat="server" Text="Personal" OnClick="btnPersonal5_Click"/>
+        <asp:Button ID="btnAcademic6" class="btn btn-outline-primary" runat="server" Text="Academic" OnClick="btnAcademic5_Click" />
+        <asp:Button ID="btnAthletic6" class="btn btn-outline-primary" runat="server" Text="Athletic" OnClick="btnAthletic5_Click" />
+        <asp:Button ID="btnNotes6" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes5_Click"  />
+        <asp:Button ID="btnSchedule6" class="btn btn-outline-primary" runat="server" Text="Schedule"  OnClick="btnSchedule5_Click"/>
+        <asp:Button ID="btnDelete6" runat="server" class="btn btn-primary" Text="Delete" ForeColor="White" />
+        <br />
+        <br />
+        Upon successful deletion, you will be redirected back to the Home page.<br /> Are you sure you want to delete this recruit?<br />
+        <br />
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDeleteConfirm" runat="server" Text="Delete" OnClick="btnDeleteConfirm_Click" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDeleteCancel" runat="server" OnClick="btnDeleteCancel_Click" Text="Cancel" />
+        <br />
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br />
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <br />
+    </asp:Panel>
      </div>
     </asp:Content>
 
