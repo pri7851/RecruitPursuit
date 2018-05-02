@@ -81,6 +81,16 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
             cmd3.ExecuteNonQuery();
             con3.Close();
         }
+        SqlConnection con4 = new SqlConnection(conString);
+        String cmdSport_Positions = "UPDATE profile SET Rec_PrimaryPosition = @Rec_PrimaryPosition, Rec_SecondaryPosition = @Rec_SecondaryPosition WHERE Pro_Id = @Pro_Id";
+        SqlCommand cmd4 = new SqlCommand(cmdSport_Positions, con);
+        cmd4.Connection = con4;
+        cmd4.Parameters.AddWithValue("@Rec_PrimaryPosition", DropDownListPrimaryPositions.SelectedValue);
+        cmd4.Parameters.AddWithValue("@Rec_SecondaryPosition", DropDownListSecondaryPositions.SelectedValue);
+        cmd4.Parameters.AddWithValue("@Pro_Id", new_pro_id);
+        con4.Open();
+        cmd4.ExecuteNonQuery();
+        con4.Close();
         Panel1.Visible = false;
         Panel2.Visible = false;
         Panel3.Visible = false;
@@ -122,8 +132,8 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
           SqlConnection con = new SqlConnection(conString);
 
           //create a command behavior object
-          String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_App2Cal, Rec_Reg2NCAA, Rec_NCAA_ID, Rec_FAFSA, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played, PrimaryPosition, SecondaryPosition, StarRating)" +
-              "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_App2Cal, @Rec_Reg2NCAA, @Rec_NCAA_ID, @Rec_FAFSA, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @PrimaryPosition, @SecondaryPosition, @StarRating)";
+          String cmdString = "INSERT INTO [profile](Sport_Id, Rec_FName, Rec_LName, Rec_Address, Rec_City, Rec_State, Rec_Zip, Rec_Country, Rec_Citizen, Rec_Email, Rec_DOB, Rec_HomePhone, Rec_CellPhone, Rec_FatherName, Rec_FatherOcc, Rec_MotherName, Rec_MotherOcc, Rec_App2Cal, Rec_Reg2NCAA, Rec_NCAA_ID, Rec_FAFSA, Rec_HSName, Rec_HSGradYear, Rec_HSGPA, Rec_SAT_Verbal, Rec_SAT_Math, Rec_SAT_Tot, Rec_ACT, Rec_Acad_Honors, Rec_Poss_Major, Rec_JCName, Rec_JC_NumSem, Rec_JCGPA, Rec_JC_Tot_Units, Rec_DateAACompleted, Rec_JC_Coach_Name, Rec_JC_Coach_Email, Rec_JC_Seasons_Played, StarRating)" +
+              "VALUES (@Sport_Id, @Rec_FName, @Rec_LName, @Rec_Address, @Rec_City, @Rec_State, @Rec_Zip, @Rec_Country, @Rec_Citizen, @Rec_Email, @Rec_DOB, @Rec_HomePhone, @Rec_CellPhone, @Rec_FatherName, @Rec_FatherOcc, @Rec_MotherName, @Rec_MotherOcc, @Rec_App2Cal, @Rec_Reg2NCAA, @Rec_NCAA_ID, @Rec_FAFSA, @Rec_HSName, @Rec_HSGradYear, @Rec_HSGPA, @Rec_SAT_Verbal, @Rec_SAT_Math, @Rec_SAT_Tot, @Rec_ACT, @Rec_Acad_Honors, @Rec_Poss_Major, @Rec_JCName, @Rec_JC_NumSem, @Rec_JCGPA, @Rec_JC_Tot_Units, @Rec_DateAACompleted, @Rec_JC_Coach_Name, @Rec_JC_Coach_Email, @Rec_JC_Seasons_Played, @StarRating)";
 
           SqlCommand cmd = new SqlCommand(cmdString, con);
 
@@ -321,7 +331,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
           param36.Value = TextBoxJC_Seasons_Played.Text;
           cmd.Parameters.Add(param36);
           
-         SqlParameter param37 = new SqlParameter();
+        /* SqlParameter param37 = new SqlParameter();
          param37.ParameterName = "@PrimaryPosition";
          param37.Value = DropDownListPrimaryPositions.SelectedValue;
          cmd.Parameters.Add(param37);
@@ -329,7 +339,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
          SqlParameter param38 = new SqlParameter();
          param38.ParameterName = "@SecondaryPosition";
          param38.Value = DropDownListSecondaryPositions.SelectedValue;
-         cmd.Parameters.Add(param38);
+         cmd.Parameters.Add(param38); */
 
         SqlParameter param39 = new SqlParameter();
         param39.ParameterName = "@StarRating";
@@ -361,6 +371,7 @@ public partial class Recruit_Questionnaire : System.Web.UI.Page
         Panel3.Visible = true;
         Panel4.Visible = true;
         Panel5.Visible = false;
+        Output.Visible = false;
     }
 
 

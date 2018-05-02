@@ -2,23 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-        .auto-style1 {
-            color: #fff;
-            background-color: #D9230F;
-            border-color: #D9230F;
-            position: absolute;
-            top: 535px;
-            left: 5px;
-            z-index: 1;
-        }
-        .auto-style2 {
-            color: #fff;
-            background-color: #D9230F;
-            border-color: #D9230F;
-            position: absolute;
-            top: 592px;
-            left: 16px;
-            z-index: 1;
+        .auto-style3 {
+            left: 1px;
+            top: 1px;
         }
     </style>
     </asp:Content>
@@ -35,7 +21,7 @@
            
             <br />
             Positions:&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position">
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position" CssClass="auto-style3">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
                 <SelectParameters>
@@ -54,9 +40,9 @@
             </Columns>
             <HeaderStyle BackColor="#D9230F" ForeColor="White" />
         </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([SportQuestText] = @SportQuestText)">
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
                 <SelectParameters>
-                    <asp:Parameter DefaultValue="Batting Average" Name="SportQuestText" Type="String" />
+                    <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <br />

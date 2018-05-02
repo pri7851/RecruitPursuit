@@ -184,15 +184,15 @@
 
         
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
-                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
+                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
                      </asp:DropDownList>
-                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
+                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
-                             <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
+                             <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
-                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
+                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
@@ -201,25 +201,27 @@
                      </asp:SqlDataSource>
                  </asp:Panel>
                  &nbsp;<br />
-                 &nbsp;&nbsp;<br />
+                 &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6">
+                              <Columns>
+                                  <asp:BoundField DataField="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" SortExpression="SportQuestID" />
+                                  <asp:BoundField DataField="SportQuestText" HeaderText="Question" SortExpression="SportQuestText" />
+                                  <asp:TemplateField HeaderText="Answer">
+                                      <ItemTemplate>
+                                          <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
+                                      </ItemTemplate>
+                                  </asp:TemplateField>
+                              </Columns>
+                     <HeaderStyle BackColor="#D9230F" ForeColor="White" />
+                          </asp:GridView>
+                          <br />
                           <div class="text-left">
-                              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="5" DataSourceID="SqlDataSource4" GridLines="None">
-                                  <Columns>
-                                      <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
-                                      <asp:TemplateField>
-                                          <ItemTemplate>
-                                              <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
-                                          </ItemTemplate>
-                                      </asp:TemplateField>
-                                  </Columns>
-                              </asp:GridView>
                           </div>
-             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT[SportQuestID], [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
-                 <SelectParameters>
-                     <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
-                 </SelectParameters>
-             </asp:SqlDataSource>
              <br />
+                          <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [SportQuestID], [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
+                              <SelectParameters>
+                                  <asp:SessionParameter Name="Sport_Id" SessionField="Sport_Id" Type="Int32" />
+                              </SelectParameters>
+                          </asp:SqlDataSource>
              <br />
                           <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                   </asp:Panel>
@@ -230,6 +232,18 @@
                               Thank you for your submission!</asp:Panel>
                 
                 </asp:Content>
+
+
+
+<asp:Content ID="Content3" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style2 {
+            left: 3px;
+            top: 1px;
+        }
+    </style>
+</asp:Content>
+
 
 
 

@@ -16,8 +16,8 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" >
         <Columns>
             <asp:HyperLinkField DataNavigateUrlFields="Pro_id" DataNavigateUrlFormatString="Profile page.aspx?Pro_Id={0}" NavigateUrl="~/Coach/Profile Page.aspx" Text="View Recruit" />
-            <asp:BoundField DataField="Rec_FName" HeaderText="Rec_FName" SortExpression="Rec_FName" />
-            <asp:BoundField DataField="Rec_LName" HeaderText="Rec_LName" SortExpression="Rec_LName" />
+            <asp:BoundField DataField="Rec_FName" HeaderText="First Name" SortExpression="Rec_FName" />
+            <asp:BoundField DataField="Rec_LName" HeaderText="Last Name" SortExpression="Rec_LName" />
         </Columns>
          <HeaderStyle BackColor="#D9230F" ForeColor="White" />
     </asp:GridView>

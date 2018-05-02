@@ -6,7 +6,7 @@
 
         
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
-                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
+                     Primary Position:&nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT Position_Id, Sport_Id, Position FROM dbo.Positions WHERE (Sport_Id = @Sport_Id) AND (Position &lt;&gt; 'null')">
                          <SelectParameters>
@@ -14,7 +14,7 @@
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
-                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position">
+                     Secondary Position:&nbsp;<asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
@@ -34,6 +34,7 @@
                          </ItemTemplate>
                      </asp:TemplateField>
                  </Columns>
+                 <HeaderStyle BackColor="#D9230F" ForeColor="White" />
              </asp:GridView>
              <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT[SportQuestID], [SportQuestText] FROM [SportQuestions] WHERE ([Sport_Id] = @Sport_Id)">
                  <SelectParameters>
@@ -50,6 +51,18 @@
         <li class="breadcrumb-item active">Preview</li>
     </ol>
 </asp:Content>
+
+
+
+<asp:Content ID="Content4" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            left: 3px;
+            top: 1px;
+        }
+    </style>
+</asp:Content>
+
 
 
 
