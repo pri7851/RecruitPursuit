@@ -7,18 +7,11 @@
     .auto-style1 {
         width: 1011px;
     }
-    .auto-style2 {
-        width: 139px;
-        height: 29px;
-    }
         .auto-style3 {
             font-size: medium;
             font-weight: 700;
         }
-        .auto-style4 {
-            font-size: medium;
-        }
-
+        
     </style>
   
     
@@ -283,8 +276,7 @@
                         &nbsp;<asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
                     </h2>
                    <span class="auto-style3"><strong>
-                   <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
-                   <br />
+                   &nbsp;<br />
                    <br />
                    Graduation Year:</strong>
                    <asp:Label ID="Rec_HSGradYearLabel" runat="server" Text='<%# Eval("Rec_HSGradYear") %>' />
@@ -442,34 +434,46 @@
     <asp:Panel ID="Panel3" runat="server" Visible="False">
         <asp:Button ID="btnPersonal3" class="btn btn-outline-primary" runat="server" Text="Personal" OnClick="btnPersonal3_Click" />
         <asp:Button ID="btnAcademic3" class="btn btn-outline-primary" runat="server" Text="Academic" OnClick="btnAcademic3_Click" />
-        <asp:Button ID="btnAthletics3" class="btn btn-primary" runat="server" Text="Athletic" ForeColor="White" />
+        <asp:Button ID="btnAthletics3" class="btn btn-primary" runat="server" Text="Athletic" ForeColor="White" OnClick="btnAthletics3_Click" />
         <asp:Button ID="btnNotes3" class="btn btn-outline-primary" runat="server" Text="Notes" OnClick="btnNotes3_Click" />
         <asp:Button ID="btnSchedule3" class="btn btn-outline-primary" runat="server" Text="Schedule" OnClick="btnSchedule3_Click"/>
           <br />
-        <br />
-        <h2>Jane Doe</h2>
         <span class="auto-style3">
-        <img alt="" class="auto-style2" src="../Star_rating_4_of_5.png" />
         <br />
-        <br />
-        Primary Position: </span><span class="auto-style4">Shortstop</span><span class="auto-style3"><br /> Secondary Position: </span><span class="auto-style4">Catcher</span><span class="auto-style3"><br /> Batting Average: </span><span class="auto-style4">3.50</span><span class="auto-style3"><br /> Do you bat left-handed or right-handed? </span><span class="auto-style4">Right</span><br />
-        <br />
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource5">
+        <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource6">
             <ItemTemplate>
-                Question:
-                <asp:Label ID="SportQuestTextLabel" runat="server" Text='<%# Eval("SportQuestText") %>' />
-                <br />
-                Answer:
-                <asp:Label ID="Answer_textLabel" runat="server" Text='<%# Eval("Answer_text") %>' />
+                <h2>
+                <asp:Label ID="Rec_FNameLabel" runat="server" Text='<%# Eval("Rec_FName") %>' />
+                <asp:Label ID="Rec_LNameLabel" runat="server" Text='<%# Eval("Rec_LName") %>' />
                 <br />
                 <br />
+                    </h2>
             </ItemTemplate>
         </asp:DataList>
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource5">
+            <ItemTemplate>
+                <span class="auto-style3"><strong>
+                <br />
+                Question: </strong>&nbsp;<asp:Label ID="SportQuestTextLabel" runat="server" Text='<%# Eval("SportQuestText") %>' />
+                <br />
+                <strong>Answer: </strong>&nbsp;<asp:Label ID="Answer_textLabel" runat="server" Text='<%# Eval("Answer_text") %>' />
+                <br />
+                <br />
+                </span>
+            </ItemTemplate>
+        </asp:DataList>
+        </span>
         <br />
-        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.SportQuestions.SportQuestText, dbo.Answers.Answer_text FROM dbo.Answers INNER JOIN dbo.SportQuestions ON dbo.Answers.SportQuestID = dbo.SportQuestions.SportQuestID WHERE (dbo.Answers.Pro_Id = @Pro_Id)">
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT dbo.SportQuestions.SportQuestText, dbo.Answers.Answer_text FROM dbo.Answers INNER JOIN dbo.SportQuestions ON dbo.Answers.SportQuestID = dbo.SportQuestions.SportQuestID INNER JOIN dbo.profile ON dbo.Answers.Pro_Id = dbo.profile.Pro_Id WHERE (dbo.Answers.Pro_Id = @Pro_Id)">
             <SelectParameters>
                 <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" />
             </SelectParameters>
+        </asp:SqlDataSource>
+          <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Rec_FName], [Rec_LName] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+              <SelectParameters>
+                  <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
+              </SelectParameters>
         </asp:SqlDataSource>
           <br />
         <br />
