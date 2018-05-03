@@ -36,7 +36,7 @@
                </SelectParameters>
            </asp:SqlDataSource>
      
-        <asp:Panel ID="PanelStar1" runat="server" Visible="False">
+        <asp:Panel ID="PanelStar1" runat="server" Visible="False" EnableViewState="False">
         <span class="fa fa-star checked" style="font-size:31px"></span>
         <span class="fa fa-star " style="font-size:31px"></span>
         <span class="fa fa-star "style="font-size:31px"></span>
@@ -78,7 +78,7 @@
       <br />
       
       <div style="float: left">
-             <asp:TextBox ID="Slider1" runat="server" AutoPostBack="true" />
+             <asp:TextBox ID="Slider1" runat="server" AutoPostBack="true" OnTextChanged="Slider1_TextChanged" />
               </div>
         <div style="float: left">
            <asp:Textbox ID="SliderValue" runat="server" AutoPostBack="true" Height="0px" Width="0px" Wrap="False" />
