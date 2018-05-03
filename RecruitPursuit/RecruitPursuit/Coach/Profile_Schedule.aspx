@@ -50,6 +50,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    
     <p class="auto-style1">
         <br />
     <asp:Button ID="Hidebtn" runat="server" CssClass="auto-style13" Text="Hide" OnClick="Hide_Click" Visible="False" />

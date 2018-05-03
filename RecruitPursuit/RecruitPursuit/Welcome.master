@@ -25,19 +25,11 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-        <div class="footer"> 
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" ValidateRequestMode="Inherit">
-                 <asp:Panel ID="Panel1" runat="server" style="background-color: #D9230F" Height="70px">
-                     <asp:HyperLink ID="HyperLinkHelp" runat="server">Help</asp:HyperLink>
-
-                 </asp:Panel>
-            </asp:ContentPlaceHolder>
+        
+          
 
 
-    </div>
-         <footer >
-
-    </footer>
+   
     </form>
 
     

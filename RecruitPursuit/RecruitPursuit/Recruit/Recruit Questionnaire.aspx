@@ -3,7 +3,7 @@
 
    
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        
+             <div style="padding-left: 40px; padding-top: 10px; padding-right: 40px; padding-bottom: 10px;">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                 <h2>  
         <asp:Label ID="lblSport" runat="server"></asp:Label>
@@ -202,15 +202,14 @@
                          </SelectParameters>
                      </asp:SqlDataSource>
                  
-                 &nbsp;<br />
-                 &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6">
+                     &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6" CellPadding="7" HorizontalAlign="Left" ShowHeader="False">
                               <Columns>
-                                  <asp:BoundField DataField="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" SortExpression="SportQuestID" />
-                                  <asp:BoundField DataField="SportQuestText" HeaderText="Question" SortExpression="SportQuestText" />
-                                  <asp:TemplateField HeaderText="Answer">
+                                  <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
+                                  <asp:TemplateField>
                                       <ItemTemplate>
                                           <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
                                       </ItemTemplate>
+                                      <ItemStyle VerticalAlign="Middle" />
                                   </asp:TemplateField>
                               </Columns>
                      <HeaderStyle BackColor="#D9230F" ForeColor="White" />
@@ -232,7 +231,7 @@
   <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
                               Thank you for your submission!</asp:Panel>
-                
+                </div>
                 </asp:Content>
 
 

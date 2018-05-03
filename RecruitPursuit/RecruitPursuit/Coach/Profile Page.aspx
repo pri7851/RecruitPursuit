@@ -30,7 +30,13 @@
     
            <asp:ScriptManager ID="asm" runat="server" />
      
-        <asp:Panel ID="PanelStar1" runat="server" Visible="True">
+           <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [StarRating] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)">
+               <SelectParameters>
+                   <asp:QueryStringParameter Name="Pro_Id" QueryStringField="Pro_Id" Type="Int32" />
+               </SelectParameters>
+           </asp:SqlDataSource>
+     
+        <asp:Panel ID="PanelStar1" runat="server" Visible="False">
         <span class="fa fa-star checked" style="font-size:31px"></span>
         <span class="fa fa-star " style="font-size:31px"></span>
         <span class="fa fa-star "style="font-size:31px"></span>
@@ -78,6 +84,8 @@
            <asp:Textbox ID="SliderValue" runat="server" AutoPostBack="true" Height="0px" Width="0px" Wrap="False" />
             </div>
            <cc1:SliderExtender ID="se1" runat="server" BoundControlID="SliderValue" Maximum="5" Minimum="1" TargetControlId="Slider1" />
+         
+           <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
          
       <br />
      <br />

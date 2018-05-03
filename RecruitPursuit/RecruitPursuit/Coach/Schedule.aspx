@@ -7,13 +7,13 @@
             width: 650px;
             height: 265px;
             position: absolute;
-            top: 329px;
+            top: 359px;
             left: 407px;
             z-index: 1;
         }
         .auto-style4 {
             position: absolute;
-            top: 224px;
+            top: 246px;
             left: 656px;
             z-index: 1;
             height: 20px;
@@ -21,14 +21,14 @@
         }
         .auto-style5 {
             position: absolute;
-            top: 223px;
-            left: 505px;
+            top: 244px;
+            left: 507px;
             z-index: 1;
             height: 29px;
         }
         .auto-style9 {
             position: absolute;
-            top: 223px;
+            top: 245px;
             left: 427px;
             z-index: 1;
             height: 25px;
@@ -36,7 +36,7 @@
         }
         .auto-style10 {
             position: absolute;
-            top: 225px;
+            top: 244px;
             left: 623px;
             z-index: 1;
         }
@@ -45,7 +45,7 @@
             background-color: #D9230F;
             border-color: #D9230F;
             position: absolute;
-            top: 215px;
+            top: 241px;
             left: 870px;
             z-index: 1;
         }
@@ -54,20 +54,20 @@
             background-color: #D9230F;
             border-color: #D9230F;
             position: absolute;
-            top: 213px;
-            left: 926px;
+            top: 241px;
+            left: 927px;
             z-index: 1;
         }
         .auto-style14 {
             position: absolute;
-            top: 287px;
+            top: 310px;
             left: 656px;
             z-index: 1;
         }
         .auto-style19 {
             position: absolute;
-            top: 204px;
-            left: 844px;
+            top: 230px;
+            left: 835px;
             z-index: 1;
             height: 14px;
             width: 16px;
@@ -75,20 +75,20 @@
         }
         .auto-style20 {
             position: absolute;
-            top: 294px;
-            left: 851px;
+            top: 314px;
+            left: 839px;
             z-index: 1;
         }
         .auto-style21 {
             position: absolute;
-            top: 198px;
+            top: 220px;
             left: 707px;
             z-index: 1;
         }
         .auto-style22 {
             position: absolute;
-            top: 259px;
-            left: 698px;
+            top: 283px;
+            left: 699px;
             z-index: 1;
         }
     </style>
@@ -98,8 +98,13 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  
 
-    
+    <div style="padding-left: 40px; padding-top: 10px; padding-right: 40px; padding-bottom: 10px;">
+          <br />
+        <br />
+    <br />
+        <br />
     <asp:Label ID="SDlbl" runat="server" CssClass="auto-style21" Text="Enter Start Date:" Visible="False"></asp:Label>
 
     
@@ -191,7 +196,7 @@
              <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
 
-  
+  </div>
 </asp:Content>
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
     <ol class="breadcrumb">
