@@ -23,7 +23,7 @@ public partial class Profile_Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        //This section is supposed to pull the star rating from the database and show the right panel
             using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
             using (SqlCommand dataCommand =
             new SqlCommand("SELECT StarRating FROM profile WHERE Pro_Id = @Pro_Id", dataConnection))
@@ -91,34 +91,10 @@ public partial class Profile_Page : System.Web.UI.Page
             }
 
             Panel6.Visible = false;
+
         
-        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
-        using (SqlCommand dataCommand =
-                new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
-
-        {
-            dataConnection.Open();
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@Sport_Id";
-            param2.Value = Session["Sport_Id"];
-            dataCommand.Parameters.Add(param2);
-
-            sportHasPositions = dataCommand.ExecuteScalar().ToString();
-        }
-
-
-        if (sportHasPositions == "No")
-        {
-            DataListPositions.Visible = false;
-
-        }
-
-        if (sportHasPositions == "Yes")
-        {
-            DataListPositions.Visible = true;
-
-        }
-
+        //This section is supposed to update the database when the slider changes
+        
         if (Page.IsPostBack)
         {
             String value = SliderValue.Text;
@@ -230,11 +206,38 @@ public partial class Profile_Page : System.Web.UI.Page
                     dataCommand.Parameters.Add(param1);
                 }
             }
-                //LastUpdate.Text = "Last update: " + DateTime.Now.ToLongTimeString();
+                
              
             }
 
-            if (Session["ID"] != null)
+        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+        using (SqlCommand dataCommand =
+                new SqlCommand("select SportHasPositions from Sport Where Sport_Id = @Sport_Id", dataConnection))
+
+        {
+            dataConnection.Open();
+            SqlParameter param2 = new SqlParameter();
+            param2.ParameterName = "@Sport_Id";
+            param2.Value = Session["Sport_Id"];
+            dataCommand.Parameters.Add(param2);
+
+            sportHasPositions = dataCommand.ExecuteScalar().ToString();
+        }
+
+
+        if (sportHasPositions == "No")
+        {
+            DataListPositions.Visible = false;
+
+        }
+
+        if (sportHasPositions == "Yes")
+        {
+            DataListPositions.Visible = true;
+
+        }
+
+        if (Session["ID"] != null)
             {
                 ID = int.Parse(Session["Pro_Id"].ToString());
             }
