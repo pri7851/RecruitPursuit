@@ -24,149 +24,148 @@ public partial class Profile_Page : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //This section is supposed to pull the star rating from the database and show the right panel
-        using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
-        using (SqlCommand dataCommand =
-        new SqlCommand("SELECT StarRating FROM profile WHERE Pro_Id = @Pro_Id", dataConnection))
-
+        String constring = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+        String cmdString = "SELECT [StarRating] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)";
+        SqlConnection con = new SqlConnection(constring);
+        SqlCommand cmd = new SqlCommand(cmdString, con);
+        cmd.Connection = con;
+        cmd.Parameters.AddWithValue("@Pro_Id", Request.QueryString["Pro_Id"].ToString());
+        con.Open();
+        String star_rating = (String)cmd.ExecuteScalar() ;
+        String current_rating = star_rating.ToString();
+        if (current_rating == "1")
         {
-            dataConnection.Open();
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@Pro_Id";
-            param2.Value = Request.QueryString["Pro_Id"];
-            dataCommand.Parameters.Add(param2);
-
-            starValue = dataCommand.ExecuteScalar().ToString();
-
-        }
-
-        if (starValue == "1")
-        {
+            
             PanelStar1.Visible = true;
             PanelStar2.Visible = false;
             PanelStar3.Visible = false;
             PanelStar4.Visible = false;
             PanelStar5.Visible = false;
-
+            
         }
-
-        if (starValue == "2")
+        if (current_rating == "2")
         {
+            
             PanelStar1.Visible = false;
             PanelStar2.Visible = true;
             PanelStar3.Visible = false;
             PanelStar4.Visible = false;
             PanelStar5.Visible = false;
-
+            
         }
-
-        if (starValue == "3")
+        if (current_rating == "3")
         {
+            
             PanelStar1.Visible = false;
             PanelStar2.Visible = false;
             PanelStar3.Visible = true;
             PanelStar4.Visible = false;
             PanelStar5.Visible = false;
-
+           
         }
-
-        if (starValue == "4")
+        if (current_rating == "4")
         {
+            
             PanelStar1.Visible = false;
             PanelStar2.Visible = false;
             PanelStar3.Visible = false;
             PanelStar4.Visible = true;
             PanelStar5.Visible = false;
-
-
+           
         }
-
-        if (starValue == "5")
+        if (current_rating == "5")
         {
+            
             PanelStar1.Visible = false;
             PanelStar2.Visible = false;
             PanelStar3.Visible = false;
             PanelStar4.Visible = false;
             PanelStar5.Visible = true;
-
+            
         }
-
-        Panel6.Visible = false;
-
         
+        con.Close();
+        
+        /* using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
+             using (SqlCommand dataCommand =
+             new SqlCommand("SELECT StarRating FROM profile WHERE Pro_Id = @Pro_Id", dataConnection))
+
+             {
+                 dataConnection.Open();
+                 SqlParameter param2 = new SqlParameter();
+                 param2.ParameterName = "@Pro_Id";
+                 param2.Value = Request.QueryString["Pro_Id"].ToString(); ;
+                 dataCommand.Parameters.Add(param2);
+
+                 starValue = dataCommand.ExecuteScalar().ToString();
+
+             }
+
+             if (starValue == "1")
+             {
+                 PanelStar1.Visible = true;
+                 PanelStar2.Visible = false;
+                 PanelStar3.Visible = false;
+                 PanelStar4.Visible = false;
+                 PanelStar5.Visible = false;
+
+             }
+
+             if (starValue == "2")
+             {
+                 PanelStar1.Visible = false;
+                 PanelStar2.Visible = true;
+                 PanelStar3.Visible = false;
+                 PanelStar4.Visible = false;
+                 PanelStar5.Visible = false;
+
+             }
+
+             if (starValue == "3")
+             {
+                 PanelStar1.Visible = false;
+                 PanelStar2.Visible = false;
+                 PanelStar3.Visible = true;
+                 PanelStar4.Visible = false;
+                 PanelStar5.Visible = false;
+
+             }
+
+             if (starValue == "4")
+             {
+                 PanelStar1.Visible = false;
+                 PanelStar2.Visible = false;
+                 PanelStar3.Visible = false;
+                 PanelStar4.Visible = true;
+                 PanelStar5.Visible = false;
+
+
+             }
+
+             if (starValue == "5")
+             {
+                 PanelStar1.Visible = false;
+                 PanelStar2.Visible = false;
+                 PanelStar3.Visible = false;
+                 PanelStar4.Visible = false;
+                 PanelStar5.Visible = true;
+
+             }
+
+             Panel6.Visible = false; */
+
+
         //This section is supposed to update the database when the slider changes
-        
+
         if (Page.IsPostBack)
         {
-            using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
-            using (SqlCommand dataCommand =
-            new SqlCommand("SELECT StarRating FROM profile WHERE Pro_Id = @Pro_Id", dataConnection))
-
-            {
-                dataConnection.Open();
-                SqlParameter param2 = new SqlParameter();
-                param2.ParameterName = "@Pro_Id";
-                param2.Value = Request.QueryString["Pro_Id"];
-                dataCommand.Parameters.Add(param2);
-
-                starValue = dataCommand.ExecuteScalar().ToString();
-
-            }
-
-            if (starValue == "1")
-            {
-                PanelStar1.Visible = true;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = false;
-
-            }
-
-            if (starValue == "2")
-            {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = true;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = false;
-
-            }
-
-            if (starValue == "3")
-            {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = true;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = false;
-
-            }
-
-            if (starValue == "4")
-            {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = true;
-                PanelStar5.Visible = false;
-
-
-            }
-
-            if (starValue == "5")
-            {
-                PanelStar1.Visible = false;
-                PanelStar2.Visible = false;
-                PanelStar3.Visible = false;
-                PanelStar4.Visible = false;
-                PanelStar5.Visible = true;
-
-            }
+            
+           /*
             String value = SliderValue.Text;
             using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
 
             using (SqlCommand dataCommand =
-            new SqlCommand("UPDATE profile Set StarRating = @StarRating Pro_Id = @Pro_Id", dataConnection))
+            new SqlCommand("UPDATE profile Set StarRating = @StarRating WHERE Pro_Id = @Pro_Id", dataConnection))
 
                 
             {
@@ -270,10 +269,10 @@ public partial class Profile_Page : System.Web.UI.Page
                     param1.Value = "5";
                     dataCommand.Parameters.Add(param1);
                 }
-            }
-                
-             
-            }
+            } */
+
+
+        } 
 
         using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
         using (SqlCommand dataCommand =
@@ -677,5 +676,20 @@ public partial class Profile_Page : System.Web.UI.Page
         SqlDataSource7.DeleteParameters.Add("Pro_Id", Request.QueryString["Pro_Id"]);
         SqlDataSource7.Delete();
         Response.Redirect("Home.aspx");
+    }
+
+    protected void Slider1_TextChanged(object sender, EventArgs e)
+    {
+        String constring = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+        String cmdString = "UPDATE profile Set StarRating = @StarRating WHERE Pro_Id = @Pro_Id";
+        SqlConnection con = new SqlConnection(constring);
+        SqlCommand cmd = new SqlCommand(cmdString, con);
+        cmd.Connection = con;
+        cmd.Parameters.AddWithValue("@StarRating", Slider1.Text);
+        cmd.Parameters.AddWithValue("@Pro_Id", Request.QueryString["Pro_Id"].ToString());
+        con.Open();
+        cmd.ExecuteNonQuery();
+        con.Close();
+       
     }
 }
