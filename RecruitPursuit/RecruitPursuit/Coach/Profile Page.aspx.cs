@@ -23,68 +23,155 @@ public partial class Profile_Page : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //This section is supposed to pull the star rating from the database and show the right panel
-        String constring = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
-        String cmdString = "SELECT [StarRating] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)";
-        SqlConnection con = new SqlConnection(constring);
-        SqlCommand cmd = new SqlCommand(cmdString, con);
-        cmd.Connection = con;
-        cmd.Parameters.AddWithValue("@Pro_Id", Request.QueryString["Pro_Id"].ToString());
-        con.Open();
-        String star_rating = (String)cmd.ExecuteScalar() ;
-        String current_rating = star_rating.ToString();
-        if (current_rating == "1")
+        if (!Page.IsPostBack)
         {
-            
-            PanelStar1.Visible = true;
-            PanelStar2.Visible = false;
-            PanelStar3.Visible = false;
-            PanelStar4.Visible = false;
-            PanelStar5.Visible = false;
-            
+            //This section is supposed to pull the star rating from the database and show the right panel
+            String constring = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+            String cmdString = "SELECT [StarRating] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)";
+            SqlConnection con = new SqlConnection(constring);
+            SqlCommand cmd = new SqlCommand(cmdString, con);
+            cmd.Connection = con;
+            cmd.Parameters.AddWithValue("@Pro_Id", Request.QueryString["Pro_Id"].ToString());
+            con.Open();
+            String star_rating = cmd.ExecuteScalar().ToString();
+
+            String current_rating = star_rating;
+
+            //Slider1.Text;
+
+            // = star_rating.ToString();
+
+            Label2.Text = current_rating;
+
+            if (current_rating == "1")
+            {
+
+                PanelStar1.Visible = true;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+            }
+            if (current_rating == "2")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = true;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+            }
+            if (current_rating == "3")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = true;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+            }
+            if (current_rating == "4")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = true;
+                PanelStar5.Visible = false;
+
+            }
+            if (current_rating == "5")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = true;
+
+
+            }
+            Slider1.Text = current_rating;
+            con.Close();
         }
-        if (current_rating == "2")
+
+        if (Page.IsPostBack)
         {
-            
-            PanelStar1.Visible = false;
-            PanelStar2.Visible = true;
-            PanelStar3.Visible = false;
-            PanelStar4.Visible = false;
-            PanelStar5.Visible = false;
-            
-        }
-        if (current_rating == "3")
-        {
-            
-            PanelStar1.Visible = false;
-            PanelStar2.Visible = false;
-            PanelStar3.Visible = true;
-            PanelStar4.Visible = false;
-            PanelStar5.Visible = false;
-           
-        }
-        if (current_rating == "4")
-        {
-            
-            PanelStar1.Visible = false;
-            PanelStar2.Visible = false;
-            PanelStar3.Visible = false;
-            PanelStar4.Visible = true;
-            PanelStar5.Visible = false;
-           
-        }
-        if (current_rating == "5")
-        {
-            
-            PanelStar1.Visible = false;
-            PanelStar2.Visible = false;
-            PanelStar3.Visible = false;
-            PanelStar4.Visible = false;
-            PanelStar5.Visible = true;
-            
+           /* String constring = @"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8";
+            String cmdString = "SELECT [StarRating] FROM [profile] WHERE ([Pro_Id] = @Pro_Id)";
+            SqlConnection con = new SqlConnection(constring);
+            SqlCommand cmd = new SqlCommand(cmdString, con);
+            cmd.Connection = con;
+            cmd.Parameters.AddWithValue("@Pro_Id", Request.QueryString["Pro_Id"].ToString());
+            con.Open();
+            String star_rating = cmd.ExecuteScalar().ToString();
+
+            String current_rating = star_rating;
+            */
+            String rating = Slider1.Text;
+
+            // = star_rating.ToString();
+
+            //Label2.Text = current_rating;
+
+            if (rating == "1")
+            {
+
+                PanelStar1.Visible = true;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+
+            }
+            if (rating == "2")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = true;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+            }
+            if (rating == "3")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = true;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = false;
+
+            }
+            if (rating == "4")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = true;
+                PanelStar5.Visible = false;
+
+            }
+            if (rating == "5")
+            {
+
+                PanelStar1.Visible = false;
+                PanelStar2.Visible = false;
+                PanelStar3.Visible = false;
+                PanelStar4.Visible = false;
+                PanelStar5.Visible = true;
+
+            }
+
+           // con.Close();
         }
         
-        con.Close();
         
         /* using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
              using (SqlCommand dataCommand =
@@ -157,8 +244,7 @@ public partial class Profile_Page : System.Web.UI.Page
 
         //This section is supposed to update the database when the slider changes
 
-        if (Page.IsPostBack)
-        {
+        
             
            /*
             String value = SliderValue.Text;
@@ -272,7 +358,7 @@ public partial class Profile_Page : System.Web.UI.Page
             } */
 
 
-        } 
+         
 
         using (SqlConnection dataConnection = new SqlConnection(@"Data Source=184.168.47.21;Initial Catalog=RecruitPursuit;Persist Security Info=True;User ID=RecruitPursuit;Password=Recruit20!8"))
         using (SqlCommand dataCommand =
@@ -690,6 +776,11 @@ public partial class Profile_Page : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         con.Close();
+
+    }
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
        
     }
 }

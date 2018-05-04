@@ -3,6 +3,13 @@
 
    
          <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+             
+             <style type="text/css">
+        .auto-style1 {
+            left: 1px;
+            top: 1px;
+        }
+    </style>
              <div style="padding-left: 40px; padding-top: 10px; padding-right: 40px; padding-bottom: 10px;">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                 <h2>  
@@ -141,13 +148,14 @@
  
             <br />
  
-        Possible Major at Cal U:<asp:TextBox ID="TextBoxPoss_Major" runat="server"></asp:TextBox>
+                          Possible Major at Cal U:
+                          <asp:TextBox ID="TextBoxPoss_Major" runat="server"></asp:TextBox>
                           <br />
                           <br />
                           <br />
-            <br />
+                          <br />
                           <h4>Junior/Previous College Information (If Applicable)</h4>
-    Name of Junior/Previous College: <asp:TextBox ID="TextBoxJCName" runat="server"></asp:TextBox>
+                          Name of Junior/Previous College: <asp:TextBox ID="TextBoxJCName" runat="server"></asp:TextBox>
             <br />
             <br />
     Total Number Full-Time Semesters:  <asp:TextBox ID="TextBoxJC_NumSem" runat="server"></asp:TextBox>
@@ -181,11 +189,12 @@
                           <h2>
                               <asp:Label ID="Output" runat="server"></asp:Label>
                               Athletic Information</h2>
+                 <br />
                  </asp:Panel>
         
                  <asp:Panel ID="Panel4" runat="server" Visible="False">
                      <asp:Label ID="lblPrimaryPosition" runat="server" Text="Primary Position:"></asp:Label>
-                     &nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
+                     &nbsp;<asp:DropDownList ID="DropDownListPrimaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT [Position] FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
@@ -193,20 +202,24 @@
                          </SelectParameters>
                      </asp:SqlDataSource>
                      <br />
+                     <br />
                      <asp:Label ID="lblSecondaryPosition" runat="server" Text="Secondary Position:"></asp:Label>
-                     <asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style2">
+                     <asp:DropDownList ID="DropDownListSecondaryPositions" runat="server" DataSourceID="SqlDataSource5" DataTextField="Position" DataValueField="Position" CssClass="auto-style1">
                      </asp:DropDownList>
                      <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RecruitPursuitConnectionStringMain %>" SelectCommand="SELECT * FROM [Positions] WHERE ([Sport_Id] = @Sport_Id)">
                          <SelectParameters>
                              <asp:SessionParameter Name="Sport_Id" SessionField="SportID" Type="Int32" />
                          </SelectParameters>
                      </asp:SqlDataSource>
-                 
-                     &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6" CellPadding="7" HorizontalAlign="Left">
+                 <div style="padding-left:-50px">
+                      &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6" CellPadding="7" HorizontalAlign="Left" GridLines="None" ShowHeader="False">
                               <Columns>
-                                  <asp:BoundField DataField="SportQuestID" SortExpression="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" />
-                                  <asp:BoundField DataField="SportQuestText" HeaderText="Question" SortExpression="SportQuestText" />
-                                  <asp:TemplateField HeaderText="Answer">
+                                  <asp:BoundField DataField="SportQuestID" SortExpression="SportQuestID" InsertVisible="False" ReadOnly="True" >
+                                  <ControlStyle ForeColor="White" Width="0px" />
+                                  <ItemStyle ForeColor="White" Width="0px" />
+                                  </asp:BoundField>
+                                  <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
+                                  <asp:TemplateField>
                                       <ItemTemplate>
                                           <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
                                       </ItemTemplate>
@@ -214,6 +227,7 @@
                               </Columns>
                               <HeaderStyle BackColor="#D9230F" ForeColor="White" />
                           </asp:GridView>
+                     </div>
                           <br />
                           <div class="text-left">
                           </div>
@@ -241,6 +255,10 @@
         .auto-style2 {
             left: 3px;
             top: 1px;
+        }
+        .auto-style3 {
+            left: 3px;
+            top: 2px;
         }
     </style>
 </asp:Content>

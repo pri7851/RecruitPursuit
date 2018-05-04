@@ -19,7 +19,6 @@
          <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add Positions" Visible="False" />
         <asp:Panel ID="Panel1" runat="server" Height="108px">
            
-            <br />
             Positions:&nbsp;
             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource3" DataTextField="Position" DataValueField="Position" CssClass="auto-style3">
             </asp:DropDownList>

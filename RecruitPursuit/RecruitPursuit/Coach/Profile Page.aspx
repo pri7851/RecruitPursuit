@@ -85,7 +85,7 @@
             </div>
            <cc1:SliderExtender ID="se1" runat="server" BoundControlID="SliderValue" Maximum="5" Minimum="1" TargetControlId="Slider1" />
          
-           <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+           <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="White"></asp:Label>
          
       <br />
      <br />
