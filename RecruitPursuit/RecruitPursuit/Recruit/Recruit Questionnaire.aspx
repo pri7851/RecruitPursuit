@@ -202,17 +202,17 @@
                          </SelectParameters>
                      </asp:SqlDataSource>
                  
-                     &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6" CellPadding="7" HorizontalAlign="Left" ShowHeader="False">
+                     &nbsp;&nbsp;<asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="SportQuestID" DataSourceID="SqlDataSource6" CellPadding="7" HorizontalAlign="Left">
                               <Columns>
-                                  <asp:BoundField DataField="SportQuestText" SortExpression="SportQuestText" />
-                                  <asp:TemplateField>
+                                  <asp:BoundField DataField="SportQuestID" SortExpression="SportQuestID" HeaderText="Question ID" InsertVisible="False" ReadOnly="True" />
+                                  <asp:BoundField DataField="SportQuestText" HeaderText="Question" SortExpression="SportQuestText" />
+                                  <asp:TemplateField HeaderText="Answer">
                                       <ItemTemplate>
                                           <asp:TextBox ID="txt_SportQuestions" runat="server"></asp:TextBox>
                                       </ItemTemplate>
-                                      <ItemStyle VerticalAlign="Middle" />
                                   </asp:TemplateField>
                               </Columns>
-                     <HeaderStyle BackColor="#D9230F" ForeColor="White" />
+                              <HeaderStyle BackColor="#D9230F" ForeColor="White" />
                           </asp:GridView>
                           <br />
                           <div class="text-left">
